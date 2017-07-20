@@ -1,0 +1,4 @@
+pb_transport_homepage:
+    path:     /
+    defaults:
+      _controller: PBTransportBundle:Transport:index
