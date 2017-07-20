@@ -11,5 +11,33 @@ Accueil - {{ parent() }}
 {% endblock %}
 
 {% block pbtransport_body %}
-	Hello ! 
+	<table class="table">
+		<tr>
+			<th>Num Transport</th>
+			<th>Date</th>
+			<th>Transporteur</th>
+			<th>Date Enl.</th>
+		</tr>
+
+		{% for transport in listTransports %}
+			<tr>
+				<td>TR-{{ transport.id }}</td>
+				<td>{{ transport.datecreation|date('d/m/Y') }}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas (encore !) de transport</td>
+
+		{% endfor %}
+	</table>
+
+	<ul class="pagination">
+	    {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+	    {% for p in range(1, nbPages) %}
+	      <li{% if p == page %} class="active"{% endif %}>
+	        <a href="{{ path('pb_transport_homepage', {'page': p}) }}">{{ p }}</a>
+	      </li>
+		{% endfor %}
+		</ul>
+	
 {% endblock %}

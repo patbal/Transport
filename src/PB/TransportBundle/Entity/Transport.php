@@ -72,6 +72,11 @@ class Transport
     private $annule;
 
     /**
+     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
+     */
+    private $transporteur;
+
+    /**
      * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
      */
     private $adresseFrom;
