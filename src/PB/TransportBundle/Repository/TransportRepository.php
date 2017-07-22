@@ -23,7 +23,7 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
 		  ->addSelect('af')
 		  ->leftJoin('t.adresseTo', 'at')
 		  ->addSelect('at')		 
-		  ->orderBy('t.datecreation', 'DESC')
+		  ->orderBy('t.id', 'DESC')
 		  ->getQuery()
 		;
 
@@ -37,4 +37,5 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
 		// Enfin, on retourne l'objet Paginator correspondant à la requête construite
 		return new Paginator($query, true);
 	}
+
 }

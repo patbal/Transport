@@ -32,11 +32,20 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="{{ path('pb_transport_homepage') }}/1">LISTE</a></li>
-              <li><a href="#services">AJ. TRANSPORT</a></li>
-              <li><a href="#portfolio">AJ. FOURNISSEUR</a></li>
+              <li><a href="{{ path('pb_transport_homepage') }}">LISTE</a></li>
+              <li><a href="{{ path('pb_transport_addtransport') }}">AJ. TRANSPORT</a></li>
+{#               <li><a href="#portfolio">AJ. FOURNISSEUR</a></li>
               <li><a href="#pricing">AJ. ADRESSE</a></li>
-              <li><a href="#contact">AJ. CONTACT</a></li>
+              <li><a href="#contact">AJ. CONTACT</a></li> #}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">AJOUT
+                </a>
+                <div class="dropdown-menu" aria-labelledby="Preview">
+                  <a class="dropdown-item" href="#">Fournisseur</a></br>
+                  <a class="dropdown-item" href="#">Adresse</a></br>
+                  <a class="dropdown-item" href="#">Contact</a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

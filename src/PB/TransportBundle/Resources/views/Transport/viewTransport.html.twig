@@ -1,0 +1,30 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block alert %}
+
+{% endblock %}
+
+{% block title %}
+
+Transport - {{ parent() }}
+
+{% endblock %}
+
+{% block pbtransport_body %}
+	
+	<div class="well">
+		<h2>Transport n°{{ transport.number }}{{ transport.id }}</h2>
+		<i>Créé le {{ transport.datecreation|date('d/m/Y') }} par</i>
+
+		<h3>Transporteur</h3>
+		{{ transport.transporteur.nom }}
+	</div>
+
+	<div class="well">
+		<ul class="list-group">
+			<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }} à {{ transport.adresseFrom.societe }}</li>
+			<li class="list-group-item">Livraison demandée le {{ transport.datelivraison|date('d/m/Y') }} à {{ transport.adresseTo.societe }}</li>
+
+
+	
+{% endblock %}

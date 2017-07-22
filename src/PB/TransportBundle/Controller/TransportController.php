@@ -3,6 +3,8 @@
 namespace PB\TransportBundle\Controller;
 
 use PB\TransportBundle\Entity\Transport;
+use PB\TransportBundle\Form\TransportType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -18,10 +20,14 @@ class TransportController extends Controller
 {
     public function indexAction($page)
     {
-      // $page = (int)$page;
+
+    	if ($page == "")
+    	{
+    		$page = 1;
+    	}
 	  
-	  if ($page < 1) {
-      throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+		if ($page < 1) {
+		throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
     
     //on récupère le nombre de transports affichés par page
@@ -47,4 +53,35 @@ class TransportController extends Controller
     ));
 
     }
+
+    public function viewAction(Transport $transport, $id)
+    {
+    	if (null === $transport) {
+      		throw new NotFoundHttpException("Cette demande de transport n'existe pas !");
+    	}
+
+    	return $this->render('PBTransportBundle:Transport:viewTransport.html.twig', array(
+    		'transport'	=> $transport));
+    }
+
+	public function addAction(Request $request)
+	{
+		$transport = new Transport();
+		$form = $this -> get('form.factory')->create(TransportType::class, $transport);
+
+		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em -> persist($transport);
+			$em -> flush();
+
+			$request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+			return $this->redirectToRoute('pb_transport_viewtransport', array(
+				'id' => $transport->getId())
+			);
+		}
+
+		return $this->render('PBTransportBundle:Transport:addTransport.html.twig', array('form' => $form->createView()));
+	}
+
 }

@@ -22,3 +22,10 @@
     border-color: transparent;
     color: #fff !important;
 }
+
+.dropdown-menu{
+    background-color: #f4511e;
+    padding: 4px;
+}
+
+body {padding-top: 60px;}

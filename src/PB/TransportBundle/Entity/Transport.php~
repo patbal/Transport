@@ -72,25 +72,36 @@ class Transport
     private $annule;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
+     */
+    private $transporteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
      */
     private $adresseFrom;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
      */
     private $adresseTo;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Contact")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Contact")
      */
     private $contactFrom;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Contact")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Contact")
      */
     private $contactTo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=255)
+     */
+    private $number;
 
 
     /**
@@ -98,177 +109,27 @@ class Transport
      *
      * @return int
      */
-    public function getId()
+    
+    public function __construct()
     {
-        return $this->id;
+        $now = new \DateTime();
+        $this->number = 'TR'.$now->format('Y').$now->format('m').'-';
+        $this->datecreation = new \DateTime();
+        $this->dateenlevement = new \DateTime();
+        $this->datelivraison = new \DateTime('NOW + 1 day');
+
+
     }
 
-    /**
-     * Set datecreation
-     *
-     * @param \DateTime $datecreation
-     *
-     * @return Transport
-     */
-    public function setDatecreation($datecreation)
-    {
-        $this->datecreation = $datecreation;
 
-        return $this;
-    }
 
     /**
-     * Get datecreation
-     *
-     * @return \DateTime
-     */
-    public function getDatecreation()
-    {
-        return $this->datecreation;
-    }
-
-    /**
-     * Set dateenlevement
-     *
-     * @param \DateTime $dateenlevement
-     *
-     * @return Transport
-     */
-    public function setDateenlevement($dateenlevement)
-    {
-        $this->dateenlevement = $dateenlevement;
-
-        return $this;
-    }
-
-    /**
-     * Get dateenlevement
-     *
-     * @return \DateTime
-     */
-    public function getDateenlevement()
-    {
-        return $this->dateenlevement;
-    }
-
-    /**
-     * Set datelivraison
-     *
-     * @param string $datelivraison
-     *
-     * @return Transport
-     */
-    public function setDatelivraison($datelivraison)
-    {
-        $this->datelivraison = $datelivraison;
-
-        return $this;
-    }
-
-    /**
-     * Get datelivraison
+     * Get number
      *
      * @return string
      */
-    public function getDatelivraison()
+    public function getNumber()
     {
-        return $this->datelivraison;
-    }
-
-    /**
-     * Set remarque
-     *
-     * @param string $remarque
-     *
-     * @return Transport
-     */
-    public function setRemarque($remarque)
-    {
-        $this->remarque = $remarque;
-
-        return $this;
-    }
-
-    /**
-     * Get remarque
-     *
-     * @return string
-     */
-    public function getRemarque()
-    {
-        return $this->remarque;
-    }
-
-    /**
-     * Set operation
-     *
-     * @param string $operation
-     *
-     * @return Transport
-     */
-    public function setOperation($operation)
-    {
-        $this->operation = $operation;
-
-        return $this;
-    }
-
-    /**
-     * Get operation
-     *
-     * @return string
-     */
-    public function getOperation()
-    {
-        return $this->operation;
-    }
-
-    /**
-     * Set effectue
-     *
-     * @param boolean $effectue
-     *
-     * @return Transport
-     */
-    public function setEffectue($effectue)
-    {
-        $this->effectue = $effectue;
-
-        return $this;
-    }
-
-    /**
-     * Get effectue
-     *
-     * @return bool
-     */
-    public function getEffectue()
-    {
-        return $this->effectue;
-    }
-
-    /**
-     * Set annule
-     *
-     * @param boolean $annule
-     *
-     * @return Transport
-     */
-    public function setAnnule($annule)
-    {
-        $this->annule = $annule;
-
-        return $this;
-    }
-
-    /**
-     * Get annule
-     *
-     * @return bool
-     */
-    public function getAnnule()
-    {
-        return $this->annule;
+        return $this->number;
     }
 }
-

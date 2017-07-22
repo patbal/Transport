@@ -64,6 +64,13 @@ class Transporteur
     private $phone;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="contact", type="string", length=255, nullable=true)
+     */
+    private $contact;
+
+    /**
      * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="transporteur")
     */
     private $contacts; 
@@ -246,45 +253,5 @@ class Transporteur
     {
         return $this->contact;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add contact
-     *
-     * @param \PB\TransportBundle\Entity\Contact $contact
-     *
-     * @return Transporteur
-     */
-    public function addContact(\PB\TransportBundle\Entity\Contact $contact)
-    {
-        $this->contacts[] = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Remove contact
-     *
-     * @param \PB\TransportBundle\Entity\Contact $contact
-     */
-    public function removeContact(\PB\TransportBundle\Entity\Contact $contact)
-    {
-        $this->contacts->removeElement($contact);
-    }
-
-    /**
-     * Get contacts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getContacts()
-    {
-        return $this->contacts;
-    }
 }
+

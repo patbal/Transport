@@ -11,18 +11,26 @@ Accueil - {{ parent() }}
 {% endblock %}
 
 {% block pbtransport_body %}
-	<table class="table">
+	<table class="table table-hover">
 		<tr>
 			<th>Num Transport</th>
-			<th>Date</th>
 			<th>Transporteur</th>
 			<th>Date Enl.</th>
+			<th>De</th>
+			<th>À</th>
 		</tr>
 
 		{% for transport in listTransports %}
 			<tr>
-				<td>TR-{{ transport.id }}</td>
-				<td>{{ transport.datecreation|date('d/m/Y') }}</td>
+				<td>
+					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">
+						{{ transport.number }}{{ transport.id }}
+					</a>
+				</td>
+				<td>{{ transport.transporteur.nom }}</td>
+				<td>{{ transport.dateenlevement|date('d/m/Y') }}</td>
+				<td>{{ transport.adresseFrom.societe }}</td>
+				<td>{{ transport.adresseTo.societe }}</td>
 			</tr>
 
 		{% else %}

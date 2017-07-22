@@ -3,8 +3,10 @@
 namespace PB\TransportBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,9 +27,14 @@ class TransportType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('datecreation',   DateTimeType::class, array('format' => 'dd-MMMM-yyyy'))
-        ->add('dateenlevement', DateTimeType::class)
-        ->add('datelivraison',  DateTimeType::class)
+        // ->add('datecreation',   DateTimeType::class, array('format' => 'dd-MMMM-yyyy'))
+        ->add('dateenlevement', DateType::class, [
+                'widget' => 'single_text'
+            ])
+        ->add('datelivraison', DateType::class, [
+                'widget' => 'single_text'
+            ])
+        // ->add('datelivraison',  DateTimeType::class)
         ->add('remarque',       TextareaType::class)
         ->add('operation',      TextType::class)
         ->add('effectue',       CheckboxType::class, array('required' => false))
@@ -36,28 +43,36 @@ class TransportType extends AbstractType
             'class'        => 'PBTransportBundle:Transporteur',
             'choice_label' => 'nom',
             'multiple'     => false,
-            'expanded'     => true))
+            'expanded'     => false))
         ->add('adresseFrom',    EntityType::class, array(
             'class'        => 'PBTransportBundle:Adresse',
+            'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
+            ->orderBy('u.societe', 'ASC');},
             'choice_label' => 'societe',
             'multiple'     => false,
-            'expanded'     => true))
+            'expanded'     => false))
         ->add('contactFrom',    EntityType::class, array(
             'class'        => 'PBTransportBundle:Contact',
+            'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
+            ->orderBy('u.nom', 'ASC');},
             'choice_label' => 'nom',
             'multiple'     => false,
-            'expanded'     => true))
+            'expanded'     => false))
         ->add('adresseTo',    EntityType::class, array(
             'class'        => 'PBTransportBundle:Adresse',
+            'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
+            ->orderBy('u.societe', 'ASC');},
             'choice_label' => 'societe',
             'multiple'     => false,
-            'expanded'     => true))
+            'expanded'     => false))
         ->add('contactTo',    EntityType::class, array(
             'class'        => 'PBTransportBundle:Contact',
+            'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
+            ->orderBy('u.nom', 'ASC');},
             'choice_label' => 'nom',
             'multiple'     => false,
-            'expanded'     => true))
-        ->add('save'            submitType::class);
+            'expanded'     => false))
+        ->add('save',            submitType::class);
     }
     
     /**

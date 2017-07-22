@@ -72,36 +72,71 @@ class Transport
     private $annule;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
      */
     private $transporteur;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
      */
     private $adresseFrom;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse")
      */
     private $adresseTo;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Contact")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Contact")
      */
     private $contactFrom;
 
     /**
-     * @ORM\OneToOne(targetEntity="PB\TransportBundle\Entity\Contact")
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Contact")
      */
     private $contactTo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=255)
+     */
+    private $number;
 
 
     /**
      * Get id
      *
      * @return int
+     */
+    
+    public function __construct()
+    {
+        $now = new \DateTime();
+        $this->number = 'TR'.$now->format('Y').$now->format('m').'-';
+        $this->datecreation = new \DateTime();
+        $this->dateenlevement = new \DateTime();
+        $this->datelivraison = new \DateTime('NOW + 1 day');
+
+
+    }
+
+
+
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -159,7 +194,7 @@ class Transport
     /**
      * Set datelivraison
      *
-     * @param string $datelivraison
+     * @param \DateTime $datelivraison
      *
      * @return Transport
      */
@@ -173,7 +208,7 @@ class Transport
     /**
      * Get datelivraison
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDatelivraison()
     {
@@ -245,7 +280,7 @@ class Transport
     /**
      * Get effectue
      *
-     * @return bool
+     * @return boolean
      */
     public function getEffectue()
     {
@@ -269,11 +304,49 @@ class Transport
     /**
      * Get annule
      *
-     * @return bool
+     * @return boolean
      */
     public function getAnnule()
     {
         return $this->annule;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     *
+     * @return Transport
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Set transporteur
+     *
+     * @param \PB\TransportBundle\Entity\Transporteur $transporteur
+     *
+     * @return Transport
+     */
+    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur = null)
+    {
+        $this->transporteur = $transporteur;
+
+        return $this;
+    }
+
+    /**
+     * Get transporteur
+     *
+     * @return \PB\TransportBundle\Entity\Transporteur
+     */
+    public function getTransporteur()
+    {
+        return $this->transporteur;
     }
 
     /**
