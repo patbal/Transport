@@ -7,13 +7,25 @@ pb_transport_homepage:
     page: \d*
 
 pb_transport_viewtransport:
-  path: view/{id}/
+  path: viewtransport/{id}/
   defaults: 
-    _controller: PBTransportBundle:Transport:view
+    _controller: PBTransportBundle:Transport:viewTransport
   requirements:
     page: \d+
 
 pb_transport_addtransport:
-  path: add/
+  path: addtransport/
   defaults: 
-    _controller: PBTransportBundle:Transport:add
+    _controller: PBTransportBundle:Transport:addTransport
+
+pb_transport_viewadresses:
+  path: adresses/
+  defaults: 
+    _controller: PBTransportBundle:Transport:viewAdresses
+
+pb_transport_editadresse:
+  path: adresse/{id}/
+  defaults: 
+    _controller: PBTransportBundle:Transport:editAdresse
+  requirements:
+    page: \d+

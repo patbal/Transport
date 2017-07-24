@@ -1,6 +1,7 @@
 <?php
 
 namespace PB\TransportBundle\Repository;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * AdresseRepository
@@ -10,4 +11,15 @@ namespace PB\TransportBundle\Repository;
  */
 class AdresseRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAdresses()
+	{
+		return $query = $this -> createQueryBuilder('a')
+			-> leftJoin('a.contacts', 'c')
+			-> addSelect('c')
+			-> orderBy('a.societe')
+			-> getQuery()
+			-> getResult();
+	}
+
 }
+

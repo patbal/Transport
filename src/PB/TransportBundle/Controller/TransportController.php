@@ -3,7 +3,13 @@
 namespace PB\TransportBundle\Controller;
 
 use PB\TransportBundle\Entity\Transport;
+use PB\TransportBundle\Entity\Adresse;
+use PB\TransportBundle\Entity\Contact;
+use PB\TransportBundle\Entity\Transporteur;
 use PB\TransportBundle\Form\TransportType;
+use PB\TransportBundle\Form\AdresseType;
+use PB\TransportBundle\Form\ContactType;
+use PB\TransportBundle\Form\TransporteurType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,7 +60,7 @@ class TransportController extends Controller
 
     }
 
-    public function viewAction(Transport $transport, $id)
+    public function viewTransportAction(Transport $transport, $id)
     {
     	if (null === $transport) {
       		throw new NotFoundHttpException("Cette demande de transport n'existe pas !");
@@ -64,7 +70,58 @@ class TransportController extends Controller
     		'transport'	=> $transport));
     }
 
-	public function addAction(Request $request)
+    public function viewTransporteurAction(Transporteur $transporteur, $id)
+    {
+    	if (null === $transporteur) {
+      		throw new NotFoundHttpException("Ce transporteur n'existe pas !");
+    	}
+
+    	return $this->render('PBTransportBundle:Transport:viewTransporteur.html.twig', array(
+    		'transporteur'	=> $transporteur));
+    }
+
+    public function viewAdressesAction()
+    {
+    	$listadresses = $this->getDoctrine()
+	      ->getManager()
+	      ->getRepository('PBTransportBundle:Adresse')
+	      ->getAdresses();
+    	
+    	return $this->render('PBTransportBundle:Transport:viewAdresses.html.twig', array(
+    		'adresses'	=> $listadresses));
+    }
+    
+
+    public function editAdresseAction(Adresse $adresse, $id, Request $request)
+    {
+		$form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
+
+		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em -> persist($adresse);
+			$em -> flush();
+
+			$request->getSession()->getFlashBag()->add('notice', 'Modification d\'adresse effectuée');
+
+			return $this->redirectToRoute('pb_transport_homepage', array(
+				'id' => $adresse->getId())
+			);
+		}
+
+		return $this->render('PBTransportBundle:Transport:editAdresse.html.twig', array('form' => $form->createView()));
+    }
+
+    public function viewContactAction(Contact $contact, $id)
+    {
+    	if (null === $contact) {
+      		throw new NotFoundHttpException("Ce contact n'existe pas !");
+    	}
+
+    	return $this->render('PBTransportBundle:Transport:viewContact.html.twig', array(
+    		'contact'	=> $contact));
+    }
+
+	public function addTransportAction(Request $request)
 	{
 		$transport = new Transport();
 		$form = $this -> get('form.factory')->create(TransportType::class, $transport);

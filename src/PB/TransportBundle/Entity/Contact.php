@@ -39,7 +39,7 @@ class Contact
      * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse", inversedBy="contacts")
      * @ORM\JoinColumn(nullable=true))
      */
-    private $adresse;
+    private $adress;
 
     /**
      * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur", inversedBy="contacts")
@@ -153,5 +153,29 @@ class Contact
     public function getTransporteur()
     {
         return $this->transporteur;
+    }
+
+    /**
+     * Set adress
+     *
+     * @param \PB\TransportBundle\Entity\Adresse $adress
+     *
+     * @return Contact
+     */
+    public function setAdress(\PB\TransportBundle\Entity\Adresse $adress = null)
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * Get adress
+     *
+     * @return \PB\TransportBundle\Entity\Adresse
+     */
+    public function getAdress()
+    {
+        return $this->adress;
     }
 }

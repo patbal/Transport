@@ -1,0 +1,42 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block alert %}
+
+{% endblock %}
+
+{% block title %}
+
+Adresses - {{ parent() }}
+
+{% endblock %}
+
+{% block pbtransport_body %}
+	<table class="table table-hover">
+		<tr>
+			<th>Société</th>
+			<th>Adresse</th>
+			<th>Comp. Adresse</th>
+			<th>CP</th>
+			<th>Ville</th>
+		</tr>
+
+		{% for adresse in adresses %}
+			<tr>
+				<td>
+					<a href="{{ path ('pb_transport_editadresse', {'id': adresse.id}) }}">
+						{{ adresse.societe }}
+					</a>
+				</td>
+				<td>{{ adresse.adresse1 }}</td>
+				<td>{{ adresse.adresse2 }}</td>
+				<td>{{ adresse.codepostal }}</td>
+				<td>{{ adresse.ville }}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas d'adresse en base de donnée</td>
+
+		{% endfor %}
+	</table>
+	
+{% endblock %}

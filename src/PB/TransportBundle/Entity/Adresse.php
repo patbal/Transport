@@ -38,7 +38,7 @@ class Adresse
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse2", type="string", length=255)
+     * @ORM\Column(name="adresse2", type="string", length=255, nullable=true)
      */
     private $adresse2;
 
@@ -59,20 +59,29 @@ class Adresse
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
-     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="adresse")
+     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="adress", cascade={"persist"})
     */
     private $contacts; 
 
 
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -154,7 +163,7 @@ class Adresse
     /**
      * Set codepostal
      *
-     * @param integer $codepostal
+     * @param string $codepostal
      *
      * @return Adresse
      */
@@ -168,7 +177,7 @@ class Adresse
     /**
      * Get codepostal
      *
-     * @return int
+     * @return string
      */
     public function getCodepostal()
     {
@@ -200,30 +209,6 @@ class Adresse
     }
 
     /**
-     * Set contact
-     *
-     * @param string $contact
-     *
-     * @return Adresse
-     */
-    public function setContact($contact)
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return string
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
-
-    /**
      * Set phone
      *
      * @param string $phone
@@ -246,13 +231,6 @@ class Adresse
     {
         return $this->phone;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add contact
@@ -264,6 +242,7 @@ class Adresse
     public function addContact(\PB\TransportBundle\Entity\Contact $contact)
     {
         $this->contacts[] = $contact;
+        $contact -> setAdress($this);
 
         return $this;
     }
@@ -276,6 +255,7 @@ class Adresse
     public function removeContact(\PB\TransportBundle\Entity\Contact $contact)
     {
         $this->contacts->removeElement($contact);
+        $contact -> setAdress(null);
     }
 
     /**
