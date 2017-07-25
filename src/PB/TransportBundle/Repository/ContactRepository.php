@@ -10,4 +10,13 @@ namespace PB\TransportBundle\Repository;
  */
 class ContactRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getContactByAdress($id)
+	{
+		return $query = $this -> createQueryBuilder('c')
+			-> where('c.adress = ?1')
+			-> setParameter(1, $id)
+			-> getQuery()
+			-> getResult();
+	}
+
 }

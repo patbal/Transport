@@ -3,6 +3,7 @@
 namespace PB\TransportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DoctrineCommonCollectionsArrayCollection;
 
 /**
  * Contact
@@ -35,15 +36,15 @@ class Contact
      */
     private $phone;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse", inversedBy="contacts")
-     * @ORM\JoinColumn(nullable=true))
-     */
-    private $adress;
+    // /**
+    //  * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse", inversedBy="contacts")
+    //  * @ORM\JoinColumn(name="adress_id", referencedColumnName="id", nullable=true)
+    //  */
+    // private $adress;
 
     /**
      * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur", inversedBy="contacts")
-     * @ORM\JoinColumn(nullable=true))
+     * @ORM\JoinColumn(nullable=true)
      */
     private $transporteur;
 
@@ -107,30 +108,7 @@ class Contact
         return $this->phone;
     }
 
-    /**
-     * Set adresse
-     *
-     * @param \PB\TransportBundle\Entity\Adresse $adresse
-     *
-     * @return Contact
-     */
-    public function setAdresse(\PB\TransportBundle\Entity\Adresse $adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get adresse
-     *
-     * @return \PB\TransportBundle\Entity\Adresse
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
+    
     /**
      * Set transporteur
      *
@@ -162,20 +140,20 @@ class Contact
      *
      * @return Contact
      */
-    public function setAdress(\PB\TransportBundle\Entity\Adresse $adress = null)
-    {
-        $this->adress = $adress;
+    // public function setAdress(\PB\TransportBundle\Entity\Adresse $adress = null)
+    // {
+    //     $this->adress = $adress;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Get adress
      *
      * @return \PB\TransportBundle\Entity\Adresse
      */
-    public function getAdress()
-    {
-        return $this->adress;
-    }
+    // public function getAdress()
+    // {
+    //     return $this->adress;
+    // }
 }

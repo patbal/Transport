@@ -63,10 +63,17 @@ class Adresse
      */
     private $phone;
 
+    // /**
+    //  * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="adress", cascade={"persist"})
+    //  *
+    //  */
+    // private $contacts; 
+
     /**
-     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="adress", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="PB\TransportBundle\Entity\Contact", cascade={"persist"})
+     * @ORM\JoinTable(name="tre_adresse_contact")
     */
-    private $contacts; 
+    private $contacts;
 
 
     
@@ -242,7 +249,7 @@ class Adresse
     public function addContact(\PB\TransportBundle\Entity\Contact $contact)
     {
         $this->contacts[] = $contact;
-        $contact -> setAdress($this);
+        // $contact -> setAdress($this);
 
         return $this;
     }
@@ -255,7 +262,7 @@ class Adresse
     public function removeContact(\PB\TransportBundle\Entity\Contact $contact)
     {
         $this->contacts->removeElement($contact);
-        $contact -> setAdress(null);
+        // $contact -> setAdress(null);
     }
 
     /**

@@ -94,10 +94,24 @@ class TransportController extends Controller
 
     public function editAdresseAction(Adresse $adresse, $id, Request $request)
     {
+		$em = $this->getDoctrine()->getManager();
+		$adresse = $em->getRepository('PBTransportBundle:Adresse')->find($id);
 		$form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
 
 		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-			$em = $this->getDoctrine()->getManager();
+
+			// getContactByAdress($id) est une méthode du repository Contact qui récupère les contacts liés à une adresse d'id $id
+			// $contactsAssocies =  $this->getDoctrine()->getManager()->getRepository('PBTransportBundle:Contact')->getContactByAdress($id);
+			
+			// foreach ($contactsAssocies as $contact) {
+			// 	$adresse -> removeContact($contact);
+			// }
+
+			// $contactlist = $form['contacts']->getData();
+			// foreach ($contactlist as $contact) {
+			// 	$adresse -> addContact($contact);
+			// }
+
 			$em -> persist($adresse);
 			$em -> flush();
 
