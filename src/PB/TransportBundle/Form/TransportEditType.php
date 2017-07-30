@@ -23,7 +23,7 @@ use Symfony\Component\Form\FormEvents;
 // use PB\TransportBundle\Entity\TypeTransport;
 
 
-class TransportType extends AbstractType
+class TransportEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -53,6 +53,7 @@ class TransportType extends AbstractType
             'multiple'     => false,
             'expanded'     => false,
             'label' => 'Adresse Enlèvement'))
+        
         ->add('contactFrom',    EntityType::class, array(
             'class'        => 'PBTransportBundle:Contact',
             'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
@@ -93,6 +94,8 @@ class TransportType extends AbstractType
             'widget' => 'single_text',
             'label' => 'Date de livraison'))
 
+        ->add('factureRecue',   CheckboxType::class, array('required'=>false))
+
         ->add('save',            submitType::class);
 
         $builder->addEventListener(
@@ -109,9 +112,9 @@ class TransportType extends AbstractType
 
                 if($type == 'Course')
                 {
-                    $event->getForm()->remove('vehicule');
-                    $event->getForm()->remove('dateenlevement');
-                    $event->getForm()->remove('datelivraison');
+                    // $event->getForm()->remove('vehicule');
+                    // $event->getForm()->remove('dateenlevement');
+                    // $event->getForm()->remove('datelivraison');
                     $event->getForm()->add('vehicule',   EntityType::class, array(
                         'class'        => 'PBTransportBundle:TypeVehicule',
                         'choice_label' => 'typevehicule',
@@ -126,8 +129,8 @@ class TransportType extends AbstractType
                 
                 if($type == 'Transport')
                 {
-                    $event->getForm()->remove('dateenlevement');
-                    $event->getForm()->remove('datelivraison');
+                    // $event->getForm()->remove('dateenlevement');
+                    // $event->getForm()->remove('datelivraison');
                     $event->getForm()->add('nbpalettes',     TextType::class, ['required'=>false, 'label' => 'Nbre de palettes / Colis / Flight']);
                     $event->getForm()->add('mplancher',      IntegerType::class, ['required'=>false, 'label' => 'Mètre(s) de plancher']);
                 }

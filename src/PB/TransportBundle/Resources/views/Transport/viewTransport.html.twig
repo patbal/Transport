@@ -10,24 +10,82 @@ Transport - {{ parent() }}
 
 {% endblock %}
 
+{% block header %}
+      <div id="header" class="well">
+        <h1><center>Détail du transport n°{{ transport.number }}{{ transport.id }}</center></h1>
+      </div>
+{% endblock %}
+
 {% block pbtransport_body %}
 	
-	<div class="well">
-		<h2>Transport n°{{ transport.number }}{{ transport.id }}</h2>
-		<i>Créé le {{ transport.datecreation|date('d/m/Y') }} par</i>
+	{% for message in app.session.flashbag.get('alert') %}
+	    <div class="alert alert-danger">{{ message }}</div>
+	{% endfor %}
 
-		<h3>Transporteur</h3>
-		{{ transport.transporteur.nom }}
+	{% for message in app.session.flashbag.get('notice') %}
+	    <div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+
+	<div class="row">
+		<div class="well col-sm-4">
+			<h2>{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h2>
+			<i>Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par</i>
+
+			<h3>Transporteur</h3>
+			{{ transport.transporteur.nom }}
+		</div>
+
+		<div class="well col-sm-8">
+			<ul class="list-group">
+				{% if not null == transport.annule and transport.annule == true %}<li class="list-group-item attention">ATTENTION : CE TRANSPORT A ÉTÉ ANNULÉ !
+				</li>{% endif %}
+				{% if not null == transport.effectue and transport.effectue == true %}<li class="list-group-item effectue"><span class="glyphicon glyphicon-ok-circle"></span>  Transport effectué</li>{% endif %}
+				<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }} 
+					{% if transport.typeTr.type == 'Course' and not null == transport.heureEnlevement%} à {{ transport.heureEnlevement|date('H:i') }} {% endif %}chez {{ transport.adresseFrom.societe }} 
+					{% if not null == transport.contactFrom %}<i>(contact : 
+						{% if not null == transport.contactFrom.prenom %}{{ transport.contactFrom.prenom }}{% endif %} 
+						{% if not null == transport.contactFrom.nom %}{{ transport.contactFrom.nom }}{% endif %})</i>
+					{% endif %}</li>
+				<li class="list-group-item">Livraison demandée le {{ transport.datelivraison|date('d/m/Y') }}
+					{% if transport.typeTr.type == 'Course' %} à {{ transport.heureLivraison|date('H:i') }} {% endif %} chez {{ transport.adresseTo.societe }} <i>
+					{% if not null == transport.contactTo %}(contact : 
+						{% if not null == transport.contactTo.prenom %}{{ transport.contactTo.prenom }}{% endif %}
+						{% if not null == transport.contactTo.nom %}{{ transport.contactTo.nom }}{% endif %})</i>
+					{% endif %}</li>
+				<li class="list-group-item">
+					{% if not null == transport.typeTr and transport.typeTr.type == 'Course' and not null == transport.vehicule %}
+						Véhicule demandé pour la course : {{ transport.vehicule.typevehicule}}
+					{% else %}
+						Capacité requise : 	{% if not null == transport.mplancher %}{{ transport.mplancher }} mètre(s) de plancher{% endif %}
+											{% if not null == transport.nbpalettes %}{{ transport.nbpalettes }}{% endif %}
+					{% endif %}
+				</li>
+				{% if not null == transport.remarque %}<li class="list-group-item remarque">Remarque / Impératif : {{ transport.remarque }}
+				</li>{% endif %}
+
+			</ul>
+		</div>
+
+	</div>
+	<div class="row">
+		<p>
+		    <a href="{{ path('pb_transport_homepage') }}" class="btn btn-default">
+		      <i class="glyphicon glyphicon-chevron-left"></i>
+		      Retour à la liste
+		    </a>
+		    <a href="{{ path('pb_transport_edittransport', {'id': transport.id}) }}" class="btn btn-default">
+		      <i class="glyphicon glyphicon-edit"></i>
+		      Modifier le transport
+		    </a>
+		    <a href="{{ path('pb_transport_deletetransport', {'id': transport.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+		      <i class="glyphicon glyphicon-trash"></i>
+		      Supprimer le transport
+		    </a>
+		</p>
 	</div>
 
-	<div class="well">
-		<ul class="list-group">
-			<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }} à {{ transport.adresseFrom.societe }}</li>
-			<li class="list-group-item">Livraison demandée le {{ transport.datelivraison|date('d/m/Y') }} à {{ transport.adresseTo.societe }}</li>
-		</ul>
-	</div>
 	
 
 
-	
+
 {% endblock %}

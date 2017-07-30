@@ -18,5 +18,5 @@ class ContactRepository extends \Doctrine\ORM\EntityRepository
 			-> getQuery()
 			-> getResult();
 	}
-
+	
 }

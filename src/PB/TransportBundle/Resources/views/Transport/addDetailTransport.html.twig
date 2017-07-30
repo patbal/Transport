@@ -1,0 +1,36 @@
+{# src/OC/PlatformBundle/Resources/views/Transport/addTransport.html.twig #}
+
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block body %}
+
+	<h2>2/2 -> Ajouter {% if transport.typeTr.type == "Course" %}une course{% endif %}{% if transport.typeTr.type == "Transport" %}un transport{% endif %}</h2>
+
+	<div class="well">
+	  	<ul class="list-group">
+	  		<li class="list-group-item">{{ transport.typeTr.type }} n° {{ transport.number }}{{ transport.id }} effectué{% if transport.typeTr.type == "Course" %}e{% endif %} par {{ transport.transporteur.nom}}</li>
+	  		<li class="list-group-item">Opération concernée : {{ transport.operation }}</li>
+	  		<li class="list-group-item">Pris à : {{ transport.adresseFrom.societe }} le {{ transport.dateenlevement|date("d/m/Y") }} / Livré à {{ transport.adresseTo.societe }} le {{ transport.datelivraison|date("d/m/Y") }}</li>
+	  	</ul>
+	</div>
+	<hr>
+	{{ form_start(form) }}
+		{{ form_errors(form) }}
+		{% if transport.typeTr.type == "Course" %}
+		{{ form_row(form.heureEnlevement) }}
+		{{ form_row(form.heureLivraison) }}	
+		{% endif %}
+		{{ form_row(form.contactFrom) }}
+		{{ form_row(form.contactTo) }}
+		{% if transport.typeTr.type == "Course" %}
+			{{ form_row(form.vehicule) }}
+		{% endif %}
+		{% if transport.typeTr.type == "Transport" %}
+			{{ form_row(form.nbpalettes) }}
+			{{ form_row(form.mplancher) }}
+		{% endif %}
+		{{ form_row(form.remarque) }}
+		{{ form_row(form.save) }}
+	{{ form_rest(form) }}
+
+{% endblock %}

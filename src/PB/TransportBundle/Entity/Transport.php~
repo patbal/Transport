@@ -36,6 +36,20 @@ class Transport
     private $dateenlevement;
 
     /**
+     * @var \Time
+     *
+     * @ORM\Column(name="heureenlevement", type="time", nullable=true)
+     */
+    private $heureEnlevement;
+
+    /**
+     * @var \Time
+     *
+     * @ORM\Column(name="heureelivraison", type="time", nullable=true)
+     */
+    private $heureLivraison;
+
+    /**
      * @var \datetime
      *
      * @ORM\Column(name="datelivraison", type="datetime")
@@ -46,14 +60,14 @@ class Transport
     /**
      * @var string
      *
-     * @ORM\Column(name="remarque", type="text")
+     * @ORM\Column(name="remarque", type="text", nullable=true)
      */
     private $remarque;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="operation", type="string", length=255)
+     * @ORM\Column(name="operation", type="string", length=255, nullable=true)
      */
     private $operation;
 
@@ -70,7 +84,13 @@ class Transport
      * @ORM\Column(name="annule", type="boolean")
      */
     private $annule;
-
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="facturerecue", type="boolean")
+     */
+    
+    private $facturerecue;
     /**
      * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
      */
@@ -103,6 +123,47 @@ class Transport
      */
     private $number;
 
+    /**
+     * @var int
+     *
+     *@ORM\Column(name="mplancher", type="integer", nullable=true)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $mplancher; 
+
+    /**
+     * @var int
+     *
+     *@ORM\Column(name="nbpalettes", type="integer", nullable=true)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $nbPalettes;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\TypeVehicule")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $vehicule;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\TypeTransport")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $typeTr;
+
+    /**
+     * @var decimal
+     *
+     * @ORM\Column(name="montantfacture", type="decimal", precision=5, scale=2, nullable=true)
+     */
+    private $montantfacture;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Factures", inversedBy="transports")
+     * @ORM\JoinColumn(nullable=true)
+    */
+    private $facture;
+
 
     /**
      * Get id
@@ -117,6 +178,9 @@ class Transport
         $this->datecreation = new \DateTime();
         $this->dateenlevement = new \DateTime();
         $this->datelivraison = new \DateTime('NOW + 1 day');
+        $this->effectue = false;
+        $this->annule = false;
+        $this->facturerecue = false;
 
 
     }
@@ -131,5 +195,533 @@ class Transport
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set datecreation
+     *
+     * @param \DateTime $datecreation
+     *
+     * @return Transport
+     */
+    public function setDatecreation($datecreation)
+    {
+        $this->datecreation = $datecreation;
+
+        return $this;
+    }
+
+    /**
+     * Get datecreation
+     *
+     * @return \DateTime
+     */
+    public function getDatecreation()
+    {
+        return $this->datecreation;
+    }
+
+    /**
+     * Set dateenlevement
+     *
+     * @param \DateTime $dateenlevement
+     *
+     * @return Transport
+     */
+    public function setDateenlevement($dateenlevement)
+    {
+        $this->dateenlevement = $dateenlevement;
+
+        return $this;
+    }
+
+    /**
+     * Get dateenlevement
+     *
+     * @return \DateTime
+     */
+    public function getDateenlevement()
+    {
+        return $this->dateenlevement;
+    }
+
+    /**
+     * Set datelivraison
+     *
+     * @param \DateTime $datelivraison
+     *
+     * @return Transport
+     */
+    public function setDatelivraison($datelivraison)
+    {
+        $this->datelivraison = $datelivraison;
+
+        return $this;
+    }
+
+    /**
+     * Get datelivraison
+     *
+     * @return \DateTime
+     */
+    public function getDatelivraison()
+    {
+        return $this->datelivraison;
+    }
+
+    /**
+     * Set remarque
+     *
+     * @param string $remarque
+     *
+     * @return Transport
+     */
+    public function setRemarque($remarque)
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    /**
+     * Get remarque
+     *
+     * @return string
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
+    }
+
+    /**
+     * Set operation
+     *
+     * @param string $operation
+     *
+     * @return Transport
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Get operation
+     *
+     * @return string
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * Set effectue
+     *
+     * @param boolean $effectue
+     *
+     * @return Transport
+     */
+    public function setEffectue($effectue)
+    {
+        $this->effectue = $effectue;
+
+        return $this;
+    }
+
+    /**
+     * Get effectue
+     *
+     * @return boolean
+     */
+    public function getEffectue()
+    {
+        return $this->effectue;
+    }
+
+    /**
+     * Set annule
+     *
+     * @param boolean $annule
+     *
+     * @return Transport
+     */
+    public function setAnnule($annule)
+    {
+        $this->annule = $annule;
+
+        return $this;
+    }
+
+    /**
+     * Get annule
+     *
+     * @return boolean
+     */
+    public function getAnnule()
+    {
+        return $this->annule;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     *
+     * @return Transport
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Set transporteur
+     *
+     * @param \PB\TransportBundle\Entity\Transporteur $transporteur
+     *
+     * @return Transport
+     */
+    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur = null)
+    {
+        $this->transporteur = $transporteur;
+
+        return $this;
+    }
+
+    /**
+     * Get transporteur
+     *
+     * @return \PB\TransportBundle\Entity\Transporteur
+     */
+    public function getTransporteur()
+    {
+        return $this->transporteur;
+    }
+
+    /**
+     * Set adresseFrom
+     *
+     * @param \PB\TransportBundle\Entity\Adresse $adresseFrom
+     *
+     * @return Transport
+     */
+    public function setAdresseFrom(\PB\TransportBundle\Entity\Adresse $adresseFrom = null)
+    {
+        $this->adresseFrom = $adresseFrom;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseFrom
+     *
+     * @return \PB\TransportBundle\Entity\Adresse
+     */
+    public function getAdresseFrom()
+    {
+        return $this->adresseFrom;
+    }
+
+    /**
+     * Set adresseTo
+     *
+     * @param \PB\TransportBundle\Entity\Adresse $adresseTo
+     *
+     * @return Transport
+     */
+    public function setAdresseTo(\PB\TransportBundle\Entity\Adresse $adresseTo = null)
+    {
+        $this->adresseTo = $adresseTo;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseTo
+     *
+     * @return \PB\TransportBundle\Entity\Adresse
+     */
+    public function getAdresseTo()
+    {
+        return $this->adresseTo;
+    }
+
+    /**
+     * Set contactFrom
+     *
+     * @param \PB\TransportBundle\Entity\Contact $contactFrom
+     *
+     * @return Transport
+     */
+    public function setContactFrom(\PB\TransportBundle\Entity\Contact $contactFrom = null)
+    {
+        $this->contactFrom = $contactFrom;
+
+        return $this;
+    }
+
+    /**
+     * Get contactFrom
+     *
+     * @return \PB\TransportBundle\Entity\Contact
+     */
+    public function getContactFrom()
+    {
+        return $this->contactFrom;
+    }
+
+    /**
+     * Set contactTo
+     *
+     * @param \PB\TransportBundle\Entity\Contact $contactTo
+     *
+     * @return Transport
+     */
+    public function setContactTo(\PB\TransportBundle\Entity\Contact $contactTo = null)
+    {
+        $this->contactTo = $contactTo;
+
+        return $this;
+    }
+
+    /**
+     * Get contactTo
+     *
+     * @return \PB\TransportBundle\Entity\Contact
+     */
+    public function getContactTo()
+    {
+        return $this->contactTo;
+    }
+
+    /**
+     * Set mplancher
+     *
+     * @param integer $mplancher
+     *
+     * @return Transport
+     */
+    public function setMplancher($mplancher)
+    {
+        $this->mplancher = $mplancher;
+
+        return $this;
+    }
+
+    /**
+     * Get mplancher
+     *
+     * @return integer
+     */
+    public function getMplancher()
+    {
+        return $this->mplancher;
+    }
+
+    /**
+     * Set nbPalettes
+     *
+     * @param integer $nbPalettes
+     *
+     * @return Transport
+     */
+    public function setNbPalettes($nbPalettes)
+    {
+        $this->nbPalettes = $nbPalettes;
+
+        return $this;
+    }
+
+    /**
+     * Get nbPalettes
+     *
+     * @return integer
+     */
+    public function getNbPalettes()
+    {
+        return $this->nbPalettes;
+    }
+
+    /**
+     * Set vehicule
+     *
+     * @param \PB\TransportBundle\Entity\TypeVehicule $vehicule
+     *
+     * @return Transport
+     */
+    public function setVehicule(\PB\TransportBundle\Entity\TypeVehicule $vehicule = null)
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get vehicule
+     *
+     * @return \PB\TransportBundle\Entity\TypeVehicule
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+
+    /**
+     * Set typeTr
+     *
+     * @param \PB\TransportBundle\Entity\TypeTransport $typeTr
+     *
+     * @return Transport
+     */
+    public function setTypeTr(\PB\TransportBundle\Entity\TypeTransport $typeTr = null)
+    {
+        $this->typeTr = $typeTr;
+
+        return $this;
+    }
+
+    /**
+     * Get typeTr
+     *
+     * @return \PB\TransportBundle\Entity\TypeTransport
+     */
+    public function getTypeTr()
+    {
+        return $this->typeTr;
+    }
+
+    /**
+     * Set heureEnlevement
+     *
+     * @param \DateTime $heureEnlevement
+     *
+     * @return Transport
+     */
+    public function setHeureEnlevement($heureEnlevement)
+    {
+        $this->heureEnlevement = $heureEnlevement;
+
+        return $this;
+    }
+
+    /**
+     * Get heureEnlevement
+     *
+     * @return \DateTime
+     */
+    public function getHeureEnlevement()
+    {
+        return $this->heureEnlevement;
+    }
+
+    /**
+     * Set heureLivraison
+     *
+     * @param \DateTime $heureLivraison
+     *
+     * @return Transport
+     */
+    public function setHeureLivraison($heureLivraison)
+    {
+        $this->heureLivraison = $heureLivraison;
+
+        return $this;
+    }
+
+    /**
+     * Get heureLivraison
+     *
+     * @return \DateTime
+     */
+    public function getHeureLivraison()
+    {
+        return $this->heureLivraison;
+    }
+
+    /**
+     * Set numeroFacture
+     *
+     * @param string $numeroFacture
+     *
+     * @return Transport
+     */
+    public function setNumeroFacture($numeroFacture)
+    {
+        $this->numeroFacture = $numeroFacture;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroFacture
+     *
+     * @return string
+     */
+    public function getNumeroFacture()
+    {
+        return $this->numeroFacture;
+    }
+
+    /**
+     * Set montantfacture
+     *
+     * @param string $montantfacture
+     *
+     * @return Transport
+     */
+    public function setMontantfacture($montantfacture)
+    {
+        $this->montantfacture = $montantfacture;
+
+        return $this;
+    }
+
+    /**
+     * Get montantfacture
+     *
+     * @return string
+     */
+    public function getMontantfacture()
+    {
+        return $this->montantfacture;
+    }
+
+    /**
+     * Set facture
+     *
+     * @param \PB\TransportBundle\Entity\Factures $facture
+     *
+     * @return Transport
+     */
+    public function setFacture(\PB\TransportBundle\Entity\Factures $facture = null)
+    {
+        $this->facture = $facture;
+
+        return $this;
+    }
+
+    /**
+     * Get facture
+     *
+     * @return \PB\TransportBundle\Entity\Factures
+     */
+    public function getFacture()
+    {
+        return $this->facture;
     }
 }

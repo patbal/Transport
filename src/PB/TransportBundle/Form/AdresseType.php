@@ -35,7 +35,6 @@ class AdresseType extends AbstractType
                 'class'        => 'PBTransportBundle:Contact',
                 'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
                 ->orderBy('u.nom', 'ASC');},
-                'choice_label' => 'nom',
                 'multiple'     => 'true',
                 'expanded'     => 'true',
                 'label' => 'Contact(s)'))

@@ -10,16 +10,12 @@
 
 {% block body %}
 
-  <h2>1/2 -> Informations générales</h2>
+  <h2>Ajout Contact</h2>
 
   {{ form_start(form) }}
-	  {{ form_row(form.typeTr) }}
-	  {{ form_row(form.transporteur) }}
-	  {{ form_row(form.operation) }}
-	  {{ form_row(form.adresseFrom) }}
-	  {{ form_row(form.adresseTo) }}
-	  {{ form_row(form.dateenlevement) }}
-	  {{ form_row(form.datelivraison) }}
+	  {{ form_row(form.nom) }}
+	  {{ form_row(form.prenom) }}
+	  {{ form_row(form.phone) }}
 	  {{ form_row(form.save) }}
   {{ form_end(form) }}
 

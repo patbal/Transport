@@ -25,9 +25,16 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     */
+    private $prenom;
 
     /**
      * @var string
@@ -48,112 +55,10 @@ class Contact
      */
     private $transporteur;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    public function __toString()
     {
-        return $this->id;
+        return $this->nom.' '.$this->prenom;
     }
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Contact
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
 
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return Contact
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    
-    /**
-     * Set transporteur
-     *
-     * @param \PB\TransportBundle\Entity\Transporteur $transporteur
-     *
-     * @return Contact
-     */
-    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur)
-    {
-        $this->transporteur = $transporteur;
-
-        return $this;
-    }
-
-    /**
-     * Get transporteur
-     *
-     * @return \PB\TransportBundle\Entity\Transporteur
-     */
-    public function getTransporteur()
-    {
-        return $this->transporteur;
-    }
-
-    /**
-     * Set adress
-     *
-     * @param \PB\TransportBundle\Entity\Adresse $adress
-     *
-     * @return Contact
-     */
-    public function setAdress(\PB\TransportBundle\Entity\Adresse $adress = null)
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
-
-    /**
-     * Get adress
-     *
-     * @return \PB\TransportBundle\Entity\Adresse
-     */
-    public function getAdress()
-    {
-        return $this->adress;
-    }
 }

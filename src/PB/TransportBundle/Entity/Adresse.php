@@ -63,12 +63,6 @@ class Adresse
      */
     private $phone;
 
-    // /**
-    //  * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="adress", cascade={"persist"})
-    //  *
-    //  */
-    // private $contacts; 
-
     /**
      * @ORM\ManyToMany(targetEntity="PB\TransportBundle\Entity\Contact", cascade={"persist"})
      * @ORM\JoinTable(name="tre_adresse_contact")

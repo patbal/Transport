@@ -1,0 +1,50 @@
+{# src/OC/PlatformBundle/Resources/views/Transport/addTransport.html.twig #}
+
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block header %}
+      <div id="header" class="well">
+        <h1><center>Edition du transport n°{{ transport.number }}{{ transport.id }}</center></h1>
+      </div>
+{% endblock %}
+
+{% block body %}
+
+  {{ form_start(form) }}
+  	{{ form_errors(form) }}
+  	{{ form_row(form.operation) }}
+	{{ form_row(form.typeTr) }}
+	{{ form_row(form.transporteur) }}
+	{{ form_row(form.adresseFrom) }}
+	{{ form_row(form.contactFrom) }}
+	{{ form_row(form.adresseTo) }}
+	{{ form_row(form.contactTo) }}
+	{{ form_row(form.dateenlevement) }}
+	{{ form_row(form.datelivraison) }}
+	
+	{% if transport.typeTr.type == "Course" %}
+		{{ form_row(form.heureEnlevement) }}
+		{{ form_row(form.heureLivraison) }}	
+	{% endif %}
+
+	{% if transport.typeTr.type == "Course" %}
+			{{ form_row(form.vehicule) }}
+		{% endif %}
+	{% if transport.typeTr.type == "Transport" %}
+			{{ form_row(form.nbpalettes) }}
+			{{ form_row(form.mplancher) }}
+	{% endif %}
+
+	{{ form_row(form.remarque) }}
+	
+	<div class="well">
+		{{ form_row(form.annule) }}
+		{{ form_row(form.effectue) }}
+		{{ form_row(form.factureRecue) }}
+	</div>
+	
+	{{ form_row(form.save) }}
+	{{ form_end(form) }}
+
+
+{% endblock %}

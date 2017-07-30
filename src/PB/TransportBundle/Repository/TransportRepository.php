@@ -17,12 +17,12 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
 	public function getTransports($page, $nbPerPage)
 	{
 		$query = $this->createQueryBuilder('t')
-		  ->leftJoin('t.transporteur', 'tr')
-		  ->addSelect('tr')
-		  ->leftJoin('t.adresseFrom', 'af')
-		  ->addSelect('af')
-		  ->leftJoin('t.adresseTo', 'at')
-		  ->addSelect('at')		 
+		  // ->leftJoin('t.transporteur', 'tr')
+		  // ->addSelect('tr')
+		  // ->leftJoin('t.adresseFrom', 'af')
+		  // ->addSelect('af')
+		  // ->leftJoin('t.adresseTo', 'at')
+		  // ->addSelect('at')		 
 		  ->orderBy('t.id', 'DESC')
 		  ->getQuery()
 		;

@@ -25,9 +25,16 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     */
+    private $prenom;
 
     /**
      * @var string
@@ -47,6 +54,11 @@ class Contact
      * @ORM\JoinColumn(nullable=true)
      */
     private $transporteur;
+
+    public function __toString()
+    {
+        return $this->nom.' '.$this->prenom;
+    }
 
 
 
@@ -85,6 +97,30 @@ class Contact
     }
 
     /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Contact
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
      * Set phone
      *
      * @param string $phone
@@ -108,7 +144,6 @@ class Contact
         return $this->phone;
     }
 
-    
     /**
      * Set transporteur
      *
@@ -116,7 +151,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur)
+    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur = null)
     {
         $this->transporteur = $transporteur;
 
@@ -132,28 +167,4 @@ class Contact
     {
         return $this->transporteur;
     }
-
-    /**
-     * Set adress
-     *
-     * @param \PB\TransportBundle\Entity\Adresse $adress
-     *
-     * @return Contact
-     */
-    // public function setAdress(\PB\TransportBundle\Entity\Adresse $adress = null)
-    // {
-    //     $this->adress = $adress;
-
-    //     return $this;
-    // }
-
-    /**
-     * Get adress
-     *
-     * @return \PB\TransportBundle\Entity\Adresse
-     */
-    // public function getAdress()
-    // {
-    //     return $this->adress;
-    // }
 }

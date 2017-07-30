@@ -1,0 +1,56 @@
+<?php
+
+namespace PB\TransportBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Factures
+ *
+ * @ORM\Table(name="trefactures")
+ * @ORM\Entity(repositoryClass="PB\TransportBundle\Repository\FacturesRepository")
+ */
+class Factures
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numerofacture", type="string", length=255)
+     */
+    private $numerofacture;
+
+    /**
+     * @var decimal
+     *
+     * @ORM\Column(name="montantfacture", type="decimal", precision=7, scale=2, nullable=true)
+     */
+    private $montantfacture;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datefacture", type="datetime", nullable=true)
+     */
+    private $datefacture;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur")
+     */
+    private $transporteur;
+
+     /**
+     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Transport", mappedBy="facture", cascade={"persist", "remove"})
+    */
+    private $transports;
+
+
+}

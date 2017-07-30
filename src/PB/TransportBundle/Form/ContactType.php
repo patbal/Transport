@@ -5,6 +5,10 @@ namespace PB\TransportBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+
 
 class ContactType extends AbstractType
 {
@@ -13,7 +17,9 @@ class ContactType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('phone');
+        $builder->add('nom', TextType::class, array('required'=>'false'))
+        ->add('prenom', TextType::class, array('required'=>'false'))
+        ->add('phone', TextType::class, array('required'=>'false'))->add('save', submitType::class);
     }
     
     /**

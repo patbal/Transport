@@ -1,5 +1,5 @@
 pb_transport_homepage:
-  path: /{page}/
+  path: /{page}
   defaults: 
     _controller: PBTransportBundle:Transport:index
     page: 1
@@ -7,25 +7,51 @@ pb_transport_homepage:
     page: \d*
 
 pb_transport_viewtransport:
-  path: viewtransport/{id}/
+  path: view/{id}/
   defaults: 
     _controller: PBTransportBundle:Transport:viewTransport
   requirements:
     page: \d+
 
+pb_transport_adddetailtransport:
+  path: add/{id}
+  defaults: 
+    _controller: PBTransportBundle:Transport:addDetailTransport
+  requirements:
+    page: \d+
+
 pb_transport_addtransport:
-  path: addtransport/
+  path: add/
   defaults: 
     _controller: PBTransportBundle:Transport:addTransport
 
 pb_transport_viewadresses:
-  path: adresses/
+  path: adresses/view
   defaults: 
     _controller: PBTransportBundle:Transport:viewAdresses
 
 pb_transport_editadresse:
-  path: adresse/{id}/
+  path: adresse/edit/{id}/
   defaults: 
     _controller: PBTransportBundle:Transport:editAdresse
   requirements:
     page: \d+
+
+pb_transport_edittransport:
+  path: edit/{id}/
+  defaults: 
+    _controller: PBTransportBundle:Transport:editTransport
+  requirements:
+    page: \d+
+
+pb_transport_deletetransport:
+  path: delete/{id}/
+  defaults: 
+    _controller: PBTransportBundle:Transport:deleteTransport
+  requirements:
+    page: \d+
+
+pb_transport_addcontact:
+  path: contact/add
+  defaults: 
+    _controller: PBTransportBundle:Transport:addContact

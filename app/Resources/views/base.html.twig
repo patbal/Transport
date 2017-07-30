@@ -43,7 +43,7 @@
                 <div class="dropdown-menu" aria-labelledby="Preview">
                   <a class="dropdown-item" href="#">Transporteurs</a></br>
                   <a class="dropdown-item" href="#">Adresse</a></br>
-                  <a class="dropdown-item" href="#">Contacts</a>
+                  <a class="dropdown-item" href="{{ path('pb_transport_addcontact') }}">Contacts</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -61,14 +61,14 @@
       </nav>
     {% endblock %}
     
-    <div id="header" class="jumbotron">
-      <h1>Gestion des transports Externes</h1>
-    </div>
+    {% block header %}
+      <div id="header" class="jumbotron">
+        <h1>Gestion des transports Externes</h1>
+      </div>
+    {% endblock %}
 
     {% block body %}
     {% endblock %}
-
-    <hr>
 
     <footer>
       

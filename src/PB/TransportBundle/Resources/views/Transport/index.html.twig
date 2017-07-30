@@ -6,6 +6,12 @@ Accueil - {{ parent() }}
 
 {% endblock %}
 
+{% block header %}
+      <div id="header" class="well">
+        <center><h1>LISTE DES TRANSPORTS</h1></center>
+      </div>
+{% endblock %}
+
 {% block pbtransport_body %}
 
 	{% for message in app.session.flashbag.get('alert') %}
@@ -20,23 +26,29 @@ Accueil - {{ parent() }}
 	<table class="table table-hover">
 		<tr>
 			<th>Num Transport</th>
+			<th>C/T</th>
 			<th>Transporteur</th>
 			<th>Date Enl.</th>
 			<th>De</th>
 			<th>À</th>
+			<th>Date Liv.</th>
+			<th>Opération</th>
 		</tr>
 
 		{% for transport in listTransports %}
-			<tr>
+			<tr {% if not null == transport.effectue and transport.effectue == true %}class="warning italic"{% endif %}{% if not null == transport.annule and transport.annule == true %}class="danger italic"{% endif %}>
 				<td>
 					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">
 						{{ transport.number }}{{ transport.id }}
 					</a>
 				</td>
+				<td>{% if transport.typeTr.type == "Course" %}C{% elseif transport.typeTr.type == "Transport" %}T{% else %}NA{% endif %}
 				<td>{{ transport.transporteur.nom }}</td>
-				<td>{{ transport.dateenlevement|date('d/m/Y') }}</td>
+				<td>{{ transport.dateenlevement|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heureenlevement|date('H:i') }}{% endif %}</td>
 				<td>{{ transport.adresseFrom.societe }}</td>
 				<td>{{ transport.adresseTo.societe }}</td>
+				<td>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heurelivraison|date('H:i') }}{% endif %}</td>
+				{% if not null == transport.operation %}<td>{{ transport.operation }}</td>{% endif %}
 			</tr>
 
 		{% else %}
@@ -52,6 +64,8 @@ Accueil - {{ parent() }}
 	        <a href="{{ path('pb_transport_homepage', {'page': p}) }}">{{ p }}</a>
 	      </li>
 		{% endfor %}
-		</ul>
-	
+	</ul>
+	<div>
+		<span class="label label-success">Transport avec facture</span><span class="label label-warning">Transport effectué</span><span class="label label-danger">Transport annulé</span>
+	</div>
 {% endblock %}
