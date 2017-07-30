@@ -112,9 +112,7 @@ class TransportEditType extends AbstractType
 
                 if($type == 'Course')
                 {
-                    // $event->getForm()->remove('vehicule');
-                    // $event->getForm()->remove('dateenlevement');
-                    // $event->getForm()->remove('datelivraison');
+                    
                     $event->getForm()->add('vehicule',   EntityType::class, array(
                         'class'        => 'PBTransportBundle:TypeVehicule',
                         'choice_label' => 'typevehicule',
@@ -129,8 +127,6 @@ class TransportEditType extends AbstractType
                 
                 if($type == 'Transport')
                 {
-                    // $event->getForm()->remove('dateenlevement');
-                    // $event->getForm()->remove('datelivraison');
                     $event->getForm()->add('nbpalettes',     TextType::class, ['required'=>false, 'label' => 'Nbre de palettes / Colis / Flight']);
                     $event->getForm()->add('mplancher',      IntegerType::class, ['required'=>false, 'label' => 'Mètre(s) de plancher']);
                 }
