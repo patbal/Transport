@@ -17,13 +17,6 @@ use PB\TransportBundle\Form\TransporteurType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TransportController extends Controller
 {
@@ -58,6 +51,11 @@ class TransportController extends Controller
 
     }
 
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewTransportAction(Transport $transport, $id)
     {
     	if (null === $transport) {
@@ -78,6 +76,32 @@ class TransportController extends Controller
     		'transporteur'	=> $transporteur));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addAdresseAction(Request $request)
+    {
+        $adresse = new Adresse();
+        $form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
+        $em = $this->getDoctrine()->getManager();
+
+        if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            $em -> persist($adresse);
+            $em -> flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Ajout d\'adresse effectuée');
+
+            return $this->redirectToRoute("pb_transport_homepage");
+        }
+
+        return $this->render("PBTransportBundle:Transport:editAdresse.html.twig", array('form' => $form->createView(), 'titre' => "Création d'adresse", 'boutonDel' => false));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewAdressesAction()
     {
     	$listadresses = $this->getDoctrine()
@@ -88,8 +112,14 @@ class TransportController extends Controller
     	return $this->render('PBTransportBundle:Transport:viewAdresses.html.twig', array(
     		'adresses'	=> $listadresses));
     }
-    
 
+
+    /**
+     * @param Adresse $adresse
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function editAdresseAction(Adresse $adresse, $id, Request $request)
     {
 		$em = $this->getDoctrine()->getManager();
@@ -108,7 +138,28 @@ class TransportController extends Controller
 			);
 		}
 
-		return $this->render('PBTransportBundle:Transport:editAdresse.html.twig', array('form' => $form->createView()));
+		return $this->render('PBTransportBundle:Transport:editAdresse.html.twig', ['adresse' => $adresse, 'form' => $form->createView(), 'titre' => "Modification d'adresse", 'boutonDel' => true]);
+    }
+
+    /**
+     * @param Adresse $adresse
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAdresseAction(Adresse $adresse, $id, Request $request)
+    {
+        if (null === $adresse)
+        {
+            throw new NotFoundHttpException("adresse inexistante en base de donnée");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($adresse);
+        $em -> flush();
+
+        $request -> getSession() -> getFlashbag() -> add('alert', 'Adresse Supprimée');
+        return $this -> redirectToRoute('pb_transport_homepage');
     }
 
     public function addContactAction(Request $request)
@@ -126,9 +177,14 @@ class TransportController extends Controller
 			return $this->redirectToRoute('pb_transport_homepage');
 		}
 
-		return $this->render('PBTransportBundle:Transport:addContact.html.twig', array('form' => $form->createView()));
+		return $this->render('PBTransportBundle:Transport:editContact.html.twig', array('form' => $form->createView(), 'titre' => "Ajout de contact", 'boutonDel' => false));
     }
 
+    /**
+     * @param Contact $contact
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewContactAction(Contact $contact, $id)
     {
     	if (null === $contact) {
@@ -139,7 +195,38 @@ class TransportController extends Controller
     		'contact'	=> $contact));
     }
 
-	public function addTransportAction(Request $request)
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewContactsAction()
+    {
+        $listContacts = $this -> getDoctrine()->getRepository('PBTransportBundle:Contact')->getContacts();
+        return $this -> render('PBTransportBundle:Transport:viewContacts.html.twig', array('contacts' => $listContacts));
+    }
+
+    public function editContactAction(Contact $contact, $id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $form = $this -> get('form.factory')->create(ContactType::class, $contact);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+            $em->persist($contact);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Modification de contact effectuée');
+
+            return $this->redirectToRoute('pb_transport_viewcontacts');
+        }
+
+        return $this->render('PBTransportBundle:Transport:editContact.html.twig', ['contact' => $contact, 'form' => $form->createView(), 'titre' => "Modification de contact", 'boutonDel' => true]);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addTransportAction(Request $request)
 	{
 		$transport = new Transport();
 		$form = $this -> get('form.factory')->create(TransportBriefType::class, $transport);//type hérité de transport, avec suppression de champs

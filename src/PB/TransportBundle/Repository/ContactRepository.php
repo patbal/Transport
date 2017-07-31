@@ -18,5 +18,12 @@ class ContactRepository extends \Doctrine\ORM\EntityRepository
 			-> getQuery()
 			-> getResult();
 	}
+
+	public function getContacts()
+    {
+        $qb = $this ->createQueryBuilder('c')
+            -> orderBy('c.nom');
+        return $qb -> getQuery()->getResult();
+    }
 	
 }

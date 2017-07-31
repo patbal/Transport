@@ -1,0 +1,21 @@
+{# src/OC/PlatformBundle/Resources/views/Transport/editContact.html.twig #}
+
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block header %}
+    <div id="header" class="well h2 text-center">
+        {{ titre }}
+    </div>
+{% endblock %}
+
+{% block pbtransport_body %}
+
+    {{ include("PBTransportBundle:Transport:form.html.twig") }}
+    {% if boutonDel == true %}
+        <a href="{{ path('pb_transport_deletecontact', {'id': contact.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce contact ? Cette action est irrévocable.');">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer ce contact
+        </a>
+    {% endif %}
+
+{% endblock %}

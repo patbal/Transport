@@ -1,0 +1,40 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block header %}
+	<div id="header" class="well h2 text-center">
+		Liste des contacts
+	</div>
+{% endblock %}
+
+{% block title %}
+
+Adresses - {{ parent() }}
+
+{% endblock %}
+
+{% block pbtransport_body %}
+	<table class="table table-hover">
+		<tr>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>N° de téléphone</th>
+		</tr>
+
+		{% for contact in contacts %}
+			<tr>
+				<td>
+					<a href="{{ path ('pb_transport_editcontact', {'id': contact.id}) }}">
+					{% if not null == contact.nom %}{{ contact.nom|upper }}{%  else %}NC{% endif %}
+					</a>
+				</td>
+				<td>{% if not null == contact.prenom %}{{ contact.prenom }}{%  else %}NC{% endif %}</td>
+				<td>{% if not null == contact.phone %}{{ contact.phone }}{%  else %}NC{% endif %}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas d'adresse en base de donnée</td>
+
+		{% endfor %}
+	</table>
+	
+{% endblock %}

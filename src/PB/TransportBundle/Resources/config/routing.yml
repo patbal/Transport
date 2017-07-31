@@ -25,6 +25,12 @@ pb_transport_addtransport:
   defaults: 
     _controller: PBTransportBundle:Transport:addTransport
 
+pb_transport_addadresse:
+  path: adresse/add/
+  defaults:
+    _controller: PBTransportBundle:Transport:addAdresse
+
+
 pb_transport_viewadresses:
   path: adresses/view
   defaults: 
@@ -55,3 +61,37 @@ pb_transport_addcontact:
   path: contact/add
   defaults: 
     _controller: PBTransportBundle:Transport:addContact
+
+pb_transport_editcontact:
+  path: contact/edit/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:editContact
+    requirements:
+      id: \d+
+
+pb_transport_viewcontacts:
+  path: contact/view
+  defaults:
+    _controller: PBTransportBundle:Transport:viewContacts
+
+pb_transport_viewcontact:
+  path: contact/view/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:viewContact
+    requirements:
+      id: \d+
+
+pb_transport_deletecontact:
+  path: contact/delete/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:deleteContact
+  requirements:
+    id: \d+
+
+pb_transport_deleteadresse:
+  path: adresse/delete/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:deleteAdresse
+  requirements:
+    id: \d+
+

@@ -2,9 +2,9 @@
 
 {% extends "PBTransportBundle::layout.html.twig" %}
 
-{% block body %}
+{% block pbtransport_body %}
 
-	<h2>2/2 -> Ajouter {% if transport.typeTr.type == "Course" %}une course{% endif %}{% if transport.typeTr.type == "Transport" %}un transport{% endif %}</h2>
+	<p class="h3">Phase 2 : Ajouter {% if transport.typeTr.type == "Course" %}une course{% endif %}{% if transport.typeTr.type == "Transport" %}un transport{% endif %}</p>
 
 	<div class="well">
 	  	<ul class="list-group">

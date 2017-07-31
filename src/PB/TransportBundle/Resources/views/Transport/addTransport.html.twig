@@ -4,24 +4,24 @@
 
 {% block header %}
       <div id="header" class="well">
-        <h1><center>Ajout de contact</center></h1>
+        <h1><center>Ajout de Transport</center></h1>
       </div>
     {% endblock %}
 
-{% block body %}
+{% block pbtransport_body %}
 
-  <h2>1/2 -> Informations générales</h2>
+    <p class="h3">Phase 1 : informations générales</p>
+	<div class="well">
+        {{ form_start(form) }}
+            {{ form_row(form.typeTr) }}
+            {{ form_row(form.transporteur) }}
+            {{ form_row(form.operation) }}
+            {{ form_row(form.adresseFrom) }}
+            {{ form_row(form.adresseTo) }}
+            {{ form_row(form.dateenlevement) }}
+            {{ form_row(form.datelivraison) }}
+            {{ form_row(form.save) }}
+        {{ form_end(form) }}
+    </div>
 
-  {{ form_start(form) }}
-	  {{ form_row(form.typeTr) }}
-	  {{ form_row(form.transporteur) }}
-	  {{ form_row(form.operation) }}
-	  {{ form_row(form.adresseFrom) }}
-	  {{ form_row(form.adresseTo) }}
-	  {{ form_row(form.dateenlevement) }}
-	  {{ form_row(form.datelivraison) }}
-	  {{ form_row(form.save) }}
-  {{ form_end(form) }}
-
-
-{% endblock %}
+	{% endblock %}
