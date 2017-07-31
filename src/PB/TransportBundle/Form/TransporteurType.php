@@ -2,17 +2,11 @@
 
 namespace PB\TransportBundle\Form;
 
+use Doctrine\DBAL\Types\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class TransporteurType extends AbstractType
 {
@@ -22,13 +16,20 @@ class TransporteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom',            TextType::class)
-            ->add('adresseRue',     TextType::class)
-            ->add('adresseRue2',    TextType::class)
-            ->add('codepostal',     NumberType::class)
-            ->add('ville',          TextType::class)
-            ->add('phone',          TextType::class, array('required' => false))
-            ->add('contact',        TextType::class, array('required' => false))
+            ->add('nom',            TextType::class, array('label'=>'Société'))
+            ->add('adresseRue',     TextType::class, array('label'=>'Adresse'))
+            ->add('adresseRue2',    TextType::class, array('required' => false, 'label'=>"Complément d'adresse"))
+            ->add('codepostal',     NumberType::class, array('label'=>'Code Postal'))
+            ->add('ville',          TextType::class, array('label'=>'Ville'))
+            ->add('phone',          TextType::class, array('required' => false, 'label'=>'N° de téléphone'))
+            ->add('email',          TextType::class, array('required' => false))
+            ->add('contact',        EntityType::class, array(
+                'class'        => 'PBTransportBundle:Contact',
+                'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
+                    ->orderBy('u.nom', 'ASC');},
+                'multiple'     => 'true',
+                'expanded'     => 'true',
+                'label' => 'Contact(s)'))
             ->add('save',           submitType::class);
     }
     
