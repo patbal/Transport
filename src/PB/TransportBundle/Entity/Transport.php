@@ -3,6 +3,10 @@
 namespace PB\TransportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PB\TransportBundle\Entity\Adresse;
+use PB\TransportBundle\Entity\Contact;
+use PB\TransportBundle\Entity\Transporteur;
+use PB\TransportBundle\Entity\TypeVehicule;
 
 /**
  * Transport
@@ -391,11 +395,11 @@ class Transport
     /**
      * Set transporteur
      *
-     * @param \PB\TransportBundle\Entity\Transporteur $transporteur
+     * @param Transporteur $transporteur
      *
      * @return Transport
      */
-    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur = null)
+    public function setTransporteur(Transporteur $transporteur = null)
     {
         $this->transporteur = $transporteur;
 
@@ -405,7 +409,7 @@ class Transport
     /**
      * Get transporteur
      *
-     * @return \PB\TransportBundle\Entity\Transporteur
+     * @return Transporteur
      */
     public function getTransporteur()
     {
@@ -415,11 +419,11 @@ class Transport
     /**
      * Set adresseFrom
      *
-     * @param \PB\TransportBundle\Entity\Adresse $adresseFrom
+     * @param Adresse $adresseFrom
      *
      * @return Transport
      */
-    public function setAdresseFrom(\PB\TransportBundle\Entity\Adresse $adresseFrom = null)
+    public function setAdresseFrom(Adresse $adresseFrom = null)
     {
         $this->adresseFrom = $adresseFrom;
 
@@ -429,7 +433,7 @@ class Transport
     /**
      * Get adresseFrom
      *
-     * @return \PB\TransportBundle\Entity\Adresse
+     * @return Adresse
      */
     public function getAdresseFrom()
     {
@@ -439,11 +443,11 @@ class Transport
     /**
      * Set adresseTo
      *
-     * @param \PB\TransportBundle\Entity\Adresse $adresseTo
+     * @param Adresse $adresseTo
      *
      * @return Transport
      */
-    public function setAdresseTo(\PB\TransportBundle\Entity\Adresse $adresseTo = null)
+    public function setAdresseTo(Adresse $adresseTo = null)
     {
         $this->adresseTo = $adresseTo;
 
@@ -453,7 +457,7 @@ class Transport
     /**
      * Get adresseTo
      *
-     * @return \PB\TransportBundle\Entity\Adresse
+     * @return Adresse
      */
     public function getAdresseTo()
     {
@@ -463,11 +467,11 @@ class Transport
     /**
      * Set contactFrom
      *
-     * @param \PB\TransportBundle\Entity\Contact $contactFrom
+     * @param Contact $contactFrom
      *
      * @return Transport
      */
-    public function setContactFrom(\PB\TransportBundle\Entity\Contact $contactFrom = null)
+    public function setContactFrom(Contact $contactFrom = null)
     {
         $this->contactFrom = $contactFrom;
 
@@ -477,7 +481,7 @@ class Transport
     /**
      * Get contactFrom
      *
-     * @return \PB\TransportBundle\Entity\Contact
+     * @return Contact
      */
     public function getContactFrom()
     {
@@ -487,11 +491,11 @@ class Transport
     /**
      * Set contactTo
      *
-     * @param \PB\TransportBundle\Entity\Contact $contactTo
+     * @param Contact $contactTo
      *
      * @return Transport
      */
-    public function setContactTo(\PB\TransportBundle\Entity\Contact $contactTo = null)
+    public function setContactTo(Contact $contactTo = null)
     {
         $this->contactTo = $contactTo;
 
@@ -501,7 +505,7 @@ class Transport
     /**
      * Get contactTo
      *
-     * @return \PB\TransportBundle\Entity\Contact
+     * @return Contact
      */
     public function getContactTo()
     {
@@ -559,11 +563,11 @@ class Transport
     /**
      * Set vehicule
      *
-     * @param \PB\TransportBundle\Entity\TypeVehicule $vehicule
+     * @param TypeVehicule $vehicule
      *
      * @return Transport
      */
-    public function setVehicule(\PB\TransportBundle\Entity\TypeVehicule $vehicule = null)
+    public function setVehicule(TypeVehicule $vehicule = null)
     {
         $this->vehicule = $vehicule;
 
@@ -573,7 +577,7 @@ class Transport
     /**
      * Get vehicule
      *
-     * @return \PB\TransportBundle\Entity\TypeVehicule
+     * @return TypeVehicule
      */
     public function getVehicule()
     {
