@@ -59,6 +59,7 @@ class Factures
     public function __construct()
     {
         $this->transports = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->datefacture = new \DateTime();
     }
 
     /**
