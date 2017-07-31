@@ -43,12 +43,6 @@ class Contact
      */
     private $phone;
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Adresse", inversedBy="contacts")
-    //  * @ORM\JoinColumn(name="adress_id", referencedColumnName="id", nullable=true)
-    //  */
-    // private $adress;
-
     /**
      * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur", inversedBy="contacts")
      * @ORM\JoinColumn(nullable=true)

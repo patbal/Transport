@@ -66,16 +66,6 @@ class TransportController extends Controller
     		'transport'	=> $transport));
     }
 
-    public function viewTransporteurAction(Transporteur $transporteur, $id)
-    {
-    	if (null === $transporteur) {
-      		throw new NotFoundHttpException("Ce transporteur n'existe pas !");
-    	}
-
-    	return $this->render('PBTransportBundle:Transport:viewTransporteur.html.twig', array(
-    		'transporteur'	=> $transporteur));
-    }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -162,6 +152,14 @@ class TransportController extends Controller
         return $this -> redirectToRoute('pb_transport_homepage');
     }
 
+    // *************************************************************************************************
+    // **************************************** CONTACTS ***********************************************
+    // *************************************************************************************************
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addContactAction(Request $request)
     {
     	$contact = new Contact();
@@ -221,6 +219,98 @@ class TransportController extends Controller
 
         return $this->render('PBTransportBundle:Transport:editContact.html.twig', ['contact' => $contact, 'form' => $form->createView(), 'titre' => "Modification de contact", 'boutonDel' => true]);
     }
+
+    public function deleteContactAction(Contact $contact, $id, Request $request)
+    {
+        if (null === $contact)
+        {
+            throw new NotFoundHttpException("contact inexistant en base de donnée");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($contact);
+        $em -> flush();
+
+        $request -> getSession() -> getFlashbag() -> add('alert', 'Contact Supprimé');
+        return $this -> redirectToRoute('pb_transport_homepage');
+    }
+
+    // *************************************************************************************************
+    // **************************************** TRANSPORTEURS ******************************************
+    // *************************************************************************************************
+
+    public function addTransporteurAction(Request $request)
+    {
+        $transporteur = new Transporteur();
+        $form = $this -> get('form.factory')->create(TransporteurType::class, $transporteur);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em -> persist($transporteur);
+            $em -> flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Transporteur ajouté');
+
+            return $this->redirectToRoute('pb_transport_homepage');
+        }
+
+        return $this->render('PBTransportBundle:Transport:editTransporteur.html.twig', array('form' => $form->createView(), 'titre' => "Ajout de Transporteur", 'boutonDel' => false));
+    }
+
+    public function viewTransporteurAction(Transporteur $transporteur, $id)
+    {
+        if (null === $transporteur) {
+            throw new NotFoundHttpException("Ce transporteur n'existe pas !");
+        }
+
+        return $this->render('PBTransportBundle:Transport:viewTransporteur.html.twig', array(
+            'transporteur'	=> $transporteur));
+    }
+
+    public function viewTransporteursAction()
+    {
+        $listTransporteurs = $this -> getDoctrine()->getRepository('PBTransportBundle:Transporteur')->getTransporteurs();
+        return $this -> render('PBTransportBundle:Transport:viewTransporteurs.html.twig', array('transporteurs' => $listTransporteurs));
+    }
+
+    public function editTransporteurAction(Transporteur $transporteur, $id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $form = $this -> get('form.factory')->create(TransporteurType::class, $transporteur);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+            $em->persist($transporteur);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Modification de transporteur effectuée');
+
+            return $this->redirectToRoute('pb_transport_viewtransporteurs');
+        }
+
+        return $this->render('PBTransportBundle:Transport:editTransporteur.html.twig', ['transporteur' => $transporteur, 'form' => $form->createView(), 'titre' => "Modification de transporteur", 'boutonDel' => true]);
+    }
+
+    public function deleteTransporteurAction(Transporteur $transporteur, $id, Request $request)
+    {
+        if (null === $transporteur)
+        {
+            throw new NotFoundHttpException("transporteur inexistant en base de donnée");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($transporteur);
+        $em -> flush();
+
+        $request -> getSession() -> getFlashbag() -> add('alert', 'Transporteur Supprimé');
+        return $this -> redirectToRoute('pb_transport_homepage');
+    }
+
+
+
+    // *************************************************************************************************
+    // **************************************** TRANSPORTS *********************************************
+    // *************************************************************************************************
 
     /**
      * @param Request $request

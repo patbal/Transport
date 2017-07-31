@@ -3,6 +3,7 @@
 namespace PB\TransportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Transporteur
@@ -64,15 +65,36 @@ class Transporteur
     private $phone;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
      * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="transporteur")
+     *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
     */
     private $contacts; 
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -168,7 +190,7 @@ class Transporteur
     /**
      * Get codepostal
      *
-     * @return int
+     * @return integer
      */
     public function getCodepostal()
     {
@@ -224,37 +246,6 @@ class Transporteur
     }
 
     /**
-     * Set contact
-     *
-     * @param string $contact
-     *
-     * @return Transporteur
-     */
-    public function setContact($contact)
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return string
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Add contact
      *
      * @param \PB\TransportBundle\Entity\Contact $contact
@@ -286,5 +277,29 @@ class Transporteur
     public function getContacts()
     {
         return $this->contacts;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Transporteur
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

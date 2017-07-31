@@ -12,7 +12,7 @@
 
     {{ include("PBTransportBundle:Transport:form.html.twig") }}
     {% if boutonDel == true %}
-        <a href="{{ path('pb_transport_deleteadresse', {'id': adresse.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer cette adresse ? Cette action est irrévocable.');">
+        <a href="{{ path('pb_transport_deletetransporteur', {'id': transporteur.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer cet transporteur ? Cette action est irrévocable.');">
             <i class="glyphicon glyphicon-trash"></i>
             Supprimer cette adresse
         </a>

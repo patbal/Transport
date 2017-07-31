@@ -5,7 +5,6 @@ namespace PB\TransportBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -20,7 +19,6 @@ use PB\TransportBundle\Form\AdresseType;
 use PB\TransportBundle\Form\ContactType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-// use PB\TransportBundle\Entity\TypeTransport;
 
 
 class TransportType extends AbstractType

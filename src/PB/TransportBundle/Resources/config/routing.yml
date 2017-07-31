@@ -88,6 +88,37 @@ pb_transport_deletecontact:
   requirements:
     id: \d+
 
+pb_transport_addtransporteur:
+  path: transporteur/add
+  defaults:
+    _controller: PBTransportBundle:Transport:addTransporteur
+
+pb_transport_edittransporteur:
+  path: transporteur/edit/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:editTransporteur
+    requirements:
+      id: \d+
+
+pb_transport_viewtransporteurs:
+  path: transporteur/view
+  defaults:
+    _controller: PBTransportBundle:Transport:viewTransporteurs
+
+pb_transport_viewtransporteur:
+  path: transporteur/view/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:viewTransporteur
+    requirements:
+      id: \d+
+
+pb_transport_deletetransporteur:
+  path: transporteur/delete/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:deleteTransporteur
+  requirements:
+    id: \d+
+
 pb_transport_deleteadresse:
   path: adresse/delete/{id}
   defaults:

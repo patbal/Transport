@@ -1,0 +1,48 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block header %}
+	<div id="header" class="well h2 text-center">
+		Liste des transporteurs
+	</div>
+{% endblock %}
+
+{% block title %}
+
+Transporteur - {{ parent() }}
+
+{% endblock %}
+
+{% block pbtransport_body %}
+	<table class="table table-hover">
+		<tr>
+			<th>Société</th>
+			<th>Adresse</th>
+			<th>Comp. Adresse</th>
+			<th>CP</th>
+			<th>Ville</th>
+			<th>email</th>
+			<th>Téléphone</th>
+		</tr>
+
+		{% for transporteur in transporteurs %}
+			<tr>
+				<td>
+					<a href="{{ path ('pb_transport_edittransporteur', {'id': transporteur.id}) }}">
+						{{ transporteur.nom }}
+					</a>
+				</td>
+				<td>{{ transporteur.adresseRue }}</td>
+				<td>{{ transporteur.adresseRue2 }}</td>
+				<td>{{ transporteur.codepostal }}</td>
+				<td>{{ transporteur.ville }}</td>
+				<td>{{ transporteur.email }}</td>
+				<td>{{ transporteur.phone }}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas de transporteur en base de donnée</td>
+
+		{% endfor %}
+	</table>
+	
+{% endblock %}

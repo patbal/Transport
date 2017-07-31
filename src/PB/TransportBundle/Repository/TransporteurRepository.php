@@ -10,4 +10,10 @@ namespace PB\TransportBundle\Repository;
  */
 class TransporteurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTransporteurs()
+    {
+        $qb = $this ->createQueryBuilder('t')
+            -> orderBy('t.nom');
+        return $qb -> getQuery()->getResult();
+    }
 }
