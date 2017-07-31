@@ -2,7 +2,11 @@
 
 namespace PB\TransportBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use PB\TransportBundle\Entity\Transport;
+use PB\TransportBundle\Entity\Transporteur;
 
 /**
  * Factures
@@ -58,7 +62,7 @@ class Factures
      */
     public function __construct()
     {
-        $this->transports = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->transports = new ArrayCollection();
         $this->datefacture = new \DateTime();
     }
 
@@ -147,11 +151,11 @@ class Factures
     /**
      * Set transporteur
      *
-     * @param \PB\TransportBundle\Entity\Transporteur $transporteur
+     * @param Transporteur $transporteur
      *
      * @return Factures
      */
-    public function setTransporteur(\PB\TransportBundle\Entity\Transporteur $transporteur = null)
+    public function setTransporteur(Transporteur $transporteur = null)
     {
         $this->transporteur = $transporteur;
 
@@ -161,7 +165,7 @@ class Factures
     /**
      * Get transporteur
      *
-     * @return \PB\TransportBundle\Entity\Transporteur
+     * @return Transporteur
      */
     public function getTransporteur()
     {
@@ -171,11 +175,11 @@ class Factures
     /**
      * Add transport
      *
-     * @param \PB\TransportBundle\Entity\Transport $transport
+     * @param Transport $transport
      *
      * @return Factures
      */
-    public function addTransport(\PB\TransportBundle\Entity\Transport $transport)
+    public function addTransport(Transport $transport)
     {
         $this->transports[] = $transport;
         $transport -> setFacture($this);
@@ -186,9 +190,9 @@ class Factures
     /**
      * Remove transport
      *
-     * @param \PB\TransportBundle\Entity\Transport $transport
+     * @param Transport $transport
      */
-    public function removeTransport(\PB\TransportBundle\Entity\Transport $transport)
+    public function removeTransport(Transport $transport)
     {
         $this->transports->removeElement($transport);
     }
@@ -196,7 +200,7 @@ class Factures
     /**
      * Get transports
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTransports()
     {
