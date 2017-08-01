@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransporteur.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransporteurs.html.twig" />
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/TransporteurRepository.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/TransporteurRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editAdresse.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editAdresse.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,8 +47,8 @@
       <file leaf-file-name="TransporteurType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            <state relative-caret-position="615">
+              <caret line="41" column="63" lean-forward="true" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
               <folding>
                 <element signature="e#43#101#0#PHP" expanded="true" />
               </folding>
@@ -344,7 +333,7 @@
       <updated>1501544838975</updated>
       <workItem from="1501539720884" duration="91000" />
       <workItem from="1501539853099" duration="1438000" />
-      <workItem from="1501544839379" duration="507000" />
+      <workItem from="1501544839379" duration="1002000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -360,11 +349,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501541597287</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)">
+      <created>1501545379578</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1501545379578</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20189000" />
+    <option name="totallyTimeSpent" value="20684000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,11 +373,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32769045" sideWeight="0.50277776" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.50277776" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -448,7 +445,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="constructeur de Factures modifié" />
     <MESSAGE value="Ajout des fonctionnalité &quot;contact&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fonctionnalité &quot;contact&quot;" />
+    <MESSAGE value="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -762,8 +760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        <state relative-caret-position="615">
+          <caret line="41" column="63" lean-forward="true" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="63" />
           <folding>
             <element signature="e#43#101#0#PHP" expanded="true" />
           </folding>
