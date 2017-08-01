@@ -22,6 +22,7 @@ Transporteur - {{ parent() }}
 			<th>Ville</th>
 			<th>email</th>
 			<th>Téléphone</th>
+			<th>Contact(s)</th>
 		</tr>
 
 		{% for transporteur in transporteurs %}
@@ -37,6 +38,8 @@ Transporteur - {{ parent() }}
 				<td>{{ transporteur.ville }}</td>
 				<td>{{ transporteur.email }}</td>
 				<td>{{ transporteur.phone }}</td>
+				<td>{% for contact in transporteur.contacts %}
+					{{ contact }}{% if not loop.last %}, {% endif %}{% endfor %}</td>
 			</tr>
 
 		{% else %}

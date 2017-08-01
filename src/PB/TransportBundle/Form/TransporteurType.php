@@ -6,6 +6,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,10 +20,10 @@ class TransporteurType extends AbstractType
     {
         $builder
             ->add('nom',            TextType::class, array('label'=>'Société'))
-            ->add('adresseRue',     TextType::class, array('label'=>'Adresse'))
-            ->add('adresseRue2',    TextType::class, array('required' => false, 'label'=>"Complément d'adresse"))
-            ->add('codepostal',     IntegerType::class, array('label'=>'Code Postal'))
-            ->add('ville',          TextType::class, array('label'=>'Ville'))
+            ->add('adresseRue',     TextType::class, array('label'=>'Adresse', 'required' => false))
+            ->add('adresseRue2',    TextType::class, array('required' => false, 'label'=>"Complément d'adresse", 'required' => false))
+            ->add('codepostal',     IntegerType::class, array('label'=>'Code Postal', 'required' => false))
+            ->add('ville',          TextType::class, array('label'=>'Ville', 'required' => false))
             ->add('phone',          TextType::class, array('required' => false, 'label'=>'N° de téléphone'))
             ->add('email',          TextType::class, array('required' => false))
             ->add('contacts',        EntityType::class, array(

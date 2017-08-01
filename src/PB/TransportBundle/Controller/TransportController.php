@@ -6,7 +6,7 @@ use PB\TransportBundle\Entity\Transport;
 use PB\TransportBundle\Entity\Adresse;
 use PB\TransportBundle\Entity\Contact;
 use PB\TransportBundle\Entity\Transporteur;
-use PB\TransportBundle\Form\TransportType;
+use Doctrine\Common\Collections\ArrayCollection;
 use PB\TransportBundle\Form\DetailTransportType;
 use PB\TransportBundle\Form\TransportBriefType;
 use PB\TransportBundle\Form\TransportEditType;
@@ -246,6 +246,9 @@ class TransportController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+
+
             $em -> persist($transporteur);
             $em -> flush();
 
@@ -273,12 +276,37 @@ class TransportController extends Controller
         return $this -> render('PBTransportBundle:Transport:viewTransporteurs.html.twig', array('transporteurs' => $listTransporteurs));
     }
 
+    /**
+     * @param Transporteur $transporteur
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function editTransporteurAction(Transporteur $transporteur, $id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $form = $this -> get('form.factory')->create(TransporteurType::class, $transporteur);
 
+
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+            $contactsTransporteur = $transporteur->getContacts();
+            foreach ($contactsTransporteur as $contact) {
+                $contact->setTransporteur($transporteur);
+                $em->persist($contact);
+            }
+//*            $datas = $form->getData();
+//*            $contacts = $datas->getContacts();
+//*            foreach ($contactsTransporteur->getIterator() as $contact) {
+//*                if (!$contacts->contains($contact)) {
+//*                    $transporteur->removeContact($contact);
+//*                    $contact->setTransporteur(null);
+//*                    $em -> persist($contact);
+//*                }
+//*                $contact->setTransporteur($transporteur);
+//*                $em -> persist($contact);
+//*            }
+
 
             $em->persist($transporteur);
             $em->flush();
@@ -287,6 +315,15 @@ class TransportController extends Controller
 
             return $this->redirectToRoute('pb_transport_viewtransporteurs');
         }
+
+        if (!empty($transporteur->getContacts())){
+            foreach ($transporteur->getContacts() as $contact) {
+                $contact->setTransporteur(null);
+                $em->persist($contact);
+            }
+            $em->flush();
+        }
+
 
         return $this->render('PBTransportBundle:Transport:editTransporteur.html.twig', ['transporteur' => $transporteur, 'form' => $form->createView(), 'titre' => "Modification de transporteur", 'boutonDel' => true]);
     }

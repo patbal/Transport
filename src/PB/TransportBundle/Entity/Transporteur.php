@@ -4,6 +4,7 @@ namespace PB\TransportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use PB\TransportBundle\Entity\Contact;
 
 /**
  * Transporteur
@@ -32,7 +33,7 @@ class Transporteur
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse_rue", type="string", length=255)
+     * @ORM\Column(name="adresse_rue", type="string", length=255, nullable=true)
      */
     private $adresseRue;
 
@@ -46,14 +47,14 @@ class Transporteur
     /**
      * @var int
      *
-     * @ORM\Column(name="codepostal", type="integer")
+     * @ORM\Column(name="codepostal", type="integer", nullable=true)
      */
     private $codepostal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255)
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
      */
     private $ville;
 
@@ -68,17 +69,17 @@ class Transporteur
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
     /**
      * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="transporteur")
      *
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
-     * )
-    */
+     */
     private $contacts; 
 
 
@@ -89,6 +90,7 @@ class Transporteur
     public function __construct()
     {
         $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this -> email = 'adressnonrenseignee@ull.com';
     }
 
     /**
@@ -252,10 +254,9 @@ class Transporteur
      *
      * @return Transporteur
      */
-    public function addContact(\PB\TransportBundle\Entity\Contact $contact)
+    public function addContact(Contact $contact)
     {
         $this->contacts[] = $contact;
-
         return $this;
     }
 
@@ -264,7 +265,7 @@ class Transporteur
      *
      * @param \PB\TransportBundle\Entity\Contact $contact
      */
-    public function removeContact(\PB\TransportBundle\Entity\Contact $contact)
+    public function removeContact(Contact $contact)
     {
         $this->contacts->removeElement($contact);
     }
@@ -302,4 +303,25 @@ class Transporteur
     {
         return $this->email;
     }
+
+/*
+    public function compareContacts(Transporteur $newTransporteur)
+    {
+        $oldContacts = $this->getContacts();
+        $newContacts = $newTransporteur->getContacts();
+        $em = $this->getEntityManager();
+        foreach($newContacts->getIterator() as $newContact);
+        {
+            foreach ($oldContacts->getIterator() as $oldContact)
+            {
+                if (!$newContacts->contains($oldContact)) {
+                    $newContact->setTransporteur(null);
+                    $em->persist($newContact);
+                }
+            }
+            $newContact->setTransporteur($newTransporteur);
+            $em -> persist($newTransporteur);
+        }
+        return $this;
+    }*/
 }
