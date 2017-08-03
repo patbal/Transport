@@ -2,12 +2,14 @@
 
 namespace PB\TransportBundle\Controller;
 
+use PB\TransportBundle\Entity\Factures;
 use PB\TransportBundle\Entity\Transport;
 use PB\TransportBundle\Entity\Adresse;
 use PB\TransportBundle\Entity\Contact;
 use PB\TransportBundle\Entity\Transporteur;
 use Doctrine\Common\Collections\ArrayCollection;
 use PB\TransportBundle\Form\DetailTransportType;
+use PB\TransportBundle\Form\FacturesType;
 use PB\TransportBundle\Form\TransportBriefType;
 use PB\TransportBundle\Form\TransportEditType;
 use PB\TransportBundle\Form\AdresseType;
@@ -36,7 +38,7 @@ class TransportController extends Controller
 	      ->getRepository('PBTransportBundle:Transport')
 	      ->getTransports($page, $nbPerPage)
 	    ;
-	    // On calcule le nombre total de pages grâce au count($listAdverts) qui retourne le nombre total d'annonces
+	    // On calcule le nombre total de pages grâce au count($listTransports) qui retourne le nombre total de transport
 	    $nbPages = ceil(count($listTransports) / $nbPerPage);
 	    // Si la page n'existe pas, on retourne une 404
 	    if ($page > $nbPages) {
@@ -49,21 +51,6 @@ class TransportController extends Controller
 	      'page'        => $page,
 	    ));
 
-    }
-
-    /**
-     * @param Transport $transport
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function viewTransportAction(Transport $transport, $id)
-    {
-    	if (null === $transport) {
-      		throw new NotFoundHttpException("Cette demande de transport n'existe pas !");
-    	}
-
-    	return $this->render('PBTransportBundle:Transport:viewTransport.html.twig', array(
-    		'transport'	=> $transport));
     }
 
     /**
@@ -239,6 +226,10 @@ class TransportController extends Controller
     // **************************************** TRANSPORTEURS ******************************************
     // *************************************************************************************************
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addTransporteurAction(Request $request)
     {
         $transporteur = new Transporteur();
@@ -246,20 +237,27 @@ class TransportController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
-
+            foreach ($transporteur->getContacts() as $contact) {
+                $contact->setTransporteur($transporteur);
+                $em->persist($contact);
+            }
 
             $em -> persist($transporteur);
             $em -> flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'Transporteur ajouté');
 
-            return $this->redirectToRoute('pb_transport_homepage');
+            return $this->redirectToRoute('pb_transport_viewtransporteurs');
         }
 
         return $this->render('PBTransportBundle:Transport:editTransporteur.html.twig', array('form' => $form->createView(), 'titre' => "Ajout de Transporteur", 'boutonDel' => false));
     }
 
+    /**
+     * @param Transporteur $transporteur
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewTransporteurAction(Transporteur $transporteur, $id)
     {
         if (null === $transporteur) {
@@ -270,11 +268,15 @@ class TransportController extends Controller
             'transporteur'	=> $transporteur));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewTransporteursAction()
     {
         $listTransporteurs = $this -> getDoctrine()->getRepository('PBTransportBundle:Transporteur')->getTransporteurs();
         return $this -> render('PBTransportBundle:Transport:viewTransporteurs.html.twig', array('transporteurs' => $listTransporteurs));
     }
+
 
     /**
      * @param Transporteur $transporteur
@@ -290,22 +292,20 @@ class TransportController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
-            $contactsTransporteur = $transporteur->getContacts();
-            foreach ($contactsTransporteur as $contact) {
+            // On boucle sur l'entité originale pour en supprimer les contacts Transporteur qui ne sont pas présents dans la nouvelle...
+            $oldContacts = $em->getRepository(Contact::class)->findBytransporteur($transporteur->getId());
+            foreach ($oldContacts as $oldContact) {
+                if (!$transporteur->getContacts()->contains($oldContact)){
+                    $oldContact->setTransporteur(null);
+                    $em->persist($oldContact);
+                }
+            }
+
+            // puis on boucle sur la nouvelle pour lui injecter les contacts sélectionnés
+            foreach ($transporteur->getContacts() as $contact) {
                 $contact->setTransporteur($transporteur);
                 $em->persist($contact);
             }
-//*            $datas = $form->getData();
-//*            $contacts = $datas->getContacts();
-//*            foreach ($contactsTransporteur->getIterator() as $contact) {
-//*                if (!$contacts->contains($contact)) {
-//*                    $transporteur->removeContact($contact);
-//*                    $contact->setTransporteur(null);
-//*                    $em -> persist($contact);
-//*                }
-//*                $contact->setTransporteur($transporteur);
-//*                $em -> persist($contact);
-//*            }
 
 
             $em->persist($transporteur);
@@ -316,18 +316,15 @@ class TransportController extends Controller
             return $this->redirectToRoute('pb_transport_viewtransporteurs');
         }
 
-        if (!empty($transporteur->getContacts())){
-            foreach ($transporteur->getContacts() as $contact) {
-                $contact->setTransporteur(null);
-                $em->persist($contact);
-            }
-            $em->flush();
-        }
-
-
         return $this->render('PBTransportBundle:Transport:editTransporteur.html.twig', ['transporteur' => $transporteur, 'form' => $form->createView(), 'titre' => "Modification de transporteur", 'boutonDel' => true]);
     }
 
+    /**
+     * @param Transporteur $transporteur
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteTransporteurAction(Transporteur $transporteur, $id, Request $request)
     {
         if (null === $transporteur)
@@ -373,7 +370,13 @@ class TransportController extends Controller
 		return $this->render('PBTransportBundle:Transport:addTransport.html.twig', array('form' => $form->createView()));
 	}
 
-	public function addDetailTransportAction(Transport $transport, $id, Request $request)
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addDetailTransportAction(Transport $transport, $id, Request $request)
 	{
 		$form = $this -> get('form.factory')->create(DetailTransportType::class, $transport); //type hérité de transport, avec suppression de champs
 
@@ -393,7 +396,13 @@ class TransportController extends Controller
 
 	}
 
-	public function deleteTransportAction(Transport $transport, $id, Request $request)
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteTransportAction(Transport $transport, $id, Request $request)
 	{
 		if (null === $transport)
 		{
@@ -408,7 +417,13 @@ class TransportController extends Controller
 		return $this -> redirectToRoute('pb_transport_homepage');
 	}
 
-	public function editTransportAction(Transport $transport, $id, Request $request)
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function editTransportAction(Transport $transport, $id, Request $request)
 	{
 		if (null === $transport)
 		{
@@ -430,6 +445,88 @@ class TransportController extends Controller
 
 
 	}
+
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewTransportAction(Transport $transport, $id)
+    {
+        if (null === $transport) {
+            throw new NotFoundHttpException("Cette demande de transport n'existe pas !");
+        }
+
+        return $this->render('PBTransportBundle:Transport:viewTransport.html.twig', array(
+            'transport'	=> $transport));
+    }
+
+    // *************************************************************************************************
+    // **************************************** FACTURES ***********************************************
+    // *************************************************************************************************
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addFactureAction(Request $request)
+    {
+        $facture = new Factures();
+        $form = $this -> get('form.factory')->create(FacturesType::class, $facture);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em -> persist($facture);
+            $em -> flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Facture bien enregistrée.');
+
+            return $this->redirectToRoute('pb_transport_viewfactures');
+        }
+
+        return $this->render('PBTransportBundle:Transport:editFacture.html.twig', array('facture'=>$facture, 'form' => $form->createView(), 'titre'=>'Entrée d\'une facture', 'boutonDel' => true));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewFacturesAction($page)
+    {
+        if ($page < 1) {
+            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+        }
+
+        $nbPerPage = $this -> container -> getParameter('nb_per_page');
+
+        $listFactures = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PBTransportBundle:Factures')
+            ->getFactures($page, $nbPerPage)
+        ;
+        $nbPages = ceil(count($listFactures) / $nbPerPage);
+
+        if ($page > $nbPages) {
+            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+        }
+
+        return $this->render('PBTransportBundle:Transport:viewFactures.html.twig', array(
+            'listFactures' => $listFactures,
+            'nbPages'     => $nbPages,
+            'page'        => $page,
+        ));
+    }
+
+    public function viewFactureAction(Factures $facture, $id)
+    {
+        if (null === $facture) {
+            throw new NotFoundHttpException('Facture inexistante.');
+        }
+
+        $transports = $this -> getDoctrine()->getRepository('PBTransportBundle:Transport')->findByfacture($facture->getId());
+
+        return $this -> render('PBTransportBundle:Transport:viewFacture.html.twig', array('facture'=>$facture, 'transports'=>$transports));
+    }
 
 
 }

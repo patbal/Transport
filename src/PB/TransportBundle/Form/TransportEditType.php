@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -96,7 +97,19 @@ class TransportEditType extends AbstractType
 
         ->add('factureRecue',   CheckboxType::class, array('required'=>false))
 
-        ->add('save',            submitType::class);
+        ->add('facture',        EntityType::class, array(
+            'label'=>'N° de facture Transporteur',
+            'class'=>'PB\TransportBundle\Entity\Factures',
+            'query_builder'=> function(EntityRepository $er){return $er->createQueryBuilder('f')
+                ->orderBy('f.datefacture', 'DESC');},
+            'choice_label'=>'numerofacture',
+            'multiple'=>false,
+            'expanded'=>false,
+            'required'=>false))
+
+        ->add('montantfacture', MoneyType::class, ['label'=>'Coût du transport', 'currency'=>'EUR', 'required'=>false])
+
+        ->add('save',           submitType::class);
 
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA, // 1er argument : L'évènement qui nous intéresse : ici, PRE_SET_DATA
@@ -144,7 +157,7 @@ class TransportEditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PB\transportBundle\Entity\transport'
+            'data_class' => 'PB\TransportBundle\Entity\Transport'
         ));
     }
 

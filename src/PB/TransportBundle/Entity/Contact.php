@@ -44,7 +44,7 @@ class Contact
     private $phone;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur", inversedBy="contacts", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="PB\TransportBundle\Entity\Transporteur", inversedBy="contacts")
      * @ORM\JoinColumn(nullable=true)
      */
     private $transporteur;

@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)">
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Ajout des fonctionnalités &quot;transporteur&quot;&#10;--&gt; Problème de gestion des contacts dans Transporteur">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/FacturesType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editFacture.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFacture.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/ContactRepository.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/ContactRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransporteurs.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransporteurs.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportEditType.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportEditType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/FacturesRepository.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Repository/FacturesRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,66 +61,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TransportController.php" pinned="true" current-in-tab="true">
+      <file leaf-file-name="TransportController.php" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+            <state relative-caret-position="1433">
+              <caret line="519" column="61" lean-forward="false" selection-start-line="519" selection-start-column="61" selection-end-line="519" selection-end-column="61" />
               <folding>
-                <element signature="e#49#89#0#PHP" expanded="true" />
-                <element signature="e#1158#1187#1#PHP" expanded="true" />
-                <element signature="e#2989#3012#1#PHP" expanded="true" />
-                <element signature="e#3055#3106#0#PHP" expanded="true" />
-                <element signature="e#3417#3444#1#PHP" expanded="true" />
-                <element signature="e#3974#4001#1#PHP" expanded="true" />
-                <element signature="e#5248#5271#1#PHP" expanded="true" />
-                <element signature="e#6208#6231#1#PHP" expanded="true" />
-                <element signature="e#6262#6313#0#PHP" expanded="true" />
-                <element signature="e#7019#7046#1#PHP" expanded="true" />
-                <element signature="e#7095#7147#0#PHP" expanded="true" />
-                <element signature="e#7710#7737#1#PHP" expanded="true" />
-                <element signature="e#7780#7831#0#PHP" expanded="true" />
-                <element signature="e#8415#8438#1#PHP" expanded="true" />
-                <element signature="e#9317#9340#1#PHP" expanded="true" />
-                <element signature="e#9383#9439#0#PHP" expanded="true" />
-                <element signature="e#9784#9840#0#PHP" expanded="true" />
-                <element signature="e#10022#10054#1#PHP" expanded="true" />
-                <element signature="e#10108#10165#0#PHP" expanded="true" />
-                <element signature="e#11764#11796#1#PHP" expanded="true" />
-                <element signature="e#12096#12152#0#PHP" expanded="true" />
-                <element signature="e#12786#12809#1#PHP" expanded="true" />
-                <element signature="e#13827#13860#0#PHP" expanded="true" />
-                <element signature="e#13936#13988#0#PHP" expanded="true" />
+                <element signature="e#49#88#0#PHP" expanded="true" />
+                <element signature="e#1240#1269#1#PHP" expanded="true" />
+                <element signature="e#2620#2643#1#PHP" expanded="true" />
+                <element signature="e#2686#2737#0#PHP" expanded="true" />
+                <element signature="e#3048#3075#1#PHP" expanded="true" />
+                <element signature="e#3605#3632#1#PHP" expanded="true" />
+                <element signature="e#4879#4902#1#PHP" expanded="true" />
+                <element signature="e#5839#5862#1#PHP" expanded="true" />
+                <element signature="e#5893#5944#0#PHP" expanded="true" />
+                <element signature="e#6650#6677#1#PHP" expanded="true" />
+                <element signature="e#6726#6778#0#PHP" expanded="true" />
+                <element signature="e#7341#7368#1#PHP" expanded="true" />
+                <element signature="e#7411#7462#0#PHP" expanded="true" />
+                <element signature="e#8046#8069#1#PHP" expanded="true" />
+                <element signature="e#9279#9311#1#PHP" expanded="true" />
+                <element signature="e#9354#9410#0#PHP" expanded="true" />
+                <element signature="e#9888#9944#0#PHP" expanded="true" />
+                <element signature="e#10200#10232#1#PHP" expanded="true" />
+                <element signature="e#10286#10343#0#PHP" expanded="true" />
+                <element signature="e#11944#11976#1#PHP" expanded="true" />
+                <element signature="e#12019#12075#0#PHP" expanded="true" />
+                <element signature="e#12881#12904#1#PHP" expanded="true" />
+                <element signature="e#13922#13955#0#PHP" expanded="true" />
+                <element signature="e#14031#14083#0#PHP" expanded="true" />
+                <element signature="e#18281#18308#1#PHP" expanded="true" />
+                <element signature="e#18351#18402#0#PHP" expanded="true" />
+                <element signature="e#18939#18967#1#PHP" expanded="true" />
+                <element signature="e#19242#19294#0#PHP" expanded="true" />
+                <element signature="e#19683#19712#1#PHP" expanded="true" />
+                <element signature="e#19781#19832#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Contact.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php">
+      <file leaf-file-name="viewTransport.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+            <state relative-caret-position="613">
+              <caret line="67" column="232" lean-forward="false" selection-start-line="67" selection-start-column="232" selection-end-line="67" selection-end-column="232" />
               <folding>
-                <element signature="e#45#77#0#PHP" expanded="true" />
+                <element signature="e#3398#3422#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewTransporteurs.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransporteurs.html.twig">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            <state relative-caret-position="328">
+              <caret line="32" column="89" lean-forward="false" selection-start-line="32" selection-start-column="89" selection-end-line="32" selection-end-column="89" />
               <folding>
-                <element signature="e#560#589#0#Twig" expanded="true" />
+                <element signature="e#878#904#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Factures.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="793">
+              <caret line="54" column="107" lean-forward="false" selection-start-line="54" selection-start-column="107" selection-end-line="54" selection-end-column="107" />
+              <folding>
+                <element signature="e#45#93#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editTransport.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="710">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="702">
+              <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>PB\transportBundle\Entity\transport</find>
+      <find>PB\transportBundle\Entity</find>
+      <find>findby</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,22 +178,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transport.php" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addTransport.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addDetailTransport.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewAdresses.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addContact.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewContacts.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editContact.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editAdresse.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransporteur.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransporteurType.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransporteurs.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Repository/ContactRepository.php" />
@@ -145,9 +194,23 @@
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/CompareContacts/PBCompareContact.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Repository/FacturesRepository.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editFacture.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/FacturesType.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFacture.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportEditType.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" />
       </list>
     </option>
   </component>
@@ -247,7 +310,14 @@
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
               <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
@@ -435,7 +505,7 @@
       <updated>1501544838975</updated>
       <workItem from="1501539720884" duration="91000" />
       <workItem from="1501539853099" duration="1438000" />
-      <workItem from="1501544839379" duration="17073000" />
+      <workItem from="1501544839379" duration="34410000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -458,11 +528,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501545379578</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ajout des fonctionnalités &quot;transporteur&quot;&#10;--&gt; Problème de gestion des contacts dans Transporteur">
+      <created>1501628337117</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1501628337117</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36755000" />
+    <option name="totallyTimeSpent" value="54092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,7 +625,8 @@
     <MESSAGE value="constructeur de Factures modifié" />
     <MESSAGE value="Ajout des fonctionnalité &quot;contact&quot;" />
     <MESSAGE value="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)" />
+    <MESSAGE value="Ajout des fonctionnalités &quot;transporteur&quot;&#10;--&gt; Problème de gestion des contacts dans Transporteur" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fonctionnalités &quot;transporteur&quot;&#10;--&gt; Problème de gestion des contacts dans Transporteur" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -559,7 +637,7 @@
           </selected-grouping-rules>
         </breakpoints-dialog>
       </breakpoints-dialog>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -569,16 +647,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="209" column="0" lean-forward="true" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#93#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,49 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" column="16" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="82" selection-end-column="16" />
-          <folding>
-            <element signature="e#12#47#0#Twig" expanded="false" />
-            <element signature="e#3579#3607#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addDetailTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -681,24 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/ContactType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editAdresse.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -717,72 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="49" column="88" lean-forward="false" selection-start-line="49" selection-start-column="88" selection-end-line="49" selection-end-column="88" />
-          <folding>
-            <element signature="e#1326#1347#0#Twig" expanded="true" />
-            <element signature="e#1405#1430#0#Twig" expanded="true" />
-            <element signature="e#1801#1829#0#Twig" expanded="true" />
-            <element signature="e#1917#1940#0#Twig" expanded="true" />
-            <element signature="e#2022#2045#0#Twig" expanded="true" />
-            <element signature="e#2448#2478#0#Twig" expanded="true" />
-            <element signature="e#2566#2591#0#Twig" expanded="true" />
-            <element signature="e#2674#2699#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewAdresses.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#12#47#0#Twig" expanded="false" />
-            <element signature="e#478#502#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransporteur.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#397#428#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" column="25" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editContact.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -792,16 +737,8 @@
         <state relative-caret-position="513">
           <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding>
-            <element signature="e#560#589#0#Twig" expanded="true" />
+            <element signature="e#560#589#0#Twig" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/ContactRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,26 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding>
-            <element signature="e#45#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="251" column="6" lean-forward="false" selection-start-line="251" selection-start-column="6" selection-end-line="251" selection-end-column="6" />
-          <folding>
-            <element signature="e#45#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://PHP/\PB\TransportBundle\Controller\TransportController">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -886,35 +803,314 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://PHP//Users/patbal/Sites/Transport">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/tests</node>
+            <node x="" y="">$PROJECT_DIR$/web</node>
+            <node x="" y="">$PROJECT_DIR$/app</node>
+            <node x="" y="">$PROJECT_DIR$/bin</node>
+            <node x="" y="">$PROJECT_DIR$/var</node>
+            <node x="" y="">$PROJECT_DIR$/vendor</node>
+            <node x="" y="">$PROJECT_DIR$/src</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="121.5" y="88.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\PB\TransportBundle\Entity\Contact">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\PB\TransportBundle\Entity\Contact</OriginalElement>
+          <nodes>
+            <node x="" y="">\PB\TransportBundle\Entity\Contact</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="40.5" y="14.5" />
+          <SelectedNodes />
+          <Categories />
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addDetailTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewAdresses.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transporteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1097">
+          <caret line="46" column="98" lean-forward="false" selection-start-line="46" selection-start-column="98" selection-end-line="46" selection-end-column="98" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/ContactType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/ContactRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/TransportRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/FacturesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+          <folding>
+            <element signature="e#493#517#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/FacturesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+          <folding>
+            <element signature="e#43#99#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="53" column="102" lean-forward="false" selection-start-line="53" selection-start-column="102" selection-end-line="53" selection-end-column="102" />
+          <folding>
+            <element signature="e#2121#2144#0#Twig" expanded="true" />
+            <element signature="e#2772#2797#0#Twig" expanded="true" />
+            <element signature="e#2875#2900#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editFacture.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+          <folding>
+            <element signature="e#414#440#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransporteur.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1858">
+          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/DetailTransportType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportEditType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="109" column="117" lean-forward="false" selection-start-line="109" selection-start-column="117" selection-end-line="109" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFacture.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="118" lean-forward="false" selection-start-line="25" selection-start-column="118" selection-end-line="25" selection-end-column="118" />
+          <folding>
+            <element signature="e#859#885#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+        <state relative-caret-position="1433">
+          <caret line="519" column="61" lean-forward="false" selection-start-line="519" selection-start-column="61" selection-end-line="519" selection-end-column="61" />
           <folding>
-            <element signature="e#49#89#0#PHP" expanded="true" />
-            <element signature="e#1158#1187#1#PHP" expanded="true" />
-            <element signature="e#2989#3012#1#PHP" expanded="true" />
-            <element signature="e#3055#3106#0#PHP" expanded="true" />
-            <element signature="e#3417#3444#1#PHP" expanded="true" />
-            <element signature="e#3974#4001#1#PHP" expanded="true" />
-            <element signature="e#5248#5271#1#PHP" expanded="true" />
-            <element signature="e#6208#6231#1#PHP" expanded="true" />
-            <element signature="e#6262#6313#0#PHP" expanded="true" />
-            <element signature="e#7019#7046#1#PHP" expanded="true" />
-            <element signature="e#7095#7147#0#PHP" expanded="true" />
-            <element signature="e#7710#7737#1#PHP" expanded="true" />
-            <element signature="e#7780#7831#0#PHP" expanded="true" />
-            <element signature="e#8415#8438#1#PHP" expanded="true" />
-            <element signature="e#9317#9340#1#PHP" expanded="true" />
-            <element signature="e#9383#9439#0#PHP" expanded="true" />
-            <element signature="e#9784#9840#0#PHP" expanded="true" />
-            <element signature="e#10022#10054#1#PHP" expanded="true" />
-            <element signature="e#10108#10165#0#PHP" expanded="true" />
-            <element signature="e#11764#11796#1#PHP" expanded="true" />
-            <element signature="e#12096#12152#0#PHP" expanded="true" />
-            <element signature="e#12786#12809#1#PHP" expanded="true" />
-            <element signature="e#13827#13860#0#PHP" expanded="true" />
-            <element signature="e#13936#13988#0#PHP" expanded="true" />
+            <element signature="e#49#88#0#PHP" expanded="true" />
+            <element signature="e#1240#1269#1#PHP" expanded="true" />
+            <element signature="e#2620#2643#1#PHP" expanded="true" />
+            <element signature="e#2686#2737#0#PHP" expanded="true" />
+            <element signature="e#3048#3075#1#PHP" expanded="true" />
+            <element signature="e#3605#3632#1#PHP" expanded="true" />
+            <element signature="e#4879#4902#1#PHP" expanded="true" />
+            <element signature="e#5839#5862#1#PHP" expanded="true" />
+            <element signature="e#5893#5944#0#PHP" expanded="true" />
+            <element signature="e#6650#6677#1#PHP" expanded="true" />
+            <element signature="e#6726#6778#0#PHP" expanded="true" />
+            <element signature="e#7341#7368#1#PHP" expanded="true" />
+            <element signature="e#7411#7462#0#PHP" expanded="true" />
+            <element signature="e#8046#8069#1#PHP" expanded="true" />
+            <element signature="e#9279#9311#1#PHP" expanded="true" />
+            <element signature="e#9354#9410#0#PHP" expanded="true" />
+            <element signature="e#9888#9944#0#PHP" expanded="true" />
+            <element signature="e#10200#10232#1#PHP" expanded="true" />
+            <element signature="e#10286#10343#0#PHP" expanded="true" />
+            <element signature="e#11944#11976#1#PHP" expanded="true" />
+            <element signature="e#12019#12075#0#PHP" expanded="true" />
+            <element signature="e#12881#12904#1#PHP" expanded="true" />
+            <element signature="e#13922#13955#0#PHP" expanded="true" />
+            <element signature="e#14031#14083#0#PHP" expanded="true" />
+            <element signature="e#18281#18308#1#PHP" expanded="true" />
+            <element signature="e#18351#18402#0#PHP" expanded="true" />
+            <element signature="e#18939#18967#1#PHP" expanded="true" />
+            <element signature="e#19242#19294#0#PHP" expanded="true" />
+            <element signature="e#19683#19712#1#PHP" expanded="true" />
+            <element signature="e#19781#19832#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Factures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="54" column="107" lean-forward="false" selection-start-line="54" selection-start-column="107" selection-end-line="54" selection-end-column="107" />
+          <folding>
+            <element signature="e#45#93#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="32" column="89" lean-forward="false" selection-start-line="32" selection-start-column="89" selection-end-line="32" selection-end-column="89" />
+          <folding>
+            <element signature="e#878#904#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="67" column="232" lean-forward="false" selection-start-line="67" selection-start-column="232" selection-end-line="67" selection-end-column="232" />
+          <folding>
+            <element signature="e#3398#3422#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

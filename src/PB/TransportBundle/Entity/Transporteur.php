@@ -77,7 +77,7 @@ class Transporteur
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="transporteur")
+     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Contact", mappedBy="transporteur", cascade={"all"})
      *
      */
     private $contacts; 

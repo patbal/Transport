@@ -4,6 +4,14 @@
 {% endblock %}
 
 {% block body %}
-  {% block pbtransport_body %}
-  {% endblock %}
+    {% for message in app.session.flashbag.get('alert') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {% block pbtransport_body %}
+    {% endblock %}
 {% endblock %}

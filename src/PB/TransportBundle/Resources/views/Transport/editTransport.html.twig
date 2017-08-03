@@ -3,8 +3,8 @@
 {% extends "PBTransportBundle::layout.html.twig" %}
 
 {% block header %}
-      <div id="header" class="well">
-        <h1><center>Edition du transport n°{{ transport.number }}{{ transport.id }}</center></h1>
+      <div id="header" class="well h3 text-center">
+        Edition du transport n°{{ transport.number }}{{ transport.id }}
       </div>
 {% endblock %}
 
@@ -41,6 +41,8 @@
 		{{ form_row(form.annule) }}
 		{{ form_row(form.effectue) }}
 		{{ form_row(form.factureRecue) }}
+		{{ form_row(form.facture) }}
+		{{ form_row(form.montantfacture) }}
 	</div>
 	
 	{{ form_row(form.save) }}

@@ -1,0 +1,52 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block title %}
+
+Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+      <div id="header" class="well h3 text-center">
+        Liste des factures
+      </div>
+{% endblock %}
+
+{% block pbtransport_body %}
+
+	<table class="table table-hover">
+		<tr>
+			<th>Num Facture</th>
+			<th>Date Facture</th>
+			<th>Transporteur</th>
+			<th>Montant</th>
+		</tr>
+
+		{% for facture in listFactures %}
+			<tr>
+				<td>
+					<a href="{{ path ('pb_transport_viewfacture', {'id': facture.id}) }}">
+						{{ facture.numerofacture }}
+					</a>
+				</td>
+				<td>{{ facture.datefacture|date('d/m/Y') }}</td>
+				<td>{{ facture.transporteur.nom }}</td>
+				<td>€{{ facture.montantfacture }}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas (encore !) de facture</td>
+
+		{% endfor %}
+	</table>
+
+	<ul class="pagination">
+	    {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+	    {% for p in range(1, nbPages) %}
+	      <li{% if p == page %} class="active"{% endif %}>
+	        <a href="{{ path('pb_transport_homepage', {'page': p}) }}">{{ p }}</a>
+	      </li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

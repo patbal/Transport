@@ -126,3 +126,37 @@ pb_transport_deleteadresse:
   requirements:
     id: \d+
 
+pb_transport_editfacture:
+  path: facture/edit/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:editFacture
+  requirements:
+    id: \d+
+
+pb_transport_viewfactures:
+  path: factures/view/{page}
+  defaults:
+    _controller: PBTransportBundle:Transport:viewFactures
+    page: 1
+    requirements:
+      page: \d*
+
+pb_transport_viewfacture:
+  path: facture/view/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:viewFacture
+    page: 1
+    requirements:
+      page: \d+
+
+pb_transport_addfacture:
+  path: facture/add
+  defaults:
+    _controller: PBTransportBundle:Transport:addFacture
+
+pb_transport_deletefacture:
+  path: facture/delete/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:deleteFacture
+    requirements:
+      page: \d+

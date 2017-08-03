@@ -1,0 +1,34 @@
+{% extends "PBTransportBundle::layout.html.twig" %}
+
+{% block title %}
+
+Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+      <div id="header" class="well h3 text-center">
+        Facture n°{{ facture.numerofacture }}
+      </div>
+{% endblock %}
+
+{% block pbtransport_body %}
+
+	<ul class=list-group">
+	<li class="list-group-item"><span class="h5">Date Facture :</span> {{ facture.datefacture|date('d/m/Y') }}</li>
+	<li class="list-group-item"><span class="h5">Transporteur :</span> {{ facture.transporteur.nom }}
+			</li>
+	<li class="list-group-item"><span class="h5">Montant :</span> {{ facture.montantfacture }} €HT</li>
+	{% if not null == transports %}
+		<li class="list-group-item"><span class="h5">Transports impactés :</span>
+		<ul class="list-group">
+			{% for transport in transports %}
+				<li class="list-group-item"><a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">{{ transport.number }}{{ transport.id }}</a></li>
+			{% endfor %}
+		</ul>
+		</li>
+	{% endif %}
+	</ul>
+
+
+{% endblock %}

@@ -2,6 +2,9 @@
 
 namespace PB\TransportBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
+
 /**
  * FacturesRepository
  *
@@ -10,4 +13,23 @@ namespace PB\TransportBundle\Repository;
  */
 class FacturesRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $page
+     * @param $nbPerPage
+     * @return Paginator
+     */
+    public function getFactures($page, $nbPerPage)
+    {
+        $query = $this->createQueryBuilder('f')
+            ->orderBy('f.id', 'DESC')
+            ->getQuery()
+        ;
+
+        $query
+            ->setFirstResult(($page-1) * $nbPerPage)
+            ->setMaxResults($nbPerPage)
+        ;
+
+        return new Paginator($query, true);
+    }
 }

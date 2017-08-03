@@ -28,11 +28,13 @@ Transport - {{ parent() }}
 
 	<div class="row">
 		<div class="well col-sm-4">
-			<h2>{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h2>
+			<h3>{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h3>
 			<i>Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par</i>
 
-			<h3>Transporteur</h3>
+			<h4>Transporteur</h4>
 			{{ transport.transporteur.nom }}
+			<h4>Opération/ référence</h4>
+			{{ transport.operation }}
 		</div>
 
 		<div class="well col-sm-8">
@@ -62,6 +64,9 @@ Transport - {{ parent() }}
 				</li>
 				{% if not null == transport.remarque %}<li class="list-group-item remarque">Remarque / Impératif : {{ transport.remarque }}
 				</li>{% endif %}
+				{% if not null == transport.montantfacture and transport.facturerecue == true %}
+					<li class="list-group-item">Coût du transport : {{ transport.montantfacture }} (facture n°<a href="{{ path ('pb_transport_viewfacture', {'id': transport.facture.id })}}">{{ transport.facture.numerofacture }}</a>)</li>
+				{% endif %}
 
 			</ul>
 		</div>

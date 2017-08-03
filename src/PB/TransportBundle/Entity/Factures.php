@@ -52,7 +52,7 @@ class Factures
     private $transporteur;
 
      /**
-     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Transport", mappedBy="facture", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="PB\TransportBundle\Entity\Transport", mappedBy="facture", cascade={"all"})
     */
     private $transports;
 
