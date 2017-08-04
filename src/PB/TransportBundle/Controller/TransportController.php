@@ -15,10 +15,12 @@ use PB\TransportBundle\Form\TransportEditType;
 use PB\TransportBundle\Form\AdresseType;
 use PB\TransportBundle\Form\ContactType;
 use PB\TransportBundle\Form\TransporteurType;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Model\UserInterface;
 
 class TransportController extends Controller
 {
@@ -357,6 +359,7 @@ class TransportController extends Controller
 
 		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 			$em = $this->getDoctrine()->getManager();
+            $transport -> setCreepar($this->getUser()->getUsername());
 			$em -> persist($transport);
 			$em -> flush();
 
@@ -526,6 +529,43 @@ class TransportController extends Controller
         $transports = $this -> getDoctrine()->getRepository('PBTransportBundle:Transport')->findByfacture($facture->getId());
 
         return $this -> render('PBTransportBundle:Transport:viewFacture.html.twig', array('facture'=>$facture, 'transports'=>$transports));
+    }
+
+    public function editFactureAction(Factures $facture, $id, Request $request)
+    {
+        if (null === $facture) {
+            throw new NotFoundHttpException('Facture inexistante.');
+        }
+
+        $form = $this -> get('form.factory')->create(FacturesType::class, $facture);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em -> persist($facture);
+            $em -> flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Facture modifiée.');
+
+            return $this->redirectToRoute('pb_transport_viewfacture', ['id'=>$facture->getId()]);
+        }
+
+        return $this->render('PBTransportBundle:Transport:editFacture.html.twig', array('facture'=>$facture, 'form'=>$form->createView(),  'titre' => "Modification de facture", 'boutonDel' => true));
+    }
+
+    public function deleteFactureAction(Factures $facture, $id, Request $request)
+    {
+        if (null === $facture)
+        {
+            throw new NotFoundHttpException("Cette facture n'existe pas.");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($facture);
+        $request->getSession()->getFlashBag()->add('alert', 'Facture n° '.$facture->getNumerofacture().' supprimée.');
+        $em -> flush();
+
+        return $this -> redirectToRoute('pb_transport_viewfactures');
     }
 
 

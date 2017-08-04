@@ -76,6 +76,13 @@ class Transport
     private $operation;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="creepar", type="string", length=255, nullable=true)
+     */
+    private $creepar;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="effectue", type="boolean")
@@ -184,7 +191,6 @@ class Transport
         $this->effectue = false;
         $this->annule = false;
         $this->facturerecue = false;
-
 
     }
 
@@ -726,5 +732,29 @@ class Transport
     public function getFacturerecue()
     {
         return $this->facturerecue;
+    }
+
+    /**
+     * Set creepar
+     *
+     * @param string $creepar
+     *
+     * @return Transport
+     */
+    public function setCreepar($creepar)
+    {
+        $this->creepar = $creepar;
+
+        return $this;
+    }
+
+    /**
+     * Get creepar
+     *
+     * @return string
+     */
+    public function getCreepar()
+    {
+        return $this->creepar;
     }
 }

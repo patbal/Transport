@@ -1,6 +1,14 @@
-pb_transport_homepage:
+pb_transport_accueil:
   path: /{page}
   defaults: 
+    _controller: PBTransportBundle:Transport:index
+    page: 1
+  requirements:
+    page: \d*
+
+pb_transport_homepage:
+  path: /{page}
+  defaults:
     _controller: PBTransportBundle:Transport:index
     page: 1
   requirements:

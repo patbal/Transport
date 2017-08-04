@@ -12,6 +12,17 @@
         <div class="alert alert-success">{{ message }}</div>
     {% endfor %}
 
+    {% for key, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ key }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     {% block pbtransport_body %}
     {% endblock %}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
 {% endblock %}

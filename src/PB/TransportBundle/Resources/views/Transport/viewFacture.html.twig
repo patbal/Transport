@@ -7,7 +7,7 @@ Accueil - {{ parent() }}
 {% endblock %}
 
 {% block header %}
-      <div id="header" class="well h3 text-center">
+      <div id="header" class="well h2 text-center">
         Facture n°{{ facture.numerofacture }}
       </div>
 {% endblock %}
@@ -29,6 +29,23 @@ Accueil - {{ parent() }}
 		</li>
 	{% endif %}
 	</ul>
+
+	<div class="row">
+		<p>
+			<a href="{{ path('pb_transport_viewfactures') }}" class="btn btn-default">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				Retour à la liste
+			</a>
+			<a href="{{ path('pb_transport_editfacture', {'id': facture.id}) }}" class="btn btn-default">
+				<i class="glyphicon glyphicon-edit"></i>
+				Modifier la facture
+			</a>
+			<a href="{{ path('pb_transport_deletefacture', {'id': facture.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+				<i class="glyphicon glyphicon-trash"></i>
+				Supprimer la facture
+			</a>
+		</p>
+	</div>
 
 
 {% endblock %}

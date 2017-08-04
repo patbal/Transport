@@ -2,6 +2,12 @@
 
 {% extends "PBTransportBundle::layout.html.twig" %}
 
+{% block header %}
+	<div id="header" class="well h2 text-center">
+		Ajout de Transport
+	</div>
+{% endblock %}
+
 {% block pbtransport_body %}
 
 	<p class="h3">Phase 2 : Ajouter {% if transport.typeTr.type == "Course" %}une course{% endif %}{% if transport.typeTr.type == "Transport" %}un transport{% endif %}</p>

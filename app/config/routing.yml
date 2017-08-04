@@ -2,6 +2,6 @@ pb_transport:
     resource: "@PBTransportBundle/Resources/config/routing.yml"
     prefix:   /transport
 
-# app:
-#     resource: '@AppBundle/Controller/'
-#     type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

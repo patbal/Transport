@@ -11,8 +11,8 @@ Transport - {{ parent() }}
 {% endblock %}
 
 {% block header %}
-      <div id="header" class="well">
-        <h1><center>Détail du transport n°{{ transport.number }}{{ transport.id }}</center></h1>
+      <div id="header" class="well h2 text-center">
+        Détail du transport n°{{ transport.number }}{{ transport.id }}
       </div>
 {% endblock %}
 
@@ -29,7 +29,7 @@ Transport - {{ parent() }}
 	<div class="row">
 		<div class="well col-sm-4">
 			<h3>{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h3>
-			<i>Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par</i>
+			<i>Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par {{ transport.creepar|title }}</i>
 
 			<h4>Transporteur</h4>
 			{{ transport.transporteur.nom }}
