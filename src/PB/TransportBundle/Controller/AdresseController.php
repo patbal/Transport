@@ -2,8 +2,8 @@
 
 namespace PB\TransportBundle\Controller;
 
-use PB\TransportBundle\Entity\Factures;
-use PB\TransportBundle\Form\FacturesType;
+use PB\TransportBundle\Entity\Adresse;
+use PB\TransportBundle\Form\AdresseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -63,7 +63,7 @@ class AdresseController extends Controller
     public function editAdresseAction(Adresse $adresse, $id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $adresse = $em->getRepository('PBTransportBundle:Adresse')->find($id);
+        //$adresse = $em->getRepository('PBTransportBundle:Adresse')->find($id);
         $form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {

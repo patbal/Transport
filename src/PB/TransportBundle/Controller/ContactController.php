@@ -2,19 +2,8 @@
 
 namespace PB\TransportBundle\Controller;
 
-use PB\TransportBundle\Entity\Factures;
-use PB\TransportBundle\Entity\Transport;
-use PB\TransportBundle\Entity\Adresse;
 use PB\TransportBundle\Entity\Contact;
-use PB\TransportBundle\Entity\Transporteur;
-use Doctrine\Common\Collections\ArrayCollection;
-use PB\TransportBundle\Form\DetailTransportType;
-use PB\TransportBundle\Form\FacturesType;
-use PB\TransportBundle\Form\TransportBriefType;
-use PB\TransportBundle\Form\TransportEditType;
-use PB\TransportBundle\Form\AdresseType;
 use PB\TransportBundle\Form\ContactType;
-use PB\TransportBundle\Form\TransporteurType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
