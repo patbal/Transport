@@ -117,7 +117,7 @@ class ContactController extends Controller
         $em -> flush();
 
         $request -> getSession() -> getFlashbag() -> add('alert', 'Contact Supprimé');
-        return $this -> redirectToRoute('pb_transport_homepage');
+        return $this -> redirectToRoute('pb_transport_viewcontacts');
     }
 
 
