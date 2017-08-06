@@ -55,91 +55,6 @@ class TransportController extends Controller
 
     }
 
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function addAdresseAction(Request $request)
-    {
-        $adresse = new Adresse();
-        $form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
-        $em = $this->getDoctrine()->getManager();
-
-        if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
-        {
-            $em -> persist($adresse);
-            $em -> flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Ajout d\'adresse effectuée');
-
-            return $this->redirectToRoute("pb_transport_homepage");
-        }
-
-        return $this->render("PBTransportBundle:Transport:editAdresse.html.twig", array('form' => $form->createView(), 'titre' => "Création d'adresse", 'boutonDel' => false));
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function viewAdressesAction()
-    {
-    	$listadresses = $this->getDoctrine()
-	      ->getManager()
-	      ->getRepository('PBTransportBundle:Adresse')
-	      ->getAdresses();
-    	
-    	return $this->render('PBTransportBundle:Transport:viewAdresses.html.twig', array(
-    		'adresses'	=> $listadresses));
-    }
-
-
-    /**
-     * @param Adresse $adresse
-     * @param $id
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function editAdresseAction(Adresse $adresse, $id, Request $request)
-    {
-		$em = $this->getDoctrine()->getManager();
-		$adresse = $em->getRepository('PBTransportBundle:Adresse')->find($id);
-		$form = $this -> get('form.factory')->create(AdresseType::class, $adresse);
-
-		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-
-			$em -> persist($adresse);
-			$em -> flush();
-
-			$request->getSession()->getFlashBag()->add('notice', 'Modification d\'adresse effectuée');
-
-			return $this->redirectToRoute('pb_transport_homepage', array(
-				'id' => $adresse->getId())
-			);
-		}
-
-		return $this->render('PBTransportBundle:Transport:editAdresse.html.twig', ['adresse' => $adresse, 'form' => $form->createView(), 'titre' => "Modification d'adresse", 'boutonDel' => true]);
-    }
-
-    /**
-     * @param Adresse $adresse
-     * @param $id
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function deleteAdresseAction(Adresse $adresse, $id, Request $request)
-    {
-        if (null === $adresse)
-        {
-            throw new NotFoundHttpException("adresse inexistante en base de donnée");
-        }
-
-        $em = $this->getDoctrine()->getManager();
-        $em -> remove($adresse);
-        $em -> flush();
-
-        $request -> getSession() -> getFlashbag() -> add('alert', 'Adresse Supprimée');
-        return $this -> redirectToRoute('pb_transport_homepage');
-    }
 
     // *************************************************************************************************
     // **************************************** CONTACTS ***********************************************
@@ -464,109 +379,48 @@ class TransportController extends Controller
             'transport'	=> $transport));
     }
 
-    // *************************************************************************************************
-    // **************************************** FACTURES ***********************************************
-    // *************************************************************************************************
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function addFactureAction(Request $request)
+    public function sendMailAction(Transport $transport, $id, Request $request)
     {
-        $facture = new Factures();
-        $form = $this -> get('form.factory')->create(FacturesType::class, $facture);
+        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port')))
+            ->setUsername($this -> container -> getParameter('mailer_user'))
+            ->setPassword($this -> container ->getParameter('mailer_password'));
+        $mailer = new \Swift_Mailer($trans);
+        $mailFrom = $this->getUser()->getEmail();
+        $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
+        $transporteur = $transport->getTransporteur();
+        $mailTo = $transporteur -> getEmail();
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        $message = (new \Swift_Message('Demande de transport'))
+            ->setFrom('DushowTransportsDaemon@dushow.com')
+            ->setTo($mailTo)
+            ->setReplyTo([$mailFrom => $nomFrom])
+            ->setBcc($mailFrom)
+            ->setBody(
+                $this->renderView('PBTransportBundle:Mails:sendMail.html.twig', array(
+                        'transport'	=> $transport, 'nomFrom'=>$nomFrom)
+                ),'text/html')
+            ->addPart(
+                $this->renderView(
+                    'PBTransportBundle:Mails:sendMail.txt.twig',
+                    array('transport'	=> $transport)
+                ),
+                'text/plain'
+            );
 
-            $em -> persist($facture);
-            $em -> flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Facture bien enregistrée.');
+        $mailer->send($message);
 
-            return $this->redirectToRoute('pb_transport_viewfactures');
-        }
-
-        return $this->render('PBTransportBundle:Transport:editFacture.html.twig', array('facture'=>$facture, 'form' => $form->createView(), 'titre'=>'Entrée d\'une facture', 'boutonDel' => true));
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function viewFacturesAction($page)
-    {
-        if ($page < 1) {
-            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
-        }
-
-        $nbPerPage = $this -> container -> getParameter('nb_per_page');
-
-        $listFactures = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('PBTransportBundle:Factures')
-            ->getFactures($page, $nbPerPage)
-        ;
-        $nbPages = ceil(count($listFactures) / $nbPerPage);
-
-        if ($page > $nbPages) {
-            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-        }
-
-        return $this->render('PBTransportBundle:Transport:viewFactures.html.twig', array(
-            'listFactures' => $listFactures,
-            'nbPages'     => $nbPages,
-            'page'        => $page,
-        ));
-    }
-
-    public function viewFactureAction(Factures $facture, $id)
-    {
-        if (null === $facture) {
-            throw new NotFoundHttpException('Facture inexistante.');
-        }
-
-        $transports = $this -> getDoctrine()->getRepository('PBTransportBundle:Transport')->findByfacture($facture->getId());
-
-        return $this -> render('PBTransportBundle:Transport:viewFacture.html.twig', array('facture'=>$facture, 'transports'=>$transports));
-    }
-
-    public function editFactureAction(Factures $facture, $id, Request $request)
-    {
-        if (null === $facture) {
-            throw new NotFoundHttpException('Facture inexistante.');
-        }
-
-        $form = $this -> get('form.factory')->create(FacturesType::class, $facture);
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $em -> persist($facture);
-            $em -> flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Facture modifiée.');
-
-            return $this->redirectToRoute('pb_transport_viewfacture', ['id'=>$facture->getId()]);
-        }
-
-        return $this->render('PBTransportBundle:Transport:editFacture.html.twig', array('facture'=>$facture, 'form'=>$form->createView(),  'titre' => "Modification de facture", 'boutonDel' => true));
-    }
-
-    public function deleteFactureAction(Factures $facture, $id, Request $request)
-    {
-        if (null === $facture)
-        {
-            throw new NotFoundHttpException("Cette facture n'existe pas.");
-        }
-
-        $em = $this->getDoctrine()->getManager();
-        $em -> remove($facture);
-        $request->getSession()->getFlashBag()->add('alert', 'Facture n° '.$facture->getNumerofacture().' supprimée.');
+        $transport -> setMailSentDate(new \DateTime());
+        $transport -> setMailSent(true);
+        $em = $this ->getDoctrine()->getManager();
+        $em -> persist($transport);
         $em -> flush();
 
-        return $this -> redirectToRoute('pb_transport_viewfactures');
+        $request -> getSession() -> getFlashBag() -> add('notice', 'Mail de demande de transport envoyé à '.$mailTo.' - vous en recevrez une copie');
+
+        return $this->redirectToRoute('pb_transport_viewtransport', array('id'=>$transport->getId()));
     }
+
 
 
 }

@@ -1,0 +1,43 @@
+{# src/PB/TransportBundle/Resources/views/Transport/sendMail.html.twig #}
+<p>Bonjour,</p>
+<p>Merci de bien vouloir prendre en compte la demande suivante : </p><br><hr><hr><br>
+<p><span style="font-size: large ; font-weight:bold">Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ transport.number }}{{ transport.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
+<hr>
+<p>
+    <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ transport.dateenlevement|date('d/m/Y') }}</span><hr>
+    <span style="font-size: large ; font-weight:bold">Adresse d&apos;enlèvement :</span><br>
+    <b>{{ transport.adresseFrom.societe|upper }}</b><br>
+    {{ transport.adresseFrom.adresse1 }}<br>
+    {% if not null == transport.adresseFrom.adresse2 and not transport.adresseFrom.adresse2 == '' %}{{ transport.adresseFrom.adresse2 }}<br>{% endif %}
+    {{ transport.adresseFrom.codepostal }} {{ transport.adresseFrom.ville|upper }}<br>
+    <i>Contact enlèvement : {{ transport.contactFrom.prenom }} {% if not null == transport.contactFrom.nom %}{{ transport.contactFrom.nom }}{% endif %} {% if not null == transport.contactFrom.phone %}(Tel : {{ transport.contactFrom.phone }}{% endif %}</i>
+    <hr>
+    <br>
+    <span style="font-size: large ; font-weight: bold">Date de livraison : </span>{{ transport.datelivraison|date('d/m/Y') }}<hr>
+    <span style="font-size: large ; font-weight:bold">Adresse de livraison : </span><br>
+    <b>{{ transport.adresseTo.societe|upper }}</b><br>
+    {{ transport.adresseTo.adresse1 }}<br>
+    {% if not null == transport.adresseTo.adresse2 and not transport.adresseTo.adresse2 == '' %}{{ transport.adresseTo.adresse2 }}<br>{% endif %}
+    {{ transport.adresseTo.codepostal }} {{ transport.adresseFrom.ville|upper }}<br>
+    <i>Contact livraison : {{ transport.contactTo.prenom }} {% if not null == transport.contactTo.nom %}{{ transport.contactTo.nom }}{% endif %} {% if not null == transport.contactTo.phone %}(Tel : {{ transport.contactTo.phone }}{% endif %}</i>
+    <hr>
+    <span style="font-size: large ; font-weight: bold">
+        {% if transport.typeTr.type == "Course" %}
+            Véhicule demandé : {{ transport.vehicule.typevehicule }}
+        {% else %}
+        Quantité à transporter : </span><span>
+            {% if not null == transport.mplancher %}{{ transport.mplancher }} mètre(s) de plancher{% endif %}
+            {% if not null == transport.nbpalettes %}{{ transport.nbpalettes }}{% endif %}
+        {% endif %}
+
+    </span>
+    <hr>
+    {% if not null == transport.remarque %}
+        <span style="font-size: large ; font-weight: bold">Remarques / Impératifs : </span>{{ transport.remarque }}
+    {% endif %}
+    <br><br><hr><hr>
+</p>
+<p><br><br><br><br>
+    <hr>
+    {{ nomFrom }} | Dushow Toulouse | 3 impasse Jean Mermoz | 31140 Saint Alban | TEL 0561 246 246 | FAX 05 61 246 446
+</p>

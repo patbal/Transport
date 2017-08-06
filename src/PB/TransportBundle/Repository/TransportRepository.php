@@ -5,6 +5,7 @@ namespace PB\TransportBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use PB\TransportBundle\Entity\Transporteur;
 
 /**
  * TransportRepository

@@ -41,8 +41,9 @@ Transport - {{ parent() }}
 			<ul class="list-group">
 				{% if not null == transport.annule and transport.annule == true %}<li class="list-group-item attention">ATTENTION : CE TRANSPORT A ÉTÉ ANNULÉ !
 				</li>{% endif %}
-				{% if not null == transport.effectue and transport.effectue == true %}<li class="list-group-item effectue"><span class="glyphicon glyphicon-ok-circle"></span>  Transport effectué</li>{% endif %}
-				<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }} 
+                {% if not null == transport.effectue and transport.effectue == true %}<li class="list-group-item effectue"><span class="glyphicon glyphicon-ok-circle"></span>  Transport effectué</li>{% endif %}
+				{% if not null == transport.facturerecue and transport.facturerecue == true %}<li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>  Transport facturé (facture n°<a href="{{ path ('pb_transport_viewfacture', {'id': transport.facture.id}) }}">{{ transport.facture.numerofacture }}</a> du {{ transport.facture.datefacture|date('d/m/Y') }})</li>{% endif %}
+				<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }}
 					{% if transport.typeTr.type == 'Course' and not null == transport.heureEnlevement%} à {{ transport.heureEnlevement|date('H:i') }} {% endif %}chez {{ transport.adresseFrom.societe }} 
 					{% if not null == transport.contactFrom %}<i>(contact : 
 						{% if not null == transport.contactFrom.prenom %}{{ transport.contactFrom.prenom }}{% endif %} 
@@ -86,6 +87,13 @@ Transport - {{ parent() }}
 		      <i class="glyphicon glyphicon-trash"></i>
 		      Supprimer le transport
 		    </a>
+		</p>
+		<p>
+			<a href="{{ path('pb_transport_sendmail', {'id' :transport.id}) }}" class="btn btn-success">
+				<i class="glyphicon glyphicon-envelope"></i>
+				{% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
+
+				{% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
 		</p>
 	</div>
 

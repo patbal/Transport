@@ -174,6 +174,20 @@ class Transport
     */
     private $facture;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="mailsent", type="boolean", nullable=true)
+     */
+    private $mailSent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="mailsentdate", type="datetime", nullable=true)
+     */
+    private $mailSentDate;
+
 
     /**
      * Get id
@@ -191,6 +205,7 @@ class Transport
         $this->effectue = false;
         $this->annule = false;
         $this->facturerecue = false;
+        $this->mailSent=false;
 
     }
 
@@ -757,4 +772,54 @@ class Transport
     {
         return $this->creepar;
     }
+
+    /**
+     * Set mailSent
+     *
+     * @param boolean $mailSent
+     *
+     * @return Transport
+     */
+    public function setMailSent($mailSent)
+    {
+        $this->mailSent = $mailSent;
+
+        return $this;
+    }
+
+    /**
+     * Get mailSent
+     *
+     * @return boolean
+     */
+    public function getMailSent()
+    {
+        return $this->mailSent;
+    }
+
+    /**
+     * Set mailSentDate
+     *
+     * @param \DateTime $mailSentDate
+     *
+     * @return Transport
+     */
+    public function setMailSentDate($mailSentDate)
+    {
+        $this->mailSentDate = $mailSentDate;
+
+        return $this;
+    }
+
+    /**
+     * Get mailSentDate
+     *
+     * @return \DateTime
+     */
+    public function getMailSentDate()
+    {
+        return $this->mailSentDate;
+    }
+
+
 }

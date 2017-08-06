@@ -1,0 +1,30 @@
+{# src/PB/TransportBundle/Resources/views/Transport/sendMail.txt.twig #}
+Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }} (référence à rappeler sur votre facture)
+
+Date d'enlèvement : {{ transport.dateenlevement|date('d/m/Y') }}
+
+Adresse d'enlèvement :
+{{ transport.adresseFrom.societe|upper }}
+{{ transport.adresseFrom.adresse1 }}
+{% if not null == transport.adresseFrom.adresse2 and not transport.adresseFrom.adresse2 == '' %}{{ transport.adresseFrom.adresse2 }}{% endif %}
+{{ transport.adresseFrom.codepostal }} {{ transport.adresseFrom.ville|upper }}
+Contact enlèvement : {{ transport.contactFrom.nom }} {% if not null == transport.contactFrom.phone %}(Tel : {{ transport.contactFrom.phone }}{% endif %}
+
+Date de livraison : {{ transport.datelivraison|date('d/m/Y') }}
+
+Adresse de livraison :
+{{ transport.adresseTo.societe|upper }}
+{{ transport.adresseTo.adresse1 }}
+{% if not null == transport.adresseTo.adresse2 and not transport.adresseTo.adresse2 == '' %}{{ transport.adresseTo.adresse2 }}{% endif %}
+{{ transport.adresseTo.codepostal }} {{ transport.adresseFrom.ville|upper }}
+Contact livraison : {{ transport.contactTo.nom }} {% if not null == transport.contactTo.phone %}(Tel : {{ transport.contactTo.phone }}{% endif %}
+
+{% if transport.typeTr.type == "Course" %}Véhicule demandé : {{ transport.vehicule.typevehicule }}
+{% else %}Capacité à transporter : {% if not null == transport.mplancher %}{{ transport.mplancher }} mètre(s) de plancher{% endif %}{% if not null == transport.nbpalettes %}{{ transport.nbpalettes }}{% endif %}
+{% endif %}
+
+{% if not null == transport.remarque %}Remarques / Impératifs : {{ transport.remarque }}{% endif %}
+
+
+
+Carole FOUCHER | Dushow Toulouse | 3 impasse Jean Mermoz | 31140 Saint Alban | TEL 0561 246 246 | FAX 05 61 246 446

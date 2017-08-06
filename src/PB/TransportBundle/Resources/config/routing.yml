@@ -33,24 +33,6 @@ pb_transport_addtransport:
   defaults: 
     _controller: PBTransportBundle:Transport:addTransport
 
-pb_transport_addadresse:
-  path: adresse/add/
-  defaults:
-    _controller: PBTransportBundle:Transport:addAdresse
-
-
-pb_transport_viewadresses:
-  path: adresses/view
-  defaults: 
-    _controller: PBTransportBundle:Transport:viewAdresses
-
-pb_transport_editadresse:
-  path: adresse/edit/{id}/
-  defaults: 
-    _controller: PBTransportBundle:Transport:editAdresse
-  requirements:
-    page: \d+
-
 pb_transport_edittransport:
   path: edit/{id}/
   defaults: 
@@ -65,86 +47,103 @@ pb_transport_deletetransport:
   requirements:
     page: \d+
 
+pb_transport_addadresse:
+  path: adresse/add/
+  defaults:
+    _controller: PBTransportBundle:Adresse:addAdresse
+
+pb_transport_viewadresses:
+  path: adresses/view
+  defaults:
+    _controller: PBTransportBundle:Adresse:viewAdresses
+
+pb_transport_editadresse:
+  path: adresse/edit/{id}/
+  defaults:
+    _controller: PBTransportBundle:Adresse:editAdresse
+  requirements:
+    page: \d+
+
+pb_transport_deleteadresse:
+  path: adresse/delete/{id}
+  defaults:
+    _controller: PBTransportBundle:Adresse:deleteAdresse
+  requirements:
+    id: \d+
+
 pb_transport_addcontact:
   path: contact/add
   defaults: 
-    _controller: PBTransportBundle:Transport:addContact
+    _controller: PBTransportBundle:Contact:addContact
 
 pb_transport_editcontact:
   path: contact/edit/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:editContact
+    _controller: PBTransportBundle:Contact:editContact
     requirements:
       id: \d+
 
 pb_transport_viewcontacts:
   path: contact/view
   defaults:
-    _controller: PBTransportBundle:Transport:viewContacts
+    _controller: PBTransportBundle:Contact:viewContacts
 
 pb_transport_viewcontact:
   path: contact/view/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:viewContact
+    _controller: PBTransportBundle:Contact:viewContact
     requirements:
       id: \d+
 
 pb_transport_deletecontact:
   path: contact/delete/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:deleteContact
+    _controller: PBTransportBundle:Contact:deleteContact
   requirements:
     id: \d+
 
 pb_transport_addtransporteur:
   path: transporteur/add
   defaults:
-    _controller: PBTransportBundle:Transport:addTransporteur
+    _controller: PBTransportBundle:Transporteur:addTransporteur
 
 pb_transport_edittransporteur:
   path: transporteur/edit/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:editTransporteur
+    _controller: PBTransportBundle:Transporteur:editTransporteur
     requirements:
       id: \d+
 
 pb_transport_viewtransporteurs:
   path: transporteur/view
   defaults:
-    _controller: PBTransportBundle:Transport:viewTransporteurs
+    _controller: PBTransportBundle:Transporteur:viewTransporteurs
 
 pb_transport_viewtransporteur:
   path: transporteur/view/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:viewTransporteur
+    _controller: PBTransportBundle:Transporteur:viewTransporteur
     requirements:
       id: \d+
 
 pb_transport_deletetransporteur:
   path: transporteur/delete/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:deleteTransporteur
-  requirements:
-    id: \d+
-
-pb_transport_deleteadresse:
-  path: adresse/delete/{id}
-  defaults:
-    _controller: PBTransportBundle:Transport:deleteAdresse
+    _controller: PBTransportBundle:Transporteur:deleteTransporteur
   requirements:
     id: \d+
 
 pb_transport_editfacture:
   path: facture/edit/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:editFacture
+    _controller: PBTransportBundle:Facture:editFacture
   requirements:
     id: \d+
 
 pb_transport_viewfactures:
   path: factures/view/{page}
   defaults:
-    _controller: PBTransportBundle:Transport:viewFactures
+    _controller: PBTransportBundle:Facture:viewFactures
     page: 1
     requirements:
       page: \d*
@@ -152,7 +151,7 @@ pb_transport_viewfactures:
 pb_transport_viewfacture:
   path: facture/view/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:viewFacture
+    _controller: PBTransportBundle:Facture:viewFacture
     page: 1
     requirements:
       page: \d+
@@ -160,11 +159,18 @@ pb_transport_viewfacture:
 pb_transport_addfacture:
   path: facture/add
   defaults:
-    _controller: PBTransportBundle:Transport:addFacture
+    _controller: PBTransportBundle:Facture:addFacture
 
 pb_transport_deletefacture:
   path: facture/delete/{id}
   defaults:
-    _controller: PBTransportBundle:Transport:deleteFacture
+    _controller: PBTransportBundle:Facture:deleteFacture
     requirements:
       page: \d+
+
+pb_transport_sendmail:
+  path: transport/send/mail/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:sendMail
+    requirements:
+      id: \d+
