@@ -174,3 +174,10 @@ pb_transport_sendmail:
     _controller: PBTransportBundle:Transport:sendMail
     requirements:
       id: \d+
+
+pb_transport_viewmail:
+  path: transport/view/mail/{id}
+  defaults:
+    _controller: PBTransportBundle:Transport:viewMail
+    requirements:
+      id: \d+

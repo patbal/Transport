@@ -228,6 +228,18 @@ class TransportController extends Controller
         return $this->redirectToRoute('pb_transport_viewtransport', array('id'=>$transport->getId()));
     }
 
+    /**
+     * @param Transport $transport
+     * @param $id
+     * @return string
+     */
+    public function viewMailAction(Transport $transport, $id)
+    {
+        $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
+        return $this->render('PBTransportBundle:Mails:viewMail.html.twig', array(
+                'transport'	=> $transport, 'nomFrom'=>$nomFrom));
+    }
+
 
 
 }

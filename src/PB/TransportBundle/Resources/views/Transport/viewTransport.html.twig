@@ -89,7 +89,7 @@ Transport - {{ parent() }}
 		    </a>
 		</p>
 		<p>
-			<a href="{{ path('pb_transport_sendmail', {'id' :transport.id}) }}" class="btn btn-success">
+			<a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="btn btn-success">
 				<i class="glyphicon glyphicon-envelope"></i>
 				{% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
 
