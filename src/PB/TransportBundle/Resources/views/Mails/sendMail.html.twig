@@ -4,7 +4,7 @@
 <p><span style="font-size: large ; font-weight:bold">Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ transport.number }}{{ transport.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
 <hr>
 <p>
-    <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ transport.dateenlevement|date('d/m/Y') }}</span><hr>
+    <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ transport.dateenlevement|date('d/m/Y') }}</span>{% if transport.typeTr.type == "Course" %}<span> à<b> {{ transport.heureEnlevement|date('H:i') }}</b></span>{% endif %}<hr>
     <span style="font-size: large ; font-weight:bold">Adresse d&apos;enlèvement :</span><br>
     <b>{{ transport.adresseFrom.societe|upper }}</b><br>
     {{ transport.adresseFrom.adresse1 }}<br>
@@ -13,7 +13,7 @@
     <i>Contact enlèvement : {{ transport.contactFrom.prenom }} {% if not null == transport.contactFrom.nom %}{{ transport.contactFrom.nom }}{% endif %} {% if not null == transport.contactFrom.phone %}(Tel : {{ transport.contactFrom.phone }}{% endif %}</i>
     <hr>
     <br>
-    <span style="font-size: large ; font-weight: bold">Date de livraison : </span>{{ transport.datelivraison|date('d/m/Y') }}<hr>
+    <span style="font-size: large ; font-weight: bold">Date de livraison : </span>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %}<span> à<b> {{ transport.heureLivraison|date('H:i') }}</b></span><hr>{% endif %}<hr>
     <span style="font-size: large ; font-weight:bold">Adresse de livraison : </span><br>
     <b>{{ transport.adresseTo.societe|upper }}</b><br>
     {{ transport.adresseTo.adresse1 }}<br>

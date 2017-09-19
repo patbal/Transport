@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Correction de bugs : &#10;- Ajout de l'heure dans le mail quand on fait une course&#10;- Correction d'un souci sur la ville de destination dans les twig mail">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +44,8 @@
       <file leaf-file-name="viewMail.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="472">
+              <caret line="35" column="231" lean-forward="false" selection-start-line="35" selection-start-column="231" selection-end-line="35" selection-end-column="231" />
               <folding>
                 <element signature="e#875#918#0#HTML" expanded="true" />
               </folding>
@@ -134,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/MailSender/PBMailSender.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/FactureController.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransporteurController.php" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" />
         <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/AdresseController.php" />
@@ -152,6 +151,7 @@
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" />
       </list>
     </option>
   </component>
@@ -515,7 +515,7 @@
       <workItem from="1502486830119" duration="3911000" />
       <workItem from="1504995975829" duration="1252000" />
       <workItem from="1504999379690" duration="101000" />
-      <workItem from="1505824763906" duration="1161000" />
+      <workItem from="1505824763906" duration="1749000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -601,11 +601,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504996391998</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Correction de bugs : &#10;- Ajout de l'heure dans le mail quand on fait une course&#10;- Correction d'un souci sur la ville de destination dans les twig mail">
+      <created>1505826222563</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1505826222563</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110229000" />
+    <option name="totallyTimeSpent" value="110817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -699,7 +706,8 @@
     <MESSAGE value="Fonctionnel&#10;Préparation à publication" />
     <MESSAGE value="Fonctionnel&#10;Correction de config pour Assetic" />
     <MESSAGE value="Fonctionnel&#10;Modification des views pour l'envoi de mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fonctionnel&#10;Modification des views pour l'envoi de mail" />
+    <MESSAGE value="Correction de bugs : &#10;- Ajout de l'heure dans le mail quand on fait une course&#10;- Correction d'un souci sur la ville de destination dans les twig mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction de bugs : &#10;- Ajout de l'heure dans le mail quand on fait une course&#10;- Correction d'un souci sur la ville de destination dans les twig mail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -986,27 +994,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-          <caret line="12" column="102" lean-forward="false" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
-          <caret line="12" column="133" lean-forward="false" selection-start-line="12" selection-start-column="133" selection-end-line="12" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1016,7 +1007,7 @@
         <state relative-caret-position="15">
           <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
-            <element signature="e#49#88#0#PHP" expanded="true" />
+            <element signature="e#49#88#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1085,10 +1076,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="52" column="104" lean-forward="false" selection-start-line="52" selection-start-column="92" selection-end-line="52" selection-end-column="104" />
+          <folding>
+            <element signature="e#12#47#0#Twig" expanded="true" />
+            <element signature="e#1741#1765#0#Twig" expanded="true" />
+            <element signature="e#3828#3852#0#Twig" expanded="true" />
+            <element signature="e#4030#4051#0#Twig" expanded="true" />
+            <element signature="e#4201#4227#0#Twig" expanded="true" />
+            <element signature="e#4395#4423#0#Twig" expanded="true" />
+            <element signature="e#4727#4748#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state relative-caret-position="472">
+          <caret line="35" column="231" lean-forward="false" selection-start-line="35" selection-start-column="231" selection-end-line="35" selection-end-column="231" />
           <folding>
             <element signature="e#875#918#0#HTML" expanded="true" />
           </folding>
