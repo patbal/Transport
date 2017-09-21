@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Exp. name change in text mail">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.txt.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.txt.twig" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -519,7 +518,7 @@
       <workItem from="1505827682556" duration="37000" />
       <workItem from="1505897527867" duration="833000" />
       <workItem from="1505990030093" duration="232000" />
-      <workItem from="1505990272926" duration="825000" />
+      <workItem from="1505990272926" duration="1065000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -626,11 +625,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506028413029</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Exp. name change in text mail">
+      <created>1506030387475</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1506030387475</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112771000" />
+    <option name="totallyTimeSpent" value="113011000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
