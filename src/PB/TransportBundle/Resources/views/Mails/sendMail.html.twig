@@ -18,7 +18,7 @@
     <b>{{ transport.adresseTo.societe|upper }}</b><br>
     {{ transport.adresseTo.adresse1 }}<br>
     {% if not null == transport.adresseTo.adresse2 and not transport.adresseTo.adresse2 == '' %}{{ transport.adresseTo.adresse2 }}<br>{% endif %}
-    {{ transport.adresseTo.codepostal }} {{ transport.adresseFrom.ville|upper }}<br>
+    {{ transport.adresseTo.codepostal }} {{ transport.adresseTo.ville|upper }}<br>
     <i>Contact livraison : {{ transport.contactTo.prenom }} {% if not null == transport.contactTo.nom %}{{ transport.contactTo.nom }}{% endif %} {% if not null == transport.contactTo.phone %}(Tel : {{ transport.contactTo.phone }}{% endif %}</i>
     <hr>
     <span style="font-size: large ; font-weight: bold">
