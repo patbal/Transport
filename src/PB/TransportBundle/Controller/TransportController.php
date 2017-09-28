@@ -21,6 +21,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 class TransportController extends Controller
 {
@@ -29,13 +30,9 @@ class TransportController extends Controller
      * @param $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction($page)
+    public function indexAction(REQUEST $request)
     {
-	  
-		if ($page < 1) {
-		throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
-    	}
-    
+
 	    //on récupère le nombre de transports affichés par page
 	    $nbPerPage = $this -> container -> getParameter('nb_per_page');
 
@@ -43,19 +40,17 @@ class TransportController extends Controller
 	    $listTransports = $this->getDoctrine()
 	      ->getManager()
 	      ->getRepository('PBTransportBundle:Transport')
-	      ->getTransports($page, $nbPerPage)
+	      ->getTransports()
 	    ;
-	    // On calcule le nombre total de pages grâce au count($listTransports) qui retourne le nombre total de transport
-	    $nbPages = ceil(count($listTransports) / $nbPerPage);
-	    // Si la page n'existe pas, on retourne une 404
-	    if ($page > $nbPages) {
-	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-	    }
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $listTransports, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,$nbPerPage);
+
 	    // On donne toutes les informations nécessaires à la vue
 	    return $this->render('PBTransportBundle:Transport:index.html.twig', array(
-	      'listTransports' => $listTransports,
-	      'nbPages'     => $nbPages,
-	      'page'        => $page,
+	      'listTransports' => $pagination,
 	    ));
 
     }

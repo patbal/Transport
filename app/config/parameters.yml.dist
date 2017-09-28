@@ -12,7 +12,7 @@ parameters:
     mailer_host: ssl0.ovh.net
     mailer_port: 587
     mailer_user: patrick.balland@dushow.com
-    mailer_password: ignite-convex-cremate
+    mailer_password: soma-spade-augury-baroness
     mailer_delivery_addresses: pballand@me.com
     secret: ctsrac287722
     nb_per_page: 20

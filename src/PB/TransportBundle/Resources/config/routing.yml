@@ -1,10 +1,11 @@
 pb_transport_accueil:
-  path: /{page}
+  path: /
+  #{page}
   defaults: 
     _controller: PBTransportBundle:Transport:index
-    page: 1
-  requirements:
-    page: \d*
+    #page: 1
+  #requirements:
+    #page: \d*
 
 pb_transport_homepage:
   path: /{page}

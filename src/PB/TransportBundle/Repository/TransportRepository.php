@@ -5,6 +5,7 @@ namespace PB\TransportBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 use PB\TransportBundle\Entity\Transporteur;
 
 /**
@@ -15,7 +16,7 @@ use PB\TransportBundle\Entity\Transporteur;
  */
 class TransportRepository extends \Doctrine\ORM\EntityRepository
 {
-	public function getTransports($page, $nbPerPage)
+	public function getTransports()
 	{
 		$query = $this->createQueryBuilder('t')
 		  // ->leftJoin('t.transporteur', 'tr')
@@ -25,18 +26,24 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
 		  // ->leftJoin('t.adresseTo', 'at')
 		  // ->addSelect('at')		 
 		  ->orderBy('t.id', 'DESC')
-		  ->getQuery()
+		  //->getQuery()
 		;
 
+		/*
 		$query
 		  // On définit l'annonce à partir de laquelle commencer la liste
 		  ->setFirstResult(($page-1) * $nbPerPage)
 		  // Ainsi que le nombre d'annonce à afficher sur une page
 		  ->setMaxResults($nbPerPage)
 		;
+		*/
+
+
 
 		// Enfin, on retourne l'objet Paginator correspondant à la requête construite
-		return new Paginator($query, true);
+		// return new Paginator($query, true);
+        return $query;
+
 	}
 
 }
