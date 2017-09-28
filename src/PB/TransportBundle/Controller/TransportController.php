@@ -36,7 +36,7 @@ class TransportController extends Controller
 	    //on récupère le nombre de transports affichés par page
 	    $nbPerPage = $this -> container -> getParameter('nb_per_page');
 
-	    // On récupère l'objet Paginator
+	    // On récupère la query
 	    $listTransports = $this->getDoctrine()
 	      ->getManager()
 	      ->getRepository('PBTransportBundle:Transport')

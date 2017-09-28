@@ -7,8 +7,8 @@ Accueil - {{ parent() }}
 {% endblock %}
 
 {% block header %}
-      <div id="header" class="well">
-        <center><h1>LISTE DES TRANSPORTS</h1></center>
+      <div id="header" class="well text-center">
+		  <h1>LISTE DES TRANSPORTS</h1>
       </div>
 {% endblock %}
 
@@ -19,11 +19,11 @@ Accueil - {{ parent() }}
 		<tr>
 			<th>Num Transport</th>
 			<th>C/T</th>
-			<th>Transporteur</th>
-			<th>Date Enl.</th>
+			<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>
+			<th>{{ knp_pagination_sortable(listTransports, 'Date Enl.', 't.dateenlevement') }}</th>
 			<th>De</th>
 			<th>À</th>
-			<th>Date Liv.</th>
+			<th>{{ knp_pagination_sortable(listTransports, 'Date Liv.', 't.datelivraison') }}</th>
 			<th>Opération</th>
 		</tr>
 
@@ -48,7 +48,11 @@ Accueil - {{ parent() }}
 
 		{% endfor %}
 	</table>
-    <div class="navigation">{{ knp_pagination_render(listTransports) }}</div>
+
+    <div class="navigation">
+		{{ knp_pagination_render(listTransports) }}
+	</div>
+
 	<div>
 		<span class="label label-success">Transport avec facture</span><span class="label label-warning">Transport effectué</span><span class="label label-danger">Transport annulé</span>
 	</div>
