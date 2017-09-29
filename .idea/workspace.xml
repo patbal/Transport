@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Entities created">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/TypeVehicule.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/TypeVehiculeRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/addCamion.html.twig" />
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/CamionRepository.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/CamionRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -796,11 +784,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506702864205</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel">
+      <created>1506719265157</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1506719265157</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141076000" />
+    <option name="totallyTimeSpent" value="141168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -937,7 +932,8 @@
     <MESSAGE value="Composer update. &#10;Install KNP Pagination Bundle" />
     <MESSAGE value="KNP Bundle implementation + sorting" />
     <MESSAGE value="GesCam Dev&#10;- Entities created" />
-    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Entities created" />
+    <MESSAGE value="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel" />
+    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
