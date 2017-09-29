@@ -1,0 +1,28 @@
+{% extends "::baseGesCam.html.twig" %}
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% for message in app.session.flashbag.get('alert') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {% for key, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ key }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block pbtransport_body %}
+    {% endblock %}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+{% endblock %}

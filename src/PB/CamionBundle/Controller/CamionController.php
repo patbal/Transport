@@ -8,6 +8,6 @@ class CamionController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PBCamionBundle:Default:index.html.twig');
+        return $this->render('PBCamionBundle:Camion:index.html.twig');
     }
 }
