@@ -10,4 +10,13 @@ namespace PB\CamionBundle\Repository;
  */
 class CamionRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getListeCamions()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.contactFrom', 'cf')
+            ->addSelect('cf')
+            ->orderBy('c.id', 'DESC');
+
+        return $query;
+    }
 }

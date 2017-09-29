@@ -1,3 +1,8 @@
 pb_camion_homepage:
     path:     /
     defaults: { _controller: PBCamionBundle:Camion:index }
+
+pb_camion_addcamion:
+  path: add/
+  defaults:
+    _controller: PBCamionBundle:Camion:addCamion

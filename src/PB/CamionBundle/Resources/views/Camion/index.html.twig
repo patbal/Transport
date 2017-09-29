@@ -12,43 +12,43 @@
     </div>
 {% endblock %}
 
-{% block pbtransport_body %}
+{% block pbcamion_body %}
 
 
     <table class="table table-hover">
         <tr>
-            <th>Num Transport</th>
-            <th>C/T</th>
+            <th>Num. Loc.</th>
+            <th>Loueur</th>
+            <th>Pris le</th>
+            <th>Rendu le</th>
+            <th>Véhicule</th>
+            <th>Hayon</th>
+            <th>Opération</th>
             {#<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>#}
         </tr>
 
-        {#{% for transport in listTransports %}
-            <tr {% if not null == transport.effectue and transport.effectue == true %}class="warning italic"{% elseif not null == transport.annule and transport.annule == true %}class="danger italic"{% elseif not null == transport.facturerecue and transport.facturerecue == true %}class="success italic"{% endif %}>
-                <td>
-                    <a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">
-                        {{ transport.number }}{{ transport.id }}
-                    </a>
-                </td>
-                <td>{% if transport.typeTr.type == "Course" %}C{% elseif transport.typeTr.type == "Transport" %}T{% else %}NA{% endif %}
-                <td>{{ transport.transporteur.nom }}</td>
-                <td>{{ transport.dateenlevement|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heureenlevement|date('H:i') }}{% endif %}</td>
-                <td>{{ transport.adresseFrom.societe }}</td>
-                <td>{{ transport.adresseTo.societe }}</td>
-                <td>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heurelivraison|date('H:i') }}{% endif %}</td>
-                {% if not null == transport.operation %}<td>{{ transport.operation }}</td>{% endif %}
+        {% for camion in listeCamions %}
+            <tr>
+                <td>{{ camion.number }}{{ camion.id }}</td>
+                <td>{{ camion.loueur.nom }}</td>
+                <td>{{ camion.dateEnlevement|date('d/m/Y') }}</td>
+                <td>{{ camion.dateRetour|date('d/m/Y') }}</td>
+                <td>{{ camion.vehicule.vehicule }}</td>
+                <td>{% if camion.avecHayon == true %}Avec Hayon{% else %}Sans hayon{% endif %}</td>
+                <td>{{ camion.operation }}</td>
             </tr>
 
         {% else %}
-            <td>Pas (encore !) de transport</td>
+            <td>Pas (encore !) de demande</td>
 
-        {% endfor %}#}
+        {% endfor %}
     </table>
 
-    {#<div class="navigation">
-        {{ knp_pagination_render(listTransports) }}
-    </div>#}
-
-    <div>
-        <span class="label label-success">Transport avec facture</span><span class="label label-warning">Transport effectué</span><span class="label label-danger">Transport annulé</span>
+    <div class="navigation">
+        {{ knp_pagination_render(listeCamions) }}
     </div>
+
+    {#<div>
+        <span class="label label-success">Transport avec facture</span><span class="label label-warning">Transport effectué</span><span class="label label-danger">Transport annulé</span>
+    </div>#}
 {% endblock %}

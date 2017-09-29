@@ -74,8 +74,6 @@ class TransportController extends Controller
 			$em -> persist($transport);
 			$em -> flush();
 
-			// $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
 			return $this->redirectToRoute('pb_transport_adddetailtransport', array(
 				'id' => $transport->getId())
 			);

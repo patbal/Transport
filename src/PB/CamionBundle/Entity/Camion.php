@@ -31,6 +31,13 @@ class Camion
     /**
      * @var \DateTime
      *
+     * @ORM\Column(name="dateCreation", type="datetime")
+     */
+    private $dateCreation;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="dateRetour", type="datetime", nullable=true)
      */
     private $dateRetour;
@@ -66,9 +73,77 @@ class Camion
      */
     private $contactFrom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PB\CamionBundle\Entity\TypeVehicule")
+     */
+    private $vehicule;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="hayon", type="boolean", nullable=false)
+     */
+    private $avecHayon;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="mailsent", type="boolean", nullable=true)
+     */
+    private $mailSent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="mailsentdate", type="datetime", nullable=true)
+     */
+    private $mailSentDate;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="effectue", type="boolean")
+     */
+    private $effectue;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="annule", type="boolean")
+     */
+    private $annule;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="factureRecue", type="boolean")
+     */
+
+    private $factureRecue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cree_par", type="text", nullable=true)
+     */
+    private $creePar;
+
 //************************************************************************
 //************************* GETTERS AND SETTERS **************************
 //************************************************************************
+
+    public function __construct()
+    {
+        $now = new \DateTime();
+        $this->number = 'CR' . $now->format('Y') . $now->format('m') . '-';
+        $this->dateCreation = new \DateTime();
+        $this->dateEnlevement = new \DateTime();
+        $this->dateRetour = new \DateTime('NOW + 2 day');
+        $this->effectue = false;
+        $this->annule = false;
+        $this->factureRecue = false;
+        $this->mailSent = false;
+    }
 
     /**
      * Get id
@@ -270,5 +345,221 @@ class Camion
     public function getContactFrom()
     {
         return $this->contactFrom;
+    }
+
+    /**
+     * Set vehicule
+     *
+     * @param \PB\CamionBundle\Entity\TypeVehicule $vehicule
+     *
+     * @return Camion
+     */
+    public function setVehicule(\PB\CamionBundle\Entity\TypeVehicule $vehicule = null)
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get vehicule
+     *
+     * @return \PB\CamionBundle\Entity\TypeVehicule
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+
+    /**
+     * Set avecHayon
+     *
+     * @param boolean $avecHayon
+     *
+     * @return Camion
+     */
+    public function setAvecHayon($avecHayon)
+    {
+        $this->avecHayon = $avecHayon;
+
+        return $this;
+    }
+
+    /**
+     * Get avecHayon
+     *
+     * @return boolean
+     */
+    public function getAvecHayon()
+    {
+        return $this->avecHayon;
+    }
+
+    /**
+     * Set dateCreation
+     *
+     * @param \DateTime $dateCreation
+     *
+     * @return Camion
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreation
+     *
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * Set mailSent
+     *
+     * @param boolean $mailSent
+     *
+     * @return Camion
+     */
+    public function setMailSent($mailSent)
+    {
+        $this->mailSent = $mailSent;
+
+        return $this;
+    }
+
+    /**
+     * Get mailSent
+     *
+     * @return boolean
+     */
+    public function getMailSent()
+    {
+        return $this->mailSent;
+    }
+
+    /**
+     * Set mailSentDate
+     *
+     * @param \DateTime $mailSentDate
+     *
+     * @return Camion
+     */
+    public function setMailSentDate($mailSentDate)
+    {
+        $this->mailSentDate = $mailSentDate;
+
+        return $this;
+    }
+
+    /**
+     * Get mailSentDate
+     *
+     * @return \DateTime
+     */
+    public function getMailSentDate()
+    {
+        return $this->mailSentDate;
+    }
+
+    /**
+     * Set effectue
+     *
+     * @param boolean $effectue
+     *
+     * @return Camion
+     */
+    public function setEffectue($effectue)
+    {
+        $this->effectue = $effectue;
+
+        return $this;
+    }
+
+    /**
+     * Get effectue
+     *
+     * @return boolean
+     */
+    public function getEffectue()
+    {
+        return $this->effectue;
+    }
+
+    /**
+     * Set annule
+     *
+     * @param boolean $annule
+     *
+     * @return Camion
+     */
+    public function setAnnule($annule)
+    {
+        $this->annule = $annule;
+
+        return $this;
+    }
+
+    /**
+     * Get annule
+     *
+     * @return boolean
+     */
+    public function getAnnule()
+    {
+        return $this->annule;
+    }
+
+    /**
+     * Set factureRecue
+     *
+     * @param boolean $factureRecue
+     *
+     * @return Camion
+     */
+    public function setFactureRecue($factureRecue)
+    {
+        $this->factureRecue = $factureRecue;
+
+        return $this;
+    }
+
+    /**
+     * Get factureRecue
+     *
+     * @return boolean
+     */
+    public function getFactureRecue()
+    {
+        return $this->factureRecue;
+    }
+
+    /**
+     * Set creePar
+     *
+     * @param string $creePar
+     *
+     * @return Camion
+     */
+    public function setCreePar($creePar)
+    {
+        $this->creePar = $creePar;
+
+        return $this;
+    }
+
+    /**
+     * Get creePar
+     *
+     * @return string
+     */
+    public function getCreePar()
+    {
+        return $this->creePar;
     }
 }
