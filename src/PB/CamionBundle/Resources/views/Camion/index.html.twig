@@ -24,18 +24,21 @@
             <th>Véhicule</th>
             <th>Hayon</th>
             <th>Opération</th>
+            <th>RMK</th>
             {#<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>#}
         </tr>
 
         {% for camion in listeCamions %}
             <tr>
-                <td>{{ camion.number }}{{ camion.id }}</td>
+                <td><a href="{{ path ('pb_camion_viewcamion', {'id': camion.id}) }}">{{ camion.number }}{{ camion.id }}</a></td>
                 <td>{{ camion.loueur.nom }}</td>
                 <td>{{ camion.dateEnlevement|date('d/m/Y') }}</td>
                 <td>{{ camion.dateRetour|date('d/m/Y') }}</td>
                 <td>{{ camion.vehicule.vehicule }}</td>
                 <td>{% if camion.avecHayon == true %}Avec Hayon{% else %}Sans hayon{% endif %}</td>
                 <td>{{ camion.operation }}</td>
+                <td>{% if camion.remarque|default  %}<span class="glyphicon glyphicon-ok"></span>
+                    {% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}</td>
             </tr>
 
         {% else %}

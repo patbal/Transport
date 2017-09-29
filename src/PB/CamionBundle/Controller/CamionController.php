@@ -2,6 +2,7 @@
 
 namespace PB\CamionBundle\Controller;
 
+use PB\CamionBundle\Form\CamionAddType;
 use PB\CamionBundle\Form\CamionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,6 +12,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class CamionController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction(REQUEST $request)
     {
         //on récupère le nombre de camions affichés par page
@@ -33,10 +38,14 @@ class CamionController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addCamionAction(Request $request)
     {
         $camion = new Camion();
-        $form = $this -> get('form.factory')->create( CamionType::class, $camion);
+        $form = $this -> get('form.factory')->create( CamionAddType::class, $camion);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -44,10 +53,21 @@ class CamionController extends Controller
             $em->persist($camion);
             $em->flush();
 
+            $request->getSession()->getFlashBag()->add('notice', 'Demande de location enregistrée');
+
             return $this->redirectToRoute('pb_camion_homepage');
         }
 
         return $this->render('PBCamionBundle:Camion:addCamion.html.twig', array('form' => $form->createView()));
+    }
+
+    Public function viewCamionAction(Camion $camion, $id)
+    {
+        if (null === $camion) {
+            throw new NotFoundHttpException("Cette demande de location n'existe pas !");
+        }
+
+        return $this->render('PBCamionBundle:Camion:viewCamion.html.twig', array('camion' => $camion));
     }
 
 }

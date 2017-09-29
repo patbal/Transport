@@ -1,0 +1,74 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Ajout - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well text-center">
+        <h1>DETAIL DE LA LOCATION N°{{ camion.number }}{{ camion.id }}</h1>
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+    <div class="row">
+        <div class="well col-sm-4">
+            <h3>Location n°{{ camion.number }}{{ camion.id }}</h3>
+            <i>Créée le {{ camion.dateCreation|date('d/m/Y') }} par {{ camion.creePar|title }}</i>
+
+            <h4>Loueur</h4>
+            {{ camion.loueur.nom }}
+            <h4>Opération/ référence</h4>
+            {{ camion.operation }}
+        </div>
+
+        <div class="well col-sm-8">
+            <ul class="list-group">
+                {% if not null == camion.annule and camion.annule == true %}<li class="list-group-item attention">ATTENTION : CETTE LOCATION A ÉTÉ ANNULÉE !
+                </li>{% endif %}
+                {% if not null == camion.effectue and camion.effectue == true %}<li class="list-group-item effectue"><span class="glyphicon glyphicon-ok-circle"></span> Location effectuée</li>{% endif %}
+                {% if not null == camion.factureRecue and camion.factureRecue == true %}
+                    <li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>
+                    Location facturée (facture n°<a href="{{ path ('pb_camion_viewfacture', {'id': camion.facture.id}) }}">
+                        {{ camion.facture.numerofacture }}</a> du {{ camion.facture.datefacture|date('d/m/Y') }})</li>{% endif %}
+                <li class="list-group-item">Véhicule demandé : {{ camion.vehicule.vehicule }}</li>
+                <li class="list-group-item">Enlèvement le {{ camion.dateEnlevement|date('d/m/Y') }}</li>
+                <li class="list-group-item">Retour le {{ camion.dateRetour|date('d/m/Y') }}</li>
+                {% if not null == camion.remarque %}<li class="list-group-item remarque">Remarque / Impératif : {{ camion.remarque }}
+                    </li>{% endif %}
+                {#{% if not null == camion.montantfacture and camion.facturerecue == true %}
+                    <li class="list-group-item">Coût de la location : {{ camion.montantfacture }} (facture n°<a href="{{ path ('pb_camion_viewfacture', {'id': camion.facture.id })}}">{{ camion.facture.numerofacture }}</a>)</li>
+                {% endif %}#}
+
+            </ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <p>
+            <a href="{{ path('pb_camion_homepage') }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour à la liste
+            </a>
+            {#<a href="{{ path('pb_camion_edittransport', {'id': camion.id}) }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-edit"></i>
+                Modifier la demande
+            </a>
+            <a href="{{ path('pb_camion_deletetransport', {'id': camion.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+                <i class="glyphicon glyphicon-trash"></i>
+                Supprimer la demande
+            </a>
+        </p>
+        <p>
+            <a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="btn btn-success">
+                <i class="glyphicon glyphicon-envelope"></i>
+                {% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
+
+                {% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
+        #}</p>
+    </div>
+
+{% endblock %}

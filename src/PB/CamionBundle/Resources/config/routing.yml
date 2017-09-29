@@ -6,3 +6,10 @@ pb_camion_addcamion:
   path: add/
   defaults:
     _controller: PBCamionBundle:Camion:addCamion
+
+pb_camion_viewcamion:
+  path: view/{id}/
+  defaults:
+    _controller: PBCamionBundle:Camion:viewCamion
+    requirements:
+        page: \d+
