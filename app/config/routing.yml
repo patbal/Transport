@@ -1,6 +1,10 @@
 pb_transport:
     resource: "@PBTransportBundle/Resources/config/routing.yml"
-    prefix:   /transport
+    prefix:   /gestrans
+
+pb_camion:
+    resource: "@PBCamionBundle/Resources/config/routing.yml"
+    prefix:   /gescam
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

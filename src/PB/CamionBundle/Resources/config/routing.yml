@@ -1,0 +1,3 @@
+pb_camion_homepage:
+    path:     /
+    defaults: { _controller: PBCamionBundle:Default:index }
