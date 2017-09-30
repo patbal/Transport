@@ -1,0 +1,36 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Ajout - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well text-center">
+        <h1>AJOUT DE DEMANDE DE VÉHICULE</h1>
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+    <div class="well">
+        {{ form_start(form) }}
+        {{ form_row(form.operation) }}
+        {{ form_row(form.loueur) }}
+        {{ form_row(form.dateEnlevement) }}
+        {{ form_row(form.dateRetour) }}
+        {{ form_row(form.vehicule) }}
+        {{ form_row(form.avecHayon) }}
+        {{ form_row(form.remarque) }}
+        <div class="well">
+            <strong>État de la loc :</strong>
+            {{ form_row(form.annule) }}
+            {{ form_row(form.effectue) }}
+            {{ form_row(form.factureRecue) }}
+        </div>
+        {{ form_row(form.save) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

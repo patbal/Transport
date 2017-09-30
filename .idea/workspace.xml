@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Implémentation de la vue viewCamion">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,15 +49,63 @@
       <file leaf-file-name="CamionController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+            <state relative-caret-position="570">
+              <caret line="118" column="59" lean-forward="false" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
               <folding>
                 <element signature="e#46#85#0#PHP" expanded="true" />
                 <element signature="e#801#824#1#PHP" expanded="true" />
-                <element signature="e#1121#1160#0#PHP" expanded="true" />
-                <element signature="e#2042#2085#0#PHP" expanded="true" />
-                <element signature="e#2358#2402#0#PHP" expanded="true" />
+                <element signature="e#3500#3544#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="baseGesCam.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="13" column="60" lean-forward="false" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PBTransport.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bundles/pbtransport/css/PBTransport.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="70" lean-forward="false" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PBCamion.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bundles/pbtransport/css/PBCamion.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransportController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="942">
+              <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,19 +113,11 @@
       <file leaf-file-name="viewCamion.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="36" column="46" lean-forward="false" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
-              <folding />
+            <state relative-caret-position="480">
+              <caret line="59" column="192" lean-forward="false" selection-start-line="59" selection-start-column="192" selection-end-line="59" selection-end-column="192" />
+              <folding>
+                <element signature="e#2953#2975#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,40 +125,8 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camion.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-799">
-              <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CamionType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="31" />
-              <folding>
-                <element signature="e#40#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CamionAddType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+            <state relative-caret-position="360">
+              <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -138,6 +147,7 @@
       <find>ListTransports</find>
       <find>boo</find>
       <find>pbtra</find>
+      <find>#07347c</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift</dir>
@@ -159,10 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/FacturesType.php" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Form/TransportEditType.php" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/PBTransportBundle.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addTransport.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" />
@@ -196,20 +202,24 @@
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Loueur.php" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Repository/CamionRepository.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Entity/TypeVehicule.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/addCamion.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
+        <option value="$PROJECT_DIR$/web/css/838d7f5.css" />
+        <option value="$PROJECT_DIR$/web/bundles/pbtransport/css/PBCamion.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/pbtransport/css/PBTransport.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       </list>
     </option>
   </component>
@@ -298,22 +308,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Transport" type="cbb8eebc:String" user="Transport" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Transport" type="cbb8eebc:String" user="Transport" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,153 +348,49 @@
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
               <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CamionBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Camion" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TransportBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
               <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pbtransport" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bundles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pbtransport" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Transport" type="cbb8eebc:String" user="Transport" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Transport" type="cbb8eebc:String" user="Transport" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -513,17 +404,17 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion" />
-      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Form" />
-      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views" />
-      <recent name="$PROJECT_DIR$/app/Resources/views" />
-      <recent name="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/PB/TransportBundle/Form" />
       <recent name="$PROJECT_DIR$/src/PB/TransportBundle/Form/Type" />
       <recent name="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/bundles/pbtransport/css" />
+      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion" />
+      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Form" />
+      <recent name="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views" />
+      <recent name="$PROJECT_DIR$/app/Resources/views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -619,6 +510,7 @@
       <workItem from="1506610314589" duration="1294000" />
       <workItem from="1506619353854" duration="182000" />
       <workItem from="1506619715277" duration="4745000" />
+      <workItem from="1506724614605" duration="4255000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -802,11 +694,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506719278683</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="GesCam Dev&#10;- Implémentation de la vue viewCamion">
+      <created>1506723798006</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1506723798006</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145532000" />
+    <option name="totallyTimeSpent" value="149995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -821,40 +720,29 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18383405" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.50429183" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27010924" sideWeight="0.49570817" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3361548" sideWeight="0.50277776" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3083434" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19599427" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3095526" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3361548" sideWeight="0.50277776" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3095526" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27010924" sideWeight="0.49570817" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18168813" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -919,7 +807,8 @@
     <MESSAGE value="KNP Bundle implementation + sorting" />
     <MESSAGE value="GesCam Dev&#10;- Entities created" />
     <MESSAGE value="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel" />
-    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel" />
+    <MESSAGE value="GesCam Dev&#10;- Implémentation de la vue viewCamion" />
+    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Implémentation de la vue viewCamion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,34 +824,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/addDetailTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Adresse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1020,15 +881,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/icotype.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/icotype.png" />
     <entry file="file://$PROJECT_DIR$/web/favicon.ico">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1074,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,14 +962,6 @@
           <folding>
             <element signature="e#12#47#0#Twig" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,7 +986,7 @@
         <state relative-caret-position="465">
           <caret line="31" column="22" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="31" selection-end-column="22" />
           <folding>
-            <element signature="e#49#83#0#PHP" expanded="true" />
+            <element signature="e#49#83#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1174,9 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="e#12#34#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1203,26 +1045,8 @@
         <state relative-caret-position="645">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="49" selection-end-column="5" />
           <folding>
-            <element signature="e#43#83#0#PHP" expanded="true" />
+            <element signature="e#43#83#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="227" column="1" lean-forward="false" selection-start-line="227" selection-start-column="1" selection-end-line="227" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1250,61 +1073,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/838d7f5.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="99" column="98" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="98" />
-          <folding>
-            <element signature="e#49#88#0#PHP" expanded="true" />
-            <element signature="e#1406#1435#1#PHP" expanded="true" />
-            <element signature="e#1781#1826#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransporteurController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-804">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-          <folding>
-            <element signature="e#46#85#0#PHP" expanded="true" />
-            <element signature="e#801#824#1#PHP" expanded="true" />
-            <element signature="e#1121#1160#0#PHP" expanded="true" />
-            <element signature="e#2042#2085#0#PHP" expanded="true" />
-            <element signature="e#2358#2402#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1324,36 +1097,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="36" column="46" lean-forward="false" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="94" />
-          <folding>
-            <marker date="1506669259686" expanded="true" signature="2035:2246" ph="{% block pbtransport_body ...%}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
+        <state relative-caret-position="480">
           <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#44#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="4" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="37" column="78" lean-forward="false" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
+          <folding>
+            <element signature="e#40#80#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="59" column="192" lean-forward="false" selection-start-line="59" selection-start-column="192" selection-end-line="59" selection-end-column="192" />
+          <folding>
+            <element signature="e#2953#2975#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="118" column="59" lean-forward="false" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
+          <folding>
+            <element signature="e#46#85#0#PHP" expanded="true" />
+            <element signature="e#801#824#1#PHP" expanded="true" />
+            <element signature="e#3500#3544#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/838d7f5.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="942">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="13" column="60" lean-forward="false" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/pbtransport/css/PBCamion.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/pbtransport/css/PBTransport.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="70" lean-forward="false" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
           <folding />
         </state>
       </provider>

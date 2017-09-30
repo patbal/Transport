@@ -53,22 +53,22 @@
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 Retour à la liste
             </a>
-            {#<a href="{{ path('pb_camion_edittransport', {'id': camion.id}) }}" class="btn btn-default">
+            <a href="{{ path('pb_camion_editcamion', {'id': camion.id}) }}" class="btn btn-default">
                 <i class="glyphicon glyphicon-edit"></i>
                 Modifier la demande
             </a>
-            <a href="{{ path('pb_camion_deletetransport', {'id': camion.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+            <a href="{{ path('pb_camion_deletecamion', {'id': camion.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer cette location ? Cette action est irrévocable.');">
                 <i class="glyphicon glyphicon-trash"></i>
                 Supprimer la demande
             </a>
         </p>
-        <p>
+        {#<p>
             <a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="btn btn-success">
                 <i class="glyphicon glyphicon-envelope"></i>
                 {% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
 
                 {% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
-        #}</p>
+        </p>#}
     </div>
 
 {% endblock %}

@@ -35,21 +35,21 @@ class CamionType extends AbstractType
                 'label' => 'Remarque',
                 'required' => false))
             ->add('avecHayon', CheckboxType::class, array('required' => false))
-            ->add('effectue', CheckboxType::class, array('required' => false))
-            ->add('annule', CheckboxType::class, array('required' => false))
+            ->add('effectue', CheckboxType::class, array('label' => 'Effectuée', 'required' => false))
+            ->add('annule', CheckboxType::class, array('label' => 'Annulée', 'required' => false))
             ->add('factureRecue', CheckboxType::class, array('required' => false, 'label' => 'Facture reçue'))
             ->add('loueur', EntityType::class, array(
                 'class'        => 'PBCamionBundle:Loueur',
                 'choice_label' => 'nom',
                 'multiple'     => false,
                 'expanded'     => false))
-            ->add('contactFrom', EntityType::class, array(
+            /*->add('contactFrom', EntityType::class, array(
                 'class'        => 'PBTransportBundle:Contact',
                 'query_builder' => function (EntityRepository $er) {return $er->createQueryBuilder('u')
                     ->orderBy('u.nom', 'ASC');},
                 'multiple'     => false,
                 'expanded'     => false,
-                'label' => 'Contact Enlèvement'))
+                'label' => 'Véhicule demandé par : '))*/
             ->add('vehicule', EntityType::class, array(
                 'class'         => 'PBCamionBundle:TypeVehicule',
                 'choice_label'  => 'vehicule',

@@ -13,3 +13,17 @@ pb_camion_viewcamion:
     _controller: PBCamionBundle:Camion:viewCamion
     requirements:
         page: \d+
+
+pb_camion_editcamion:
+  path: edit/{id}/
+  defaults:
+    _controller: PBCamionBundle:Camion:editCamion
+    requirements:
+        page: \d+
+
+pb_camion_deletecamion:
+  path: delete/{id}/
+  defaults:
+    _controller: PBCamionBundle:Camion:deleteCamion
+    requirements:
+        page: \d+

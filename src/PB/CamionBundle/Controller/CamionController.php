@@ -32,9 +32,7 @@ class CamionController extends Controller
         $pagination = $paginator->paginate($listeCamions, $request->query->getInt('page', 1),$nbPerPage);
 
         // On donne toutes les informations nécessaires à la vue
-        return $this->render('PBCamionBundle:Camion:index.html.twig', array(
-            'listeCamions' => $pagination
-        ));
+        return $this->render('PBCamionBundle:Camion:index.html.twig', array('listeCamions' => $pagination));
 
     }
 
@@ -61,6 +59,11 @@ class CamionController extends Controller
         return $this->render('PBCamionBundle:Camion:addCamion.html.twig', array('form' => $form->createView()));
     }
 
+    /**
+     * @param Camion $camion
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     Public function viewCamionAction(Camion $camion, $id)
     {
         if (null === $camion) {
@@ -68,6 +71,56 @@ class CamionController extends Controller
         }
 
         return $this->render('PBCamionBundle:Camion:viewCamion.html.twig', array('camion' => $camion));
+    }
+
+    /**
+     * @param Camion $camion
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function editCamionAction(Camion $camion, $id, Request $request)
+    {
+        if (null === $camion)
+        {
+            throw new NotFoundHttpException("Cette location n'existe pas.");
+        }
+
+        $form = $this -> get('form.factory')->create( CamionType::class, $camion);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($camion);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Location n° '.$camion->getNumber().$id.' enregistrée');
+
+            return $this->redirectToRoute('pb_camion_viewcamion', array('id'=>$camion->getId()));
+        }
+
+        return $this->render('PBCamionBundle:Camion:editCamion.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * @param Camion $camion
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteCamionAction(Camion $camion, $id, Request $request)
+    {
+        if(null === $camion)
+        {
+            throw new NotFoundHttpException("Mais où tu as été trouvé cette demande, mec ???");
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($camion);
+        $request->getSession()->getFlashBag()-> add('danger', 'Demande de location n°'.$camion->getNumber().$id.' supprimée');
+        $em -> flush();
+
+
+        return $this->redirectToRoute('pb_camion_homepage');
     }
 
 }
