@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Implémentation de l'édition et de la suppression">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/LoueurController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/LoueurType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig" />
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="GesCam Dev&#10;- Implémentation des fonctions liées aux loueurs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/LoueurRepository.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/LoueurRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,19 +47,8 @@
               <caret line="98" column="9" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="9" />
               <folding>
                 <element signature="e#46#85#0#PHP" expanded="true" />
-                <element signature="e#801#824#1#PHP" expanded="true" />
                 <element signature="e#3500#3544#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewCamion.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="71" column="10" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="71" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -99,24 +80,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewLoueur.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="viewLoueur.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoueurType.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/LoueurType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-              <folding>
-                <element signature="e#40#98#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -239,10 +208,10 @@
         <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/LoueurController.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/LoueurType.php" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig" />
       </list>
     </option>
   </component>
@@ -615,7 +584,7 @@
       <workItem from="1506610314589" duration="1294000" />
       <workItem from="1506619353854" duration="182000" />
       <workItem from="1506619715277" duration="4745000" />
-      <workItem from="1506724614605" duration="11489000" />
+      <workItem from="1506724614605" duration="11609000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -813,11 +782,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506783532788</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="GesCam Dev&#10;- Implémentation des fonctions liées aux loueurs">
+      <created>1506879195723</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1506879195723</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157229000" />
+    <option name="totallyTimeSpent" value="157349000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,7 +813,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3361548" sideWeight="0.50277776" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -921,7 +897,8 @@
     <MESSAGE value="GesCam Dev&#10;- Mise en place de l'index&#10;- Mise en place de l'ajout&#10;- ajout dans base fonctionnel" />
     <MESSAGE value="GesCam Dev&#10;- Implémentation de la vue viewCamion" />
     <MESSAGE value="GesCam Dev&#10;- Implémentation de l'édition et de la suppression" />
-    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Implémentation de l'édition et de la suppression" />
+    <MESSAGE value="GesCam Dev&#10;- Implémentation des fonctions liées aux loueurs" />
+    <option name="LAST_COMMIT_MESSAGE" value="GesCam Dev&#10;- Implémentation des fonctions liées aux loueurs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1271,14 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="71" column="10" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="71" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/DetailTransportType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1292,18 +1261,6 @@
         <state relative-caret-position="-33">
           <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="98" column="9" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="9" />
-          <folding>
-            <element signature="e#46#85#0#PHP" expanded="true" />
-            <element signature="e#801#824#1#PHP" expanded="true" />
-            <element signature="e#3500#3544#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1346,21 +1303,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/LoueurType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="330">
           <caret line="24" column="66" lean-forward="false" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
           <folding>
             <element signature="e#40#98#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="10" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="71" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="98" column="9" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="9" />
+          <folding>
+            <element signature="e#46#85#0#PHP" expanded="true" />
+            <element signature="e#3500#3544#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Loueur/viewLoueur.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
