@@ -27,6 +27,7 @@ class CamionType extends AbstractType
             ->add('dateEnlevement', DateType::class, array(
                 'widget' => 'single_text',
                 'label' => 'Date d\'enlèvement'))
+            ->add('nbJoursExploit', IntegerType::class, array('label'=>'Nombre de jour(s) d\'exploitation'))
             ->add('dateRetour', DateType::class, array(
                 'widget' => 'single_text',
                 'label' => 'Date de retour'))

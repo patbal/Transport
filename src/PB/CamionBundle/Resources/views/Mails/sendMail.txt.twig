@@ -1,0 +1,21 @@
+{# src/PB/TransportBundle/Resources/views/Transport/sendMail.txt.twig #}
+Bonjour,
+Merci de bien vouloir prendre en compte la demande suivante :
+
+Demande de location n°{{ camion.number }}{{ camion.id }} (référence à rappeler sur votre facture)
+
+
+Date d'enlèvement : {{ camion.dateEnlevement|date('d/m/Y') }}
+Date de retour : {{ camion.dateRetour|date('d/m/Y') }}
+Nombre de jours d'exploitation : {{ camion.nbJoursExploit }}
+
+Véhicule demandé : {{ camion.vehicule.vehicule }}
+
+{% if not null == camion.remarque %}
+    Remarques / Impératifs : {{ camion.remarque }}
+{% endif %}
+
+
+
+------------
+{{ nomFrom }} | Dushow Toulouse | 3 impasse Jean Mermoz | 31140 Saint Alban | TEL 0561 246 246 | FAX 05 61 246 446

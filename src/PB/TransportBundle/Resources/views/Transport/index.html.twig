@@ -25,6 +25,7 @@ Accueil - {{ parent() }}
 			<th>À</th>
 			<th>{{ knp_pagination_sortable(listTransports, 'Date Liv.', 't.datelivraison') }}</th>
 			<th>Opération</th>
+			<th>RMK</th>
 		</tr>
 
 		{% for transport in listTransports %}
@@ -41,6 +42,8 @@ Accueil - {{ parent() }}
 				<td>{{ transport.adresseTo.societe }}</td>
 				<td>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heurelivraison|date('H:i') }}{% endif %}</td>
 				{% if not null == transport.operation %}<td>{{ transport.operation }}</td>{% endif %}
+				<td>{% if transport.remarque|default  %}<span class="glyphicon glyphicon-ok"></span>
+                    {% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}</td>
 			</tr>
 
 		{% else %}

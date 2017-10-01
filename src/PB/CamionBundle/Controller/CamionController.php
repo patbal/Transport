@@ -123,4 +123,58 @@ class CamionController extends Controller
         return $this->redirectToRoute('pb_camion_homepage');
     }
 
+    public function sendMailAction(Camion $camion, $id, Request $request)
+    {
+        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port')))
+            ->setUsername($this -> container -> getParameter('mailer_user'))
+            ->setPassword($this -> container ->getParameter('mailer_password'));
+        $mailer = new \Swift_Mailer($trans);
+        $mailFrom = $this->getUser()->getEmail();
+        $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
+        $loueur = $camion->getLoueur();
+        $mailTo = $loueur -> getEmail();
+
+        $message = (new \Swift_Message('Demande de camion'))
+            ->setFrom('DushowTransportsDaemon@dushow.com')
+            ->setTo($mailTo)
+            ->setReplyTo([$mailFrom => $nomFrom])
+            ->setBcc($mailFrom)
+            ->setBody(
+                $this->renderView('PBCamionBundle:Mails:sendMail.html.twig', array(
+                        'camion'	=> $camion, 'nomFrom'=>$nomFrom)
+                ),'text/html')
+            ->addPart(
+                $this->renderView(
+                    'PBCamionBundle:Mails:sendMail.txt.twig',
+                    array('camion'	=> $camion, 'nomFrom' => $nomFrom)
+                ),
+                'text/plain'
+            );
+
+
+        $mailer->send($message);
+
+        $camion -> setMailSentDate(new \DateTime());
+        $camion -> setMailSent(true);
+        $em = $this ->getDoctrine()->getManager();
+        $em -> persist($camion);
+        $em -> flush();
+
+        $request -> getSession() -> getFlashBag() -> add('notice', 'Mail de demande de camion envoyé à '.$mailTo.' - vous en recevrez une copie');
+
+        return $this->redirectToRoute('pb_camion_viewcamion', array('id'=>$camion->getId()));
+    }
+
+    /**
+     * @param Camion $camion
+     * @param $id
+     * @return string
+     */
+    public function viewMailAction(Camion $camion, $id)
+    {
+        $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
+        return $this->render('PBCamionBundle:Mails:viewMail.html.twig', array(
+            'camion'	=> $camion, 'nomFrom'=>$nomFrom));
+    }
+
 }

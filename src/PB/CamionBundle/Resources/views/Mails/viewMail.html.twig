@@ -1,0 +1,57 @@
+{# src/PB/CamionBundle/Resources/views/Mail/viewMail.html.twig #}
+
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block alert %}
+
+{% endblock %}
+
+{% block title %}
+
+    Mail - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well h2 text-center">
+        Visualisation du mail pour la location n°{{ camion.number }}{{ camion.id }}
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+    <p>Bonjour,</p>
+    <p>Merci de bien vouloir prendre en compte la demande suivante : </p><br><hr><br>
+    <p><span style="font-size: large ; font-weight:bold">Demande de location n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ camion.number }}{{ camion.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
+    <hr>
+    <p>
+        <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ camion.dateEnlevement|date('d/m/Y') }}</span><br>
+        <span style="font-size: large ; font-weight:bold">Date de retour : </span><span>{{ camion.dateRetour|date('d/m/Y') }}</span><br>
+        <span style="font-size: large ; font-weight:bold">Nombre de jours d'exploitation : </span><span>{{ camion.nbJoursExploit }}</span><hr>
+        <span style="font-size: large ; font-weight: bold">Véhicule demandé : </span><span>{{ camion.vehicule.vehicule }}</span>
+    <hr>
+    {% if not null == camion.remarque %}
+        <span style="font-size: large ; font-weight: bold">Remarques / Impératifs : </span>{{ camion.remarque }}
+    {% endif %}
+    </p>
+    <br><br><br><br>
+    <hr>
+    {{ nomFrom }} | Dushow Toulouse | 3 impasse Jean Mermoz | 31140 Saint Alban | TEL 0561 246 246 | FAX 05 61 246 446
+    </p>
+
+<div class="row">
+    <p>
+        <button class="btn btn-info" onclick="if (window.print) window.print();return false">
+            <i class="glyphicon glyphicon-print"></i>
+            Imprimer le mail
+        </button>
+        <a href="{{ path('pb_camion_viewcamion', {'id' :camion.id}) }}" class="btn btn-danger">retour à la fiche</a>
+    </p>
+    <p>
+        <a href="{{ path('pb_camion_sendmail', {'id' :camion.id}) }}" class="btn btn-success">
+            <i class="glyphicon glyphicon-envelope"></i>
+            {% if not null == camion.mailSent and camion.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au loueur
+
+            {% if not null == camion.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ camion.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
+    </p>
+</div>
+{% endblock %}

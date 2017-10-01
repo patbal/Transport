@@ -60,3 +60,17 @@ pb_camion_indexloueur:
     _controller: PBCamionBundle:Loueur:indexLoueur
     requirements:
         page: \d+
+
+pb_camion_viewmail:
+  path: loueur/mail/view/{id}/
+  defaults:
+    _controller: PBCamionBundle:Camion:viewMail
+    requirements:
+        page: \d+
+
+pb_camion_sendmail:
+  path: loueur/mail/send/{id}/
+  defaults:
+    _controller: PBCamionBundle:Camion:sendMail
+    requirements:
+        page: \d+

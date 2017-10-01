@@ -128,10 +128,20 @@ class Camion
      */
     private $creePar;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_jours_exploit", type="integer")
+     */
+    private $nbJoursExploit;
+
 //************************************************************************
 //************************* GETTERS AND SETTERS **************************
 //************************************************************************
 
+    /**
+     * Camion constructor.
+     */
     public function __construct()
     {
         $now = new \DateTime();
@@ -143,6 +153,7 @@ class Camion
         $this->annule = false;
         $this->factureRecue = false;
         $this->mailSent = false;
+        $this->nbJoursExploit = 1;
     }
 
     /**
@@ -561,5 +572,29 @@ class Camion
     public function getCreePar()
     {
         return $this->creePar;
+    }
+
+    /**
+     * Set nbJoursExploit
+     *
+     * @param integer $nbJoursExploit
+     *
+     * @return Camion
+     */
+    public function setNbJoursExploit($nbJoursExploit)
+    {
+        $this->nbJoursExploit = $nbJoursExploit;
+
+        return $this;
+    }
+
+    /**
+     * Get nbJoursExploit
+     *
+     * @return integer
+     */
+    public function getNbJoursExploit()
+    {
+        return $this->nbJoursExploit;
     }
 }
