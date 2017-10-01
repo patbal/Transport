@@ -3,27 +3,60 @@ pb_camion_homepage:
     defaults: { _controller: PBCamionBundle:Camion:index }
 
 pb_camion_addcamion:
-  path: add/
+  path: loc/add/
   defaults:
     _controller: PBCamionBundle:Camion:addCamion
 
 pb_camion_viewcamion:
-  path: view/{id}/
+  path: loc/view/{id}/
   defaults:
     _controller: PBCamionBundle:Camion:viewCamion
     requirements:
         page: \d+
 
 pb_camion_editcamion:
-  path: edit/{id}/
+  path: loc/edit/{id}/
   defaults:
     _controller: PBCamionBundle:Camion:editCamion
     requirements:
         page: \d+
 
 pb_camion_deletecamion:
-  path: delete/{id}/
+  path: loc/delete/{id}/
   defaults:
     _controller: PBCamionBundle:Camion:deleteCamion
+    requirements:
+        page: \d+
+
+pb_camion_addloueur:
+  path: loueur/add/
+  defaults:
+    _controller: PBCamionBundle:Loueur:addLoueur
+
+pb_camion_viewloueur:
+  path: loueur/view/{id}/
+  defaults:
+    _controller: PBCamionBundle:Loueur:viewLoueur
+    requirements:
+        page: \d+
+
+pb_camion_editloueur:
+  path: loueur/edit/{id}/
+  defaults:
+    _controller: PBCamionBundle:Loueur:editLoueur
+    requirements:
+        page: \d+
+
+pb_camion_deleteloueur:
+  path: loueur/delete/{id}/
+  defaults:
+    _controller: PBCamionBundle:Loueur:deleteLoueur
+    requirements:
+        page: \d+
+
+pb_camion_indexloueur:
+  path: loueur/index
+  defaults:
+    _controller: PBCamionBundle:Loueur:indexLoueur
     requirements:
         page: \d+

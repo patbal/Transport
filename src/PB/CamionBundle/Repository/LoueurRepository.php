@@ -10,4 +10,11 @@ namespace PB\CamionBundle\Repository;
  */
 class LoueurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getListeLoueurs()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->orderBy('c.nom', 'ASC');
+
+        return $query;
+    }
 }

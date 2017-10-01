@@ -1,0 +1,54 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Loueurs - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well text-center">
+        <h1>LISTE DES LOUEURS</h1>
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+
+    <table class="table table-hover">
+        <tr>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Adresse (Compl.)</th>
+            <th>CP</th>
+            <th>Ville</th>
+            <th>Tel</th>
+            <th>Mail</th>
+            {#<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>#}
+        </tr>
+
+        {% for loueur in listeLoueurs %}
+            <tr>
+                <td><a href="{{ path ('pb_camion_viewloueur', {'id': loueur.id}) }}">{{ loueur.nom }}</a></td>
+                <td>{{ loueur.adresse }}</td>
+                <td>{{ loueur.adresse2 }}</td>
+                <td>{{ loueur.cp }}</td>
+                <td>{{ loueur.ville }}</td>
+                <td>{{ loueur.tel }}</td>
+                <td>{{ loueur.email }}</td>
+            </tr>
+
+        {% else %}
+            <td>Pas (encore !) de demande</td>
+
+        {% endfor %}
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(listeLoueurs) }}
+    </div>
+
+
+
+
+{% endblock %}

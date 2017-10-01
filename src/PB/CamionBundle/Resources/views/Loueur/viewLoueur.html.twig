@@ -1,0 +1,72 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Ajout - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well text-center">
+        <h1>DETAIL DU LOUEUR "{{ loueur.nom|upper }}"</h1>
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+    <div class="row">
+        <div>
+            <h3>Aperçu du loueur : {{ loueur.nom }}</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="well col-sm-2">
+            <ul class="list-group">
+                <li class="list-group-item">Adresse : </li>
+                <li class="list-group-item">Complément d'adresse :</li>
+                <li class="list-group-item">Code Postal :</li>
+                <li class="list-group-item">Ville :</li>
+                <li class="list-group-item">Numéro de téléphone :</li>
+                <li class="list-group-item">Email :</li>
+            </ul>
+        </div>
+        <div class="well col-sm-10">
+            <ul class="list-group">
+                <li class="list-group-item">{% if loueur.adresse is not empty %}{{ loueur.adresse }}{% else %}TBD{% endif %}</li>
+                <li class="list-group-item">{% if loueur.adresse2 is not empty %}{{ loueur.adresse2 }}{% else %}TBD{% endif %}</li>
+                <li class="list-group-item">{% if loueur.cp is not empty %}{{ loueur.cp }}{% else %}TBD{% endif %}</li>
+                <li class="list-group-item">{% if loueur.ville is not empty %}{{ loueur.ville }}{% else %}TBD{% endif %}</li>
+                <li class="list-group-item">{% if loueur.tel is not empty %}{{ loueur.tel }}{% else %}TBD{% endif %}</li>
+                <li class="list-group-item">{% if loueur.email is not empty %}{{ loueur.email }}{% else %}<span class="text-danger">TBD</span>{% endif %}</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <p>
+            <a href="{{ path('pb_camion_indexloueur') }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour à la liste
+            </a>
+            <a href="{{ path('pb_camion_editloueur', {'id': loueur.id}) }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-edit"></i>
+                Modifier le loueur
+            </a>
+            <a href="{{ path('pb_camion_deleteloueur', {'id': loueur.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce loueur ? Cette action est irréversible.');">
+                <i class="glyphicon glyphicon-trash"></i>
+                Supprimer le loueur
+            </a>
+        </p>
+        {#<p>
+            <a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="btn btn-success">
+                <i class="glyphicon glyphicon-envelope"></i>
+                {% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
+
+                {% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
+        </p>#}
+    </div>
+
+{% endblock %}

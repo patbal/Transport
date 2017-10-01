@@ -1,0 +1,30 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+    Loueurs - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+    <div id="header" class="well text-center">
+        <h1>{% if action=='edit' %}ÉDITION {% elseif action == 'add' %}AJOUT {% endif %}D'UN LOUEUR</h1>
+    </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+    <div class="well">
+        {{ form_start(form) }}
+            {{ form_row(form.nom) }}
+            {{ form_row(form.adresse) }}
+            {{ form_row(form.adresse2) }}
+            {{ form_row(form.cp) }}
+            {{ form_row(form.ville) }}
+            {{ form_row(form.tel) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.save) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

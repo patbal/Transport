@@ -16,7 +16,7 @@ class CamionController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(REQUEST $request)
+    public function indexAction(Request $request)
     {
         //on récupère le nombre de camions affichés par page
         $nbPerPage = $this -> container -> getParameter('nb_per_page');
