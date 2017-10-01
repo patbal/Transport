@@ -37,6 +37,7 @@
                 <li class="list-group-item">Véhicule demandé : {{ camion.vehicule.vehicule }}</li>
                 <li class="list-group-item">Enlèvement le {{ camion.dateEnlevement|date('d/m/Y') }}</li>
                 <li class="list-group-item">Retour le {{ camion.dateRetour|date('d/m/Y') }}</li>
+                <li class="list-group-item">{{ camion.nbJoursExploit }} jour{% if camion.nbJoursExploit > 1 %}s{% endif %} d'exploitation</li>
                 {% if not null == camion.remarque %}<li class="list-group-item remarque">Remarque / Impératif : {{ camion.remarque }}
                     </li>{% endif %}
                 {#{% if not null == camion.montantfacture and camion.facturerecue == true %}
