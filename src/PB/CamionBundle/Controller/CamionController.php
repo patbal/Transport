@@ -123,6 +123,12 @@ class CamionController extends Controller
         return $this->redirectToRoute('pb_camion_homepage');
     }
 
+    /**
+     * @param Camion $camion
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function sendMailAction(Camion $camion, $id, Request $request)
     {
         $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port')))
