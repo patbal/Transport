@@ -54,3 +54,8 @@ tr.strikeout {
 }
 
 body {padding-top: 60px;}
+
+.datepicker {
+    background-color: #fff ;
+    color: #333 ;
+}
