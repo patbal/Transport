@@ -24,8 +24,8 @@
     <p><span style="font-size: large ; font-weight:bold">Demande de location n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ camion.number }}{{ camion.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
     <hr>
     <p>
-        <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ camion.dateEnlevement|date('d/m/Y') }} à {{ camion.heureEnlevement|date('H:i') }} }}</span><br>
-        <span style="font-size: large ; font-weight:bold">Date de retour : </span><span>{{ camion.dateRetour|date('d/m/Y') }} à {{ camion.heureRetour|date('H:i') }} }}</span><br>
+        <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ camion.dateEnlevement|date('d/m/Y') }} à {{ camion.heureEnlevement|date('H:i') }}</span><br>
+        <span style="font-size: large ; font-weight:bold">Date de retour : </span><span>{{ camion.dateRetour|date('d/m/Y') }} à {{ camion.heureRetour|date('H:i') }}</span><br>
         <span style="font-size: large ; font-weight:bold">Nombre de jours d'exploitation : </span><span>{{ camion.nbJoursExploit }}</span><hr>
         <span style="font-size: large ; font-weight: bold">Véhicule demandé : </span><span>{{ camion.vehicule.vehicule }}{% if camion.avecHayon == true %} avec hayon{% endif %}</span>
     <hr>
