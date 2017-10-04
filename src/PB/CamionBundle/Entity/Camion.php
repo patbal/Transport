@@ -135,6 +135,20 @@ class Camion
      */
     private $nbJoursExploit;
 
+    /**
+     * @var \Time
+     *
+     * @ORM\Column(name="heureEnlevement", type="time", nullable=true)
+     */
+    private $heureEnlevement;
+
+    /**
+     * @var \Time
+     *
+     * @ORM\Column(name="heureRetour", type="time", nullable=true)
+     */
+    private $heureRetour;
+
 //************************************************************************
 //************************* GETTERS AND SETTERS **************************
 //************************************************************************
@@ -148,7 +162,9 @@ class Camion
         $this->number = 'CR' . $now->format('Y') . $now->format('m') . '-';
         $this->dateCreation = new \DateTime();
         $this->dateEnlevement = new \DateTime();
+        $this->heureEnlevement = new \DateTime('14:00');
         $this->dateRetour = new \DateTime('NOW + 2 day');
+        $this->heureRetour = new \DateTime('14:00');
         $this->effectue = false;
         $this->annule = false;
         $this->factureRecue = false;
@@ -597,5 +613,53 @@ class Camion
     public function getNbJoursExploit()
     {
         return $this->nbJoursExploit;
+    }
+
+    /**
+     * Set heureEnlevement
+     *
+     * @param \DateTime $heureEnlevement
+     *
+     * @return Camion
+     */
+    public function setHeureEnlevement($heureEnlevement)
+    {
+        $this->heureEnlevement = $heureEnlevement;
+
+        return $this;
+    }
+
+    /**
+     * Get heureEnlevement
+     *
+     * @return \DateTime
+     */
+    public function getHeureEnlevement()
+    {
+        return $this->heureEnlevement;
+    }
+
+    /**
+     * Set heureRetour
+     *
+     * @param \DateTime $heureRetour
+     *
+     * @return Camion
+     */
+    public function setHeureRetour($heureRetour)
+    {
+        $this->heureRetour = $heureRetour;
+
+        return $this;
+    }
+
+    /**
+     * Get heureRetour
+     *
+     * @return \DateTime
+     */
+    public function getHeureRetour()
+    {
+        return $this->heureRetour;
     }
 }

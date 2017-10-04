@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -30,6 +31,9 @@ class CamionType extends AbstractType
                 'label' => 'Date d\'enlèvement',
                 'attr' => ['class' => 'js-datepicker'],
                 'html5' => false))
+            ->add('heureRetour', TimeType::class, array(
+                'label' => 'Heure de retour',
+                'widget' => 'choice'))
             ->add('nbJoursExploit', IntegerType::class, array('label'=>'Nombre de jour(s) d\'exploitation'))
             ->add('dateRetour', DateType::class, array(
                 'widget' => 'single_text',
@@ -37,6 +41,9 @@ class CamionType extends AbstractType
                 'label' => 'Date de retour',
                 'attr' => ['class' => 'js-datepicker'],
                 'html5' => false))
+            ->add('heureEnlevement', TimeType::class, array(
+                'label' => 'Heure d\'enlèvement',
+                'widget' => 'choice'))
             ->add('operation', TextType::class, ['label' => 'Opération', 'required' => false])
             ->add('remarque', TextareaType::class, array(
                 'label' => 'Remarque',
