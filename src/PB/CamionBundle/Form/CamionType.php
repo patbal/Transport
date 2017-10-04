@@ -26,11 +26,17 @@ class CamionType extends AbstractType
         $builder
             ->add('dateEnlevement', DateType::class, array(
                 'widget' => 'single_text',
-                'label' => 'Date d\'enlèvement'))
+                'format' => 'dd/MM/yyyy',
+                'label' => 'Date d\'enlèvement',
+                'attr' => ['class' => 'js-datepicker'],
+                'html5' => false))
             ->add('nbJoursExploit', IntegerType::class, array('label'=>'Nombre de jour(s) d\'exploitation'))
             ->add('dateRetour', DateType::class, array(
                 'widget' => 'single_text',
-                'label' => 'Date de retour'))
+                'format' => 'dd/MM/yyyy',
+                'label' => 'Date de retour',
+                'attr' => ['class' => 'js-datepicker'],
+                'html5' => false))
             ->add('operation', TextType::class, ['label' => 'Opération', 'required' => false])
             ->add('remarque', TextareaType::class, array(
                 'label' => 'Remarque',

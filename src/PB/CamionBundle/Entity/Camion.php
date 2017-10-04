@@ -154,6 +154,7 @@ class Camion
         $this->factureRecue = false;
         $this->mailSent = false;
         $this->nbJoursExploit = 1;
+        $this->avecHayon = false;
     }
 
     /**

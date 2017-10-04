@@ -34,7 +34,7 @@
                     <li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>
                     Location facturée (facture n°<a href="{{ path ('pb_camion_viewfacture', {'id': camion.facture.id}) }}">
                         {{ camion.facture.numerofacture }}</a> du {{ camion.facture.datefacture|date('d/m/Y') }})</li>{% endif %}
-                <li class="list-group-item">Véhicule demandé : {{ camion.vehicule.vehicule }}</li>
+                <li class="list-group-item">Véhicule demandé : {{ camion.vehicule.vehicule }}{% if camion.avecHayon == true %} avec hayon{% endif %}</li>
                 <li class="list-group-item">Enlèvement le {{ camion.dateEnlevement|date('d/m/Y') }}</li>
                 <li class="list-group-item">Retour le {{ camion.dateRetour|date('d/m/Y') }}</li>
                 <li class="list-group-item">{{ camion.nbJoursExploit }} jour{% if camion.nbJoursExploit > 1 %}s{% endif %} d'exploitation</li>

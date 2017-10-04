@@ -86,9 +86,16 @@ class TransportType extends AbstractType
 
         ->add('dateenlevement', DateType::class, array(
             'widget' => 'single_text',
+            'format' => 'dd/MM/yyyy',
+            'attr' => ['class' => 'js-datepicker'],
+            'html5' => false,
             'label' => 'Date d\'enlèvement'))
+
         ->add('datelivraison', DateType::class, array(
             'widget' => 'single_text',
+            'format' => 'dd/MM/yyyy',
+            'attr' => ['class' => 'js-datepicker'],
+            'html5' => false,
             'label' => 'Date de livraison'))
 
         ->add('save',            submitType::class);

@@ -9,7 +9,7 @@ Date d'enlèvement : {{ camion.dateEnlevement|date('d/m/Y') }}
 Date de retour : {{ camion.dateRetour|date('d/m/Y') }}
 Nombre de jours d'exploitation : {{ camion.nbJoursExploit }}
 
-Véhicule demandé : {{ camion.vehicule.vehicule }}
+Véhicule demandé : {{ camion.vehicule.vehicule }}{% if camion.avecHayon == true %} avec hayon{% endif %}
 
 {% if not null == camion.remarque %}
     Remarques / Impératifs : {{ camion.remarque }}

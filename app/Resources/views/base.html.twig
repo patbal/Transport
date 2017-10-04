@@ -11,6 +11,8 @@
 
     {% block stylesheets %}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+
         {% stylesheets 'bundles/pbtransport/css/PBTransport.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}      
@@ -109,6 +111,15 @@
 
 
     </script>
+
+    <script>
+        jQuery(document).ready(function() {
+            $('.js-datepicker').datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        });
+    </script>
+
   {% endblock %}
 
   </body>
