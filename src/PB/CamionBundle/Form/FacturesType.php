@@ -21,7 +21,12 @@ class FacturesType extends AbstractType
         $builder
             ->add('numeroFacture', TextType::class, ['label'=>'N° Facture'])
             ->add('montantFacture', MoneyType::class, ['label'=>'Montant €HT', 'currency'=>'EUR'])
-            ->add('dateFacture',DateType::class, ['widget' => 'single_text', 'label' => 'Date Facture'])
+            ->add('dateFacture', DateType::class, array(
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+                'label' => 'Date Facture',
+                'attr' => ['class' => 'js-datepicker'],
+                'html5' => false))
             ->add('loueur', EntityType::class, array(
                 'label'=>'Loueur',
                 'class'=>'PB\CamionBundle\Entity\Loueur',

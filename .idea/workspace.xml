@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Modification de la vue camion (erreur libellé)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/FacturesController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Factures.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Repository/FacturesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/editFacture.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFacture.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFactures.html.twig" />
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="implémentation des fonctions de facturation dans GesCam&#10;Correction bug d'affichage dans index Camion">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Camion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/form.html.twig" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,12 +40,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="viewCamion.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewCamion.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="450">
               <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CamionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="33" selection-end-column="34" />
+              <folding>
+                <element signature="e#40#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FacturesType.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#40#89#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,13 +173,13 @@
         <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Repository/FacturesRepository.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/form.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/editFacture.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFactures.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/FacturesController.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFacture.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php" />
       </list>
     </option>
   </component>
@@ -607,7 +617,7 @@
       <workItem from="1506890012964" duration="1807000" />
       <workItem from="1506962132890" duration="775000" />
       <workItem from="1507119686579" duration="9993000" />
-      <workItem from="1507318457138" duration="6247000" />
+      <workItem from="1507318457138" duration="6632000" />
     </task>
     <task id="LOCAL-00006" summary="Ajout des fonctionnalité &quot;contact&quot;">
       <created>1501541512784</created>
@@ -910,11 +920,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507150867393</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="implémentation des fonctions de facturation dans GesCam&#10;Correction bug d'affichage dans index Camion">
+      <created>1507325043038</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1507325043038</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182198000" />
+    <option name="totallyTimeSpent" value="182583000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -929,16 +946,17 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19241774" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.49722221" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26964933" sideWeight="0.5071531" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26964933" sideWeight="0.49284694" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3095526" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19241774" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -947,7 +965,6 @@
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26964933" sideWeight="0.49284694" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1023,7 +1040,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Ajout du module FOSUSERBUNDLE&#10;Reste à faire : gestion mails et PDF" />
     <MESSAGE value="Fonctionnel" />
     <MESSAGE value="Fonctionnel&#10;Correction de TransportController" />
     <MESSAGE value="Fonctionnel&#10;Préparation à publication" />
@@ -1048,7 +1064,8 @@
     <MESSAGE value="Modification du css du DatePicker -&gt; dans le fichier css de PBTransport, ajout de 2 lignes à la fin" />
     <MESSAGE value="Ajout de js pour traduction du DatePicker" />
     <MESSAGE value="Modification de la vue camion (erreur libellé)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification de la vue camion (erreur libellé)" />
+    <MESSAGE value="implémentation des fonctions de facturation dans GesCam&#10;Correction bug d'affichage dans index Camion" />
+    <option name="LAST_COMMIT_MESSAGE" value="implémentation des fonctions de facturation dans GesCam&#10;Correction bug d'affichage dans index Camion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1429,16 +1446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-          <folding>
-            <element signature="e#40#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="61">
@@ -1452,16 +1459,6 @@
         <state relative-caret-position="180">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#40#80#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1545,9 +1542,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/viewCamion.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="450">
           <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="33" selection-end-column="34" />
+          <folding>
+            <element signature="e#40#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/FacturesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
