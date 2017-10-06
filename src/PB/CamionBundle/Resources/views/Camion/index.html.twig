@@ -29,7 +29,10 @@
         </tr>
 
         {% for camion in listeCamions %}
-            <tr {% if not null == camion.effectue and camion.effectue == true %}class="warning italic"{% elseif not null == camion.annule and camion.annule == true %}class="danger italic"{% elseif not null == camion.factureRecue and camion.factureRecue == true %}class="success italic"{% endif %}>
+            <tr {% if camion.factureRecue == true %}class="success italic"
+                {% elseif camion.annule == true %}class="danger italic"
+                {% elseif camion.effectue == true %}class="warning italic"
+                    {% endif %}>
                 <td><a href="{{ path ('pb_camion_viewcamion', {'id': camion.id}) }}">{{ camion.number }}{{ camion.id }}</a></td>
                 <td>{{ camion.loueur.nom }}</td>
                 <td>{{ camion.dateEnlevement|date('d/m/Y') }}</td>

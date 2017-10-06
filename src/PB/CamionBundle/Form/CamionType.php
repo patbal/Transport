@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -70,6 +71,17 @@ class CamionType extends AbstractType
                 'multiple'      => false,
                 'expanded'      => false
                 ))
+            ->add('facture',        EntityType::class, array(
+                'label'=>'N° de facture Loueur',
+                'class'=>'PB\CamionBundle\Entity\Factures',
+                'query_builder'=> function(EntityRepository $er){return $er->createQueryBuilder('f')
+                    ->orderBy('f.dateFacture', 'DESC');},
+                'choice_label'=>'numeroFacture',
+                'multiple'=>false,
+                'expanded'=>false,
+                'required'=>false))
+
+            ->add('montantFacture', MoneyType::class, ['label'=>'Coût du transport', 'currency'=>'EUR', 'required'=>false])
             ->add('save',            submitType::class);
 
     }

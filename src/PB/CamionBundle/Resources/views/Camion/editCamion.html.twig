@@ -8,7 +8,7 @@
 
 {% block header %}
     <div id="header" class="well text-center">
-        <h1>AJOUT DE DEMANDE DE VÉHICULE</h1>
+        <h1>EDITION - DEMANDE DE VÉHICULE</h1>
     </div>
 {% endblock %}
 
@@ -31,6 +31,8 @@
             {{ form_row(form.annule) }}
             {{ form_row(form.effectue) }}
             {{ form_row(form.factureRecue) }}
+            {{ form_row(form.facture) }}
+            {{ form_row(form.montantFacture) }}
         </div>
         {{ form_row(form.save) }}
         {{ form_end(form) }}

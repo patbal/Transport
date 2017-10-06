@@ -74,3 +74,38 @@ pb_camion_sendmail:
     _controller: PBCamionBundle:Camion:sendMail
     requirements:
         page: \d+
+
+pb_camion_editfacture:
+  path: facture/edit/{id}
+  defaults:
+    _controller: PBCamionBundle:Factures:editFacture
+  requirements:
+    id: \d+
+
+pb_camion_viewfactures:
+  path: factures/view
+  defaults:
+    _controller: PBCamionBundle:Factures:viewFactures
+    page: 1
+    requirements:
+      page: \d*
+
+pb_camion_viewfacture:
+  path: facture/view/{id}
+  defaults:
+    _controller: PBCamionBundle:Factures:viewFacture
+    page: 1
+    requirements:
+      page: \d+
+
+pb_camion_addfacture:
+  path: facture/add
+  defaults:
+    _controller: PBCamionBundle:Factures:addFacture
+
+pb_camion_deletefacture:
+  path: facture/delete/{id}
+  defaults:
+    _controller: PBCamionBundle:Factures:deleteFacture
+    requirements:
+      page: \d+

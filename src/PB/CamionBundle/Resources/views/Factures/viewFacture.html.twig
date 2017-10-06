@@ -1,0 +1,51 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+Factures - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+      <div id="header" class="well h2 text-center">
+        Facture n°{{ facture.numeroFacture }}
+      </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+	<ul class=list-group">
+		<li class="list-group-item"><span class="h5">Date Facture :</span> {{ facture.dateFacture|date('d/m/Y') }}</li>
+		<li class="list-group-item"><span class="h5">Loueur :</span> {{ facture.loueur.nom }}
+				</li>
+		<li class="list-group-item"><span class="h5">Montant :</span> {{ facture.montantFacture }} €HT</li>
+		{% if not null == camions %}
+			<li class="list-group-item"><span class="h5">Locations impactées :</span>
+			<ul class="list-group">
+				{% for camion in camions %}
+					<li class="list-group-item"><a href="{{ path ('pb_camion_viewcamion', {'id': camion.id}) }}">{{ camion.number }}{{ camion.id }}</a></li>
+				{% endfor %}
+			</ul>
+			</li>
+		{% endif %}
+	</ul>
+
+	<div class="row">
+		<p>
+			<a href="{{ path('pb_camion_viewfactures') }}" class="btn btn-default">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				Retour à la liste
+			</a>
+			<a href="{{ path('pb_camion_editfacture', {'id': facture.id}) }}" class="btn btn-default">
+				<i class="glyphicon glyphicon-edit"></i>
+				Modifier la facture
+			</a>
+			<a href="{{ path('pb_camion_deletefacture', {'id': facture.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+				<i class="glyphicon glyphicon-trash"></i>
+				Supprimer la facture
+			</a>
+		</p>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "PBCamionBundle::layout.html.twig" %}
+
+{% block title %}
+
+Factures - {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+      <div id="header" class="well h2 text-center">
+        Liste des factures
+      </div>
+{% endblock %}
+
+{% block pbcamion_body %}
+
+	<table class="table table-hover">
+		<tr>
+			<th>Num Facture</th>
+			<th>Date Facture</th>
+			<th>Loueur</th>
+			<th>Montant</th>
+		</tr>
+
+		{% for facture in listFactures %}
+			<tr>
+				<td>
+					<a href="{{ path ('pb_camion_viewfacture', {'id': facture.id}) }}">
+						{{ facture.numerofacture }}
+					</a>
+				</td>
+				<td>{{ facture.datefacture|date('d/m/Y') }}</td>
+				<td>{{ facture.loueur.nom }}</td>
+				<td>€{{ facture.montantfacture }}</td>
+			</tr>
+
+		{% else %}
+      		<td>Pas (encore !) de facture</td>
+
+		{% endfor %}
+	</table>
+
+	<ul class="pagination">
+        {{ knp_pagination_render(listFactures) }}
+	</ul>
+
+{% endblock %}

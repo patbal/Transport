@@ -149,6 +149,19 @@ class Camion
      */
     private $heureRetour;
 
+    /**
+     * @var decimal
+     *
+     * @ORM\Column(name="montantfacture", type="decimal", precision=5, scale=2, nullable=true)
+     */
+    private $montantFacture;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PB\CamionBundle\Entity\Factures", inversedBy="locations")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $facture;
+
 //************************************************************************
 //************************* GETTERS AND SETTERS **************************
 //************************************************************************
@@ -661,5 +674,53 @@ class Camion
     public function getHeureRetour()
     {
         return $this->heureRetour;
+    }
+
+    /**
+     * Set montantFacture
+     *
+     * @param string $montantFacture
+     *
+     * @return Camion
+     */
+    public function setMontantFacture($montantFacture)
+    {
+        $this->montantFacture = $montantFacture;
+
+        return $this;
+    }
+
+    /**
+     * Get montantFacture
+     *
+     * @return string
+     */
+    public function getMontantFacture()
+    {
+        return $this->montantFacture;
+    }
+
+    /**
+     * Set facture
+     *
+     * @param \PB\CamionBundle\Entity\Factures $facture
+     *
+     * @return Camion
+     */
+    public function setFacture(\PB\CamionBundle\Entity\Factures $facture = null)
+    {
+        $this->facture = $facture;
+
+        return $this;
+    }
+
+    /**
+     * Get facture
+     *
+     * @return \PB\CamionBundle\Entity\Factures
+     */
+    public function getFacture()
+    {
+        return $this->facture;
     }
 }
