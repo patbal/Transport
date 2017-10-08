@@ -29,7 +29,9 @@ Accueil - {{ parent() }}
 		</tr>
 
 		{% for transport in listTransports %}
-			<tr {% if not null == transport.effectue and transport.effectue == true %}class="warning italic"{% elseif not null == transport.annule and transport.annule == true %}class="danger italic"{% elseif not null == transport.facturerecue and transport.facturerecue == true %}class="success italic"{% endif %}>
+			<tr {% if transport.facturerecue == true %}class="success italic"
+				{% elseif transport.annule == true %}class="danger italic"
+				{% elseif transport.effectue == true %}class="warning italic"{% endif %}>
 				<td>
 					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">
 						{{ transport.number }}{{ transport.id }}
