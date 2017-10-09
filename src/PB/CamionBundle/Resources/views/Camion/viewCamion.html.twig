@@ -33,7 +33,7 @@
                 {% if not null == camion.factureRecue and camion.factureRecue == true %}
                     <li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>
                     Location facturée (facture n°<a href="{{ path ('pb_camion_viewfacture', {'id': camion.facture.id}) }}">
-                        {{ camion.facture.numerofacture }}</a> du {{ camion.facture.datefacture|date('d/m/Y') }})</li>{% endif %}
+                        {{ camion.facture.numerofacture }}</a> du {{ camion.facture.datefacture|date('d/m/Y') }}) -> €{{ camion.montantFacture }}HT</li>{% endif %}
                 <li class="list-group-item">Véhicule demandé : {{ camion.vehicule.vehicule }}{% if camion.avecHayon == true %} avec hayon{% endif %}</li>
                 <li class="list-group-item">Enlèvement le {{ camion.dateEnlevement|date('d/m/Y') }} à {{ camion.heureEnlevement|date('H:i') }}</li>
                 <li class="list-group-item">Retour le {{ camion.dateRetour|date('d/m/Y') }} à {{ camion.heureRetour|date('H:i') }}</li>

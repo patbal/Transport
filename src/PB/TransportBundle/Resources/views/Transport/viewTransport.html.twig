@@ -42,7 +42,7 @@ Transport - {{ parent() }}
 				{% if not null == transport.annule and transport.annule == true %}<li class="list-group-item attention">ATTENTION : CE TRANSPORT A ÉTÉ ANNULÉ !
 				</li>{% endif %}
                 {% if not null == transport.effectue and transport.effectue == true %}<li class="list-group-item effectue"><span class="glyphicon glyphicon-ok-circle"></span>  Transport effectué</li>{% endif %}
-				{% if not null == transport.facturerecue and transport.facturerecue == true %}<li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>  Transport facturé (facture n°<a href="{{ path ('pb_transport_viewfacture', {'id': transport.facture.id}) }}">{{ transport.facture.numerofacture }}</a> du {{ transport.facture.datefacture|date('d/m/Y') }})</li>{% endif %}
+				{% if not null == transport.facturerecue and transport.facturerecue == true %}<li class="list-group-item text-success"><span class="glyphicon glyphicon-ok-circle"></span>  Transport facturé (facture n°<a href="{{ path ('pb_transport_viewfacture', {'id': transport.facture.id}) }}">{{ transport.facture.numerofacture }}</a> du {{ transport.facture.datefacture|date('d/m/Y') }} -> -> €{{ transport.montantFacture }}HT)</li>{% endif %}
 				<li class="list-group-item">Enlèvement le {{ transport.dateenlevement|date('d/m/Y') }}
 					{% if transport.typeTr.type == 'Course' and not null == transport.heureEnlevement%} à {{ transport.heureEnlevement|date('H:i') }} {% endif %}chez {{ transport.adresseFrom.societe }} 
 					{% if not null == transport.contactFrom %}<i>(contact : 
