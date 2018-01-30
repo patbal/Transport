@@ -1,6 +1,8 @@
 {# src/PB/TransportBundle/Resources/views/Transport/sendMail.txt.twig #}
 Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }} (référence à rappeler sur votre facture)
 
+Opération : {{ transport.operation }}
+
 Date d'enlèvement : {{ transport.dateenlevement|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heureEnlevement|date('H:i') }}{% endif %}
 
 Adresse d'enlèvement :

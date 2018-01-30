@@ -7,33 +7,40 @@ Accueil - {{ parent() }}
 {% endblock %}
 
 {% block header %}
-      <div id="header" class="well text-center">
-		  <h1>LISTE DES TRANSPORTS</h1>
-      </div>
+	<br>
+		<div id="header" class="card text-center">
+			  <h2>LISTE DES TRANSPORTS</h2>
+		</div>
+	<br>
 {% endblock %}
 
 {% block pbtransport_body %}
 
 
-	<table class="table table-hover">
-		<tr>
-			<th>Num Transport</th>
-			<th>C/T</th>
-			<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>
-			<th>{{ knp_pagination_sortable(listTransports, 'Date Enl.', 't.dateenlevement') }}</th>
-			<th>De</th>
-			<th>À</th>
-			<th>{{ knp_pagination_sortable(listTransports, 'Date Liv.', 't.datelivraison') }}</th>
-			<th>Opération</th>
-			<th>RMK</th>
-		</tr>
+	<table class="table table-hover table-sm">
+
+		<thead class="thead-default">
+			<tr>
+				<th>Numéro d'ordre</th>
+				<th>C/T</th>
+				<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>
+				<th>{{ knp_pagination_sortable(listTransports, 'Date Enl.', 't.dateenlevement') }}</th>
+				<th>De</th>
+				<th>À</th>
+				<th>{{ knp_pagination_sortable(listTransports, 'Date Liv.', 't.datelivraison') }}</th>
+				<th>Opération</th>
+				<th>RMK</th>
+			</tr>
+		</thead>
+
+
 
 		{% for transport in listTransports %}
-			<tr {% if transport.facturerecue == true %}class="success italic"
-				{% elseif transport.annule == true %}class="danger italic"
-				{% elseif transport.effectue == true %}class="warning italic"{% endif %}>
+			<tr {% if transport.facturerecue == true %}class="alert-success italic"
+				{% elseif transport.annule == true %}class="alert-danger italic"
+				{% elseif transport.effectue == true %}class="alert-warning italic"{% endif %}>
 				<td>
-					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}">
+					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}" class="d-flex flex-nowrap">
 						{{ transport.number }}{{ transport.id }}
 					</a>
 				</td>
@@ -44,8 +51,8 @@ Accueil - {{ parent() }}
 				<td>{{ transport.adresseTo.societe }}</td>
 				<td>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %} à {{ transport.heurelivraison|date('H:i') }}{% endif %}</td>
 				{% if not null == transport.operation %}<td>{{ transport.operation }}</td>{% endif %}
-				<td>{% if transport.remarque|default  %}<span class="glyphicon glyphicon-ok"></span>
-                    {% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}</td>
+				<td>{% if transport.remarque|default  %}<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    {% else %}<i class="fa fa-circle-o" aria-hidden="true"></i>{% endif %}</td>
 			</tr>
 
 		{% else %}
@@ -58,7 +65,7 @@ Accueil - {{ parent() }}
 		{{ knp_pagination_render(listTransports) }}
 	</div>
 
-	<div>
-		<span class="label label-success">Transport avec facture</span><span class="label label-warning">Transport effectué</span><span class="label label-danger">Transport annulé</span>
-	</div>
+	<div class="d-inline-block alert-success">Transport avec facture</div>
+	<div class="d-inline-block alert-warning">Transport effectué</div>
+	<div class="d-inline-block alert-danger">Transport annulé</div>
 {% endblock %}

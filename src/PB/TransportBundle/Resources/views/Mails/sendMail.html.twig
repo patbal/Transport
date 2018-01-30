@@ -4,13 +4,14 @@
 <p><span style="font-size: large ; font-weight:bold">Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ transport.number }}{{ transport.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
 <hr>
 <p>
+    <span style="font-size: large ; font-weight:bold">Opération : </span><span>{{ transport.operation }}</span><hr>
     <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ transport.dateenlevement|date('d/m/Y') }}</span>{% if transport.typeTr.type == "Course" %}<span> à<b> {{ transport.heureEnlevement|date('H:i') }}</b></span>{% endif %}<hr>
     <span style="font-size: large ; font-weight:bold">Adresse d&apos;enlèvement :</span><br>
     <b>{{ transport.adresseFrom.societe|upper }}</b><br>
     {{ transport.adresseFrom.adresse1 }}<br>
     {% if not null == transport.adresseFrom.adresse2 and not transport.adresseFrom.adresse2 == '' %}{{ transport.adresseFrom.adresse2 }}<br>{% endif %}
     {{ transport.adresseFrom.codepostal }} {{ transport.adresseFrom.ville|upper }}<br>
-    <i>Contact enlèvement : {{ transport.contactFrom.prenom }} {% if not null == transport.contactFrom.nom %}{{ transport.contactFrom.nom }}{% endif %} {% if not null == transport.contactFrom.phone %}(Tel : {{ transport.contactFrom.phone }}{% endif %}</i>
+    <i>Contact enlèvement : {{ transport.contactFrom.prenom }} {% if not null == transport.contactFrom.nom %}{{ transport.contactFrom.nom }}{% endif %} {% if not null == transport.contactFrom.phone %}(Tel : {{ transport.contactFrom.phone }}){% endif %}</i>
     <hr>
     <br>
     <span style="font-size: large ; font-weight: bold">Date de livraison : </span>{{ transport.datelivraison|date('d/m/Y') }}{% if transport.typeTr.type == "Course" %}<span> à<b> {{ transport.heureLivraison|date('H:i') }}</b></span><hr>{% endif %}<hr>
@@ -19,7 +20,7 @@
     {{ transport.adresseTo.adresse1 }}<br>
     {% if not null == transport.adresseTo.adresse2 and not transport.adresseTo.adresse2 == '' %}{{ transport.adresseTo.adresse2 }}<br>{% endif %}
     {{ transport.adresseTo.codepostal }} {{ transport.adresseTo.ville|upper }}<br>
-    <i>Contact livraison : {{ transport.contactTo.prenom }} {% if not null == transport.contactTo.nom %}{{ transport.contactTo.nom }}{% endif %} {% if not null == transport.contactTo.phone %}(Tel : {{ transport.contactTo.phone }}{% endif %}</i>
+    <i>Contact livraison : {{ transport.contactTo.prenom }} {% if not null == transport.contactTo.nom %}{{ transport.contactTo.nom }}{% endif %} {% if not null == transport.contactTo.phone %}(Tel : {{ transport.contactTo.phone }}){% endif %}</i>
     <hr>
     <span style="font-size: large ; font-weight: bold">
         {% if transport.typeTr.type == "Course" %}

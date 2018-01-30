@@ -11,9 +11,11 @@ Transport - {{ parent() }}
 {% endblock %}
 
 {% block header %}
-      <div id="header" class="well h2 text-center">
+	<br>
+	<div id="header" class="container h2 text-center">
         Détail du transport n°{{ transport.number }}{{ transport.id }}
-      </div>
+	</div>
+	<br>
 {% endblock %}
 
 {% block pbtransport_body %}
@@ -26,18 +28,21 @@ Transport - {{ parent() }}
 	    <div class="alert alert-success">{{ message }}</div>
 	{% endfor %}
 
-	<div class="row">
-		<div class="well col-sm-4">
-			<h3>{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h3>
-			<i>Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par {{ transport.creepar|title }}</i>
+	<div class="row justify-content-between">
+		<div class="card col-sm-4">
+			<div class="card-body">
+				<h4 class="card-title">{% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°{{ transport.number }}{{ transport.id }}</h4>
+				<h6 class="card-subtitle mb-2 text-muted font-italic">Créé{% if transport.typeTr.type == "Course" %}e{% endif %} le {{ transport.datecreation|date('d/m/Y') }} par {{ transport.creepar|title }}</h6>
 
-			<h4>Transporteur</h4>
-			{{ transport.transporteur.nom }}
-			<h4>Opération/ référence</h4>
-			{{ transport.operation }}
+				<h4 class="card-title">Transporteur</h4>
+				<p class="card-text">{{ transport.transporteur.nom }}</p>
+				<h4 class="card-title">Opération/ référence</h4>
+				<p class="card-text">{{ transport.operation }}</p>
+			</div>
+
 		</div>
 
-		<div class="well col-sm-8">
+		<div class="col-sm-8">
 			<ul class="list-group">
 				{% if not null == transport.annule and transport.annule == true %}<li class="list-group-item attention">ATTENTION : CE TRANSPORT A ÉTÉ ANNULÉ !
 				</li>{% endif %}
@@ -68,36 +73,33 @@ Transport - {{ parent() }}
 				{% if not null == transport.montantfacture and transport.facturerecue == true %}
 					<li class="list-group-item">Coût du transport : {{ transport.montantfacture }} (facture n°<a href="{{ path ('pb_transport_viewfacture', {'id': transport.facture.id })}}">{{ transport.facture.numerofacture }}</a>)</li>
 				{% endif %}
-
 			</ul>
 		</div>
 
 	</div>
+	<br>
 	<div class="row">
-		<p>
-		    <a href="{{ path('pb_transport_homepage') }}" class="btn btn-default">
-		      <i class="glyphicon glyphicon-chevron-left"></i>
-		      Retour à la liste
-		    </a>
-		    <a href="{{ path('pb_transport_edittransport', {'id': transport.id}) }}" class="btn btn-default">
-		      <i class="glyphicon glyphicon-edit"></i>
-		      Modifier le transport
-		    </a>
-		    <a href="{{ path('pb_transport_deletetransport', {'id': transport.id}) }}" class="btn btn-danger" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
-		      <i class="glyphicon glyphicon-trash"></i>
-		      Supprimer le transport
-		    </a>
-		</p>
-		<p>
-			<a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="btn btn-success">
-				<i class="glyphicon glyphicon-envelope"></i>
-				{% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
+		<a href="{{ path('pb_transport_homepage') }}" class="btn btn-outline-secondary text-center">
+			<i class="fa fa-angle-double-left align-middle" aria-hidden="true"></i>
+			<span class="align-middle">Retour à la liste</span>
+		</a>
+		<a href="{{ path('pb_transport_edittransport', {'id': transport.id}) }}" class="btn btn-outline-secondary text-center">
+			<i class="fa fa-pencil-square-o align-middle" aria-hidden="true"></i>
+			<span class="align-middle">Modifier le transport</span>
+		</a>
+		<a href="{{ path('pb_transport_deletetransport', {'id': transport.id}) }}" class="btn btn-outline-danger text-center" onclick="return confirm('ATTENTION : êtes vous certain de vouloir supprimer ce transport ? Cette action est irrévocable.');">
+			<i class="fa fa-trash-o align-middle" aria-hidden="true"></i>
+			<span class="align-middle">Supprimer le transport</span>
+		</a>
+		<a href="{{ path('pb_transport_viewmail', {'id' :transport.id}) }}" target=_blank class="card btn-outline-success text-center">
+			<i class="fa fa-envelope-o align-middle" aria-hidden="true"></i>
+			<span class="align-middle">{% if not null == transport.mailSent and transport.mailSent == true %}Re{% else %}E{% endif %}nvoyer le mail de demande au transporteur
 
-				{% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</a>
-		</p>
+				{% if not null == transport.mailSent %}<br><span class=" text-info small"> (mail déjà envoyé le {{ transport.mailSentDate|date('d/m/Y à H:i') }})</span>{% endif %}</span>
+		</a>
 	</div>
 
-	
+
 
 
 
