@@ -23,6 +23,8 @@
     <p>Merci de bien vouloir prendre en compte la demande suivante : </p><br><hr><br>
     <p><span style="font-size: large ; font-weight:bold">Demande de location n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ camion.number }}{{ camion.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
     <hr>
+    <p><span style="font-size: large ; font-weight:bold">Opération : </span><span style="font-size: large ; color: #963133">{{ camion.operation }}</span>
+    <hr>
     <p>
         <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ camion.dateEnlevement|date('d/m/Y') }} à {{ camion.heureEnlevement|date('H:i') }}</span><br>
         <span style="font-size: large ; font-weight:bold">Date de retour : </span><span>{{ camion.dateRetour|date('d/m/Y') }} à {{ camion.heureRetour|date('H:i') }}</span><br>

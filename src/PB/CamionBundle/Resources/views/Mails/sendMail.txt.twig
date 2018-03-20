@@ -4,6 +4,7 @@ Merci de bien vouloir prendre en compte la demande suivante :
 
 Demande de location n°{{ camion.number }}{{ camion.id }} (référence à rappeler sur votre facture)
 
+Opération : {{ camion.operation }}
 
 Date d'enlèvement : {{ camion.dateEnlevement|date('d/m/Y') }} à {{ camion.heureEnlevement|date('H:i') }}
 Date de retour : {{ camion.dateRetour|date('d/m/Y') }} à {{ camion.heureRetour|date('H:i') }}
