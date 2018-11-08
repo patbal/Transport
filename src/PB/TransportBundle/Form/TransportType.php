@@ -2,6 +2,7 @@
 
 namespace PB\TransportBundle\Form;
 
+use Doctrine\DBAL\Types\DecimalType;
 use Symfony\Component\Form\AbstractType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -134,7 +135,7 @@ class TransportType extends AbstractType
                     $event->getForm()->remove('dateenlevement');
                     $event->getForm()->remove('datelivraison');
                     $event->getForm()->add('nbpalettes',     TextType::class, ['required'=>false, 'label' => 'Nbre de palettes / Colis / Flight']);
-                    $event->getForm()->add('mplancher',      IntegerType::class, ['required'=>false, 'label' => 'Mètre(s) de plancher']);
+                    $event->getForm()->add('mplancher',      DecimalType::class, ['required'=>false, 'label' => 'Mètre(s) de plancher']);
                 }
                 
             });

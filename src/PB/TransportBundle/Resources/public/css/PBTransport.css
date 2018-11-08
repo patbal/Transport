@@ -3,7 +3,7 @@
     background-color: #07347c;
     z-index: 9999;
     border: 0;
-    font-size: 12px !important;
+    font-size: 12px;
     line-height: 1.42857143 !important;
     letter-spacing: 4px;
     border-radius: 0;
@@ -26,6 +26,8 @@
 .dropdown-menu{
     background-color: #07347c;
     padding: 4px;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 li.remarque{
@@ -53,7 +55,10 @@ tr.strikeout {
   font-style: ;
 }
 
-body {padding-top: 60px;}
+body {
+    padding-top: 60px;
+    font-size: 14px;
+}
 
 .datepicker {
     background-color: #fff ;

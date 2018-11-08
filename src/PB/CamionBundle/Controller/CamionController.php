@@ -19,7 +19,8 @@ class CamionController extends Controller
     public function indexAction(Request $request)
     {
         //on récupère le nombre de camions affichés par page
-        $nbPerPage = $this -> container -> getParameter('nb_per_page');
+        //$nbPerPage = $this -> container -> getParameter('nombre_par_page');
+        $nbPerPage = 20;
 
         // On récupère la query
         $listeCamions = $this->getDoctrine()
@@ -141,7 +142,7 @@ class CamionController extends Controller
         $mailTo = $loueur -> getEmail();
 
         $message = (new \Swift_Message('Demande de camion'))
-            ->setFrom('DushowTransportsDaemon@dushow.com')
+            ->setFrom('dushow-toulouse-transport-daemon@dushow.com')
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)

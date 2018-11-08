@@ -137,7 +137,7 @@ class Transport
     /**
      * @var int
      *
-     *@ORM\Column(name="mplancher", type="integer", nullable=true)
+     *@ORM\Column(name="mplancher", type="decimal", nullable=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $mplancher; 
@@ -195,6 +195,8 @@ class Transport
      * @return int
      */
     
+
+
     public function __construct()
     {
         $now = new \DateTime();

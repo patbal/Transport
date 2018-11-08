@@ -26,6 +26,8 @@ use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 class TransportController extends Controller
 {
 
+    const NPP = 20;
+
     /**
      * @param $page
      * @return \Symfony\Component\HttpFoundation\Response
@@ -34,7 +36,8 @@ class TransportController extends Controller
     {
 
 	    //on récupère le nombre de transports affichés par page
-	    $nbPerPage = $this -> container -> getParameter('nb_per_page');
+        //$nbPerPage = $this -> getParameter('nombre_par_page');
+        $nbPerPage = 20;
 
 	    // On récupère la query
 	    $listTransports = $this->getDoctrine()
@@ -181,7 +184,7 @@ class TransportController extends Controller
      */
     public function sendMailAction(Transport $transport, $id, Request $request)
     {
-        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port')))
+        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port'), "TLS"))
             ->setUsername($this -> container -> getParameter('mailer_user'))
             ->setPassword($this -> container ->getParameter('mailer_password'));
         $mailer = new \Swift_Mailer($trans);
@@ -191,7 +194,8 @@ class TransportController extends Controller
         $mailTo = $transporteur -> getEmail();
 
         $message = (new \Swift_Message('Demande de transport'))
-            ->setFrom('DushowTransportsDaemon@dushow.com')
+            //->setFrom('DushowTransportsDaemon@dushow.com')
+            ->setFrom('dushow-toulouse-transport-daemon@dushow.com')
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)
@@ -202,7 +206,7 @@ class TransportController extends Controller
             ->addPart(
                 $this->renderView(
                     'PBTransportBundle:Mails:sendMail.txt.twig',
-                    array('transport'	=> $transport)
+                    array('transport'	=> $transport, 'nomFrom'=>$nomFrom)
                 ),
                 'text/plain'
             );
