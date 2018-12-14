@@ -44,7 +44,7 @@ Accueil - {{ parent() }}
 	    {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
 	    {% for p in range(1, nbPages) %}
 	      <li{% if p == page %} class="active"{% endif %}>
-	        <a href="{{ path('pb_transport_homepage', {'page': p}) }}">{{ p }}</a>
+	        <a href="{{ path('pb_transport_viewfactures', {'page': p}) }}">{{ p }}</a>
 	      </li>
 		{% endfor %}
 	</ul>

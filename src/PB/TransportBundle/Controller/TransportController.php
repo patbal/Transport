@@ -195,7 +195,7 @@ class TransportController extends Controller
 
         $message = (new \Swift_Message('Demande de transport'))
             //->setFrom('DushowTransportsDaemon@dushow.com')
-            ->setFrom('dushow-toulouse-transport-daemon@dushow.com')
+            ->setFrom('patrick.balland@dushow.com')
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)

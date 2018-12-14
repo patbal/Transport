@@ -21,13 +21,14 @@ Accueil - {{ parent() }}
 
 		<thead class="thead-default">
 			<tr>
-				<th>Numéro d'ordre</th>
+				{#<th>Numéro d'ordre</th>#}
+				<th>{{ knp_pagination_sortable(listTransports, 'Numéro', 't.id') }}</th>
 				<th>C/T</th>
 				<th>{{ knp_pagination_sortable(listTransports, 'Transporteur', 'tr.nom') }}</th>
-				<th>{{ knp_pagination_sortable(listTransports, 'Date Enl.', 't.dateenlevement') }}</th>
+				<th>{{ knp_pagination_sortable(listTransports, 'Pickup', 't.dateenlevement') }}</th>
 				<th>De</th>
 				<th>À</th>
-				<th>{{ knp_pagination_sortable(listTransports, 'Date Liv.', 't.datelivraison') }}</th>
+				<th>{{ knp_pagination_sortable(listTransports, 'Deivery.', 't.datelivraison') }}</th>
 				<th>Opération</th>
 				<th>RMK</th>
 			</tr>
@@ -40,7 +41,7 @@ Accueil - {{ parent() }}
 				{% elseif transport.annule == true %}class="alert-danger italic"
 				{% elseif transport.effectue == true %}class="alert-warning italic"{% endif %}>
 				<td>
-					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}" class="d-flex flex-nowrap">
+					<a href="{{ path ('pb_transport_viewtransport', {'id': transport.id}) }}" class="d-sm-flex flex-wrap">
 						{{ transport.number }}{{ transport.id }}
 					</a>
 				</td>
