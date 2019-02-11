@@ -195,8 +195,8 @@ class TransportController extends Controller
 
         $message = (new \Swift_Message('Demande de transport'))
             //->setFrom('DushowTransportsDaemon@dushow.com')
-            //->setFrom('p.balland@matchevent.fr')
-            ->setFrom($mailFrom)
+            ->setFrom('p.balland@matchevent.fr')
+            //->setFrom($mailFrom)
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)
@@ -207,7 +207,7 @@ class TransportController extends Controller
             ->addPart(
                 $this->renderView(
                     'PBTransportBundle:Mails:sendMail.txt.twig',
-                    array('transport'	=> $transport, 'nomFrom'=>$nomFrom)
+                    array('transport'	=> $transport, 'nomFrom'=>$nomFrom, 'mailFrom'=>$mailFrom)
                 ),
                 'text/plain'
             );
