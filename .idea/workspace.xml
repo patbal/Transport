@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="- Changement des réglages de l'envoi de mail suite à changement de smtp&#10;- souci sur parameters.yml -&gt; impossible de récupérer la bonne valeur de nb_per_page">
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="correction menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" afterDir="false" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,20 +34,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+            <state relative-caret-position="544">
+              <caret line="211" column="28" lean-forward="true" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
+              <folding>
+                <element signature="e#49#88#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+            <state relative-caret-position="225">
+              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="144" column="46" selection-start-line="144" selection-start-column="46" selection-end-line="144" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -57,17 +67,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="540">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+            <state relative-caret-position="2340">
+              <caret line="156" column="17" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -156,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Factures.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Camion/editCamion.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Repository/FacturesRepository.php" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/form.html.twig" />
@@ -173,13 +182,14 @@
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Mails/viewMail.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Mails/sendMail.txt.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Entity/Transport.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewAdresses.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig" />
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
+        <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
       </list>
     </option>
   </component>
@@ -243,8 +253,9 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="726" />
+    <option name="width" value="714" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectView">
@@ -252,6 +263,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Transport" type="cbb8eebc:String" user="Transport" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Transport" type="cbb8eebc:String" user="Transport" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,14 +295,13 @@
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
               <item name="Transport" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
               <item name="Transport" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
@@ -287,6 +313,21 @@
               <item name="Transport" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="CamionBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="CamionBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
@@ -294,6 +335,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PB" type="462c0819:PsiDirectoryNode" />
               <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
@@ -310,23 +375,37 @@
               <item name="PB" type="462c0819:PsiDirectoryNode" />
               <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Transport" type="cbb8eebc:String" user="Transport" />
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Transport" type="cbb8eebc:String" user="Transport" />
-              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -397,7 +476,7 @@
     <configuration />
   </component>
   <component name="TaskManager">
-    <task id="Default" summary="Default task">
+    <task active="true" id="Default" summary="Default task">
       <branch name="master" repository="$PROJECT_DIR$" />
       <changelist id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="" />
       <created>1501504156717</created>
@@ -407,95 +486,12 @@
       <workItem from="1501504157907" duration="14717000" />
       <workItem from="1501539812063" duration="41000" />
       <workItem from="1501541383957" duration="3395000" />
-    </task>
-    <task active="true" id="LOCAL-00005">
-      <branch name="master" repository="$PROJECT_DIR$" original="true" />
-      <branch name="GestionTransporteurs" repository="$PROJECT_DIR$" />
-      <changelist id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="" />
-      <created>1501539655209</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1501544838975</updated>
-      <workItem from="1501539720884" duration="91000" />
-      <workItem from="1501539853099" duration="1438000" />
-      <workItem from="1501544839379" duration="48360000" />
-      <workItem from="1501859884837" duration="192000" />
-      <workItem from="1501860096211" duration="15182000" />
-      <workItem from="1501944437923" duration="723000" />
-      <workItem from="1501945267386" duration="1932000" />
-      <workItem from="1501953462763" duration="4358000" />
-      <workItem from="1502009062916" duration="9399000" />
-      <workItem from="1502102433701" duration="1614000" />
-      <workItem from="1502285047655" duration="40000" />
-      <workItem from="1502285096527" duration="2322000" />
-      <workItem from="1502486830119" duration="3911000" />
-      <workItem from="1504995975829" duration="1252000" />
-      <workItem from="1504999379690" duration="101000" />
-      <workItem from="1505824763906" duration="1776000" />
-      <workItem from="1505827682556" duration="37000" />
-      <workItem from="1505897527867" duration="833000" />
-      <workItem from="1505990030093" duration="232000" />
-      <workItem from="1505990272926" duration="1427000" />
-      <workItem from="1506610140884" duration="162000" />
-      <workItem from="1506610314589" duration="1294000" />
-      <workItem from="1506619353854" duration="182000" />
-      <workItem from="1506619715277" duration="4745000" />
-      <workItem from="1506724614605" duration="17636000" />
-      <workItem from="1506890012964" duration="1807000" />
-      <workItem from="1506962132890" duration="775000" />
-      <workItem from="1507119686579" duration="9993000" />
-      <workItem from="1507318457138" duration="8337000" />
-      <workItem from="1507445698758" duration="773000" />
-      <workItem from="1507557897720" duration="173000" />
-      <workItem from="1507558145462" duration="753000" />
-      <workItem from="1517324774708" duration="57000" />
-      <workItem from="1518099657262" duration="783000" />
-      <workItem from="1521536453191" duration="866000" />
-      <workItem from="1521537669123" duration="34000" />
-      <workItem from="1521537717649" duration="8000" />
-      <workItem from="1521538300306" duration="21000" />
-      <workItem from="1521540380253" duration="29000" />
-      <workItem from="1521637695794" duration="121000" />
-      <workItem from="1521638072976" duration="175000" />
-      <workItem from="1521643460833" duration="2221000" />
-      <workItem from="1521720131610" duration="15572000" />
-      <workItem from="1521797344062" duration="100000" />
-      <workItem from="1521828310476" duration="2551000" />
-      <workItem from="1522012403055" duration="569000" />
-      <workItem from="1522080093462" duration="262000" />
-      <workItem from="1522433519288" duration="1673000" />
-      <workItem from="1522925689514" duration="124000" />
-      <workItem from="1522925865920" duration="80000" />
-      <workItem from="1522925977983" duration="13000" />
-      <workItem from="1522926011228" duration="201000" />
-      <workItem from="1522926236203" duration="95000" />
-      <workItem from="1522926351523" duration="326000" />
-      <workItem from="1522929230575" duration="766000" />
-      <workItem from="1523003591444" duration="6317000" />
-      <workItem from="1523437806881" duration="293000" />
-      <workItem from="1527857754737" duration="286000" />
-      <workItem from="1536653155039" duration="476000" />
-      <workItem from="1541494205943" duration="2300000" />
-      <workItem from="1541517912427" duration="4606000" />
-      <workItem from="1541707986155" duration="1253000" />
-      <workItem from="1542107621814" duration="389000" />
-      <workItem from="1543239658574" duration="167000" />
-      <workItem from="1543240017840" duration="16000" />
-      <workItem from="1543240050180" duration="327000" />
-      <workItem from="1543332441335" duration="491000" />
-      <workItem from="1543353335021" duration="3586000" />
-      <workItem from="1543400098407" duration="3240000" />
-      <workItem from="1544170405489" duration="3404000" />
-      <workItem from="1544543976376" duration="1618000" />
-      <workItem from="1544800477340" duration="680000" />
-    </task>
-    <task id="LOCAL-00007" summary="Ajout des fonctionnalité &quot;contact&quot;">
-      <created>1501541597287</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1501541597287</updated>
+      <workItem from="1545301146395" duration="4855000" />
+      <workItem from="1545384918237" duration="46000" />
+      <workItem from="1545384999604" duration="3342000" />
+      <workItem from="1545643298302" duration="13000" />
+      <workItem from="1545826015029" duration="546000" />
+      <workItem from="1549892417511" duration="595000" />
     </task>
     <task id="LOCAL-00009" summary="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)">
       <created>1501545379578</created>
@@ -826,11 +822,25 @@
       <option name="project" value="LOCAL" />
       <updated>1541708193063</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="correction menu">
+      <created>1544824167810</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1544824167810</updated>
+    </task>
+    <task id="LOCAL-00057" summary="correction menu">
+      <created>1544824286345</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1544824286345</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243499000" />
+    <option name="totallyTimeSpent" value="257652000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,11 +852,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.34549356" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17739628" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.24964234" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32889965" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.32889965" />
@@ -864,7 +874,7 @@
       <window_info anchor="bottom" id="TODO" order="13" sideWeight="0.49722221" weight="0.32769045" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49284694" weight="0.26909092" />
+      <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49284694" visible="true" weight="0.2686747" />
       <window_info anchor="right" id="Database" order="0" weight="0.3297568" />
       <window_info anchor="right" id="Remote Host" order="1" weight="0.3297568" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
@@ -952,7 +962,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Correction de bugs : &#10;- Ajout de l'heure dans le mail quand on fait une course&#10;- Correction d'un souci sur la ville de destination dans les twig mail" />
     <MESSAGE value="Correction de bugs" />
     <MESSAGE value="Exp. name change in text mail" />
     <MESSAGE value="Composer update. &#10;Install KNP Pagination Bundle" />
@@ -977,7 +986,8 @@
     <MESSAGE value="Ajout du montant de la facture dans la vue détail" />
     <MESSAGE value="Modification mails" />
     <MESSAGE value="- Changement des réglages de l'envoi de mail suite à changement de smtp&#10;- souci sur parameters.yml -&gt; impossible de récupérer la bonne valeur de nb_per_page" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changement des réglages de l'envoi de mail suite à changement de smtp&#10;- souci sur parameters.yml -&gt; impossible de récupérer la bonne valeur de nb_per_page" />
+    <MESSAGE value="correction menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -998,20 +1008,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFacture.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/viewFactures.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Factures/editFacture.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1145,13 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Form/CamionAddType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1163,13 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="22" selection-start-line="14" selection-start-column="8" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="72" column="78" selection-start-line="72" selection-start-column="78" selection-end-line="72" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -1213,34 +1195,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/AdresseType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/AdresseRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="134" column="152" selection-start-line="134" selection-start-column="152" selection-end-line="134" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Adresse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="156" column="17" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1282,13 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/4a5e7bb_PBTransport_1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="65" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewFactures.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -1299,22 +1250,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -1323,24 +1260,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
+    <entry file="file://$PROJECT_DIR$/web/css/4a5e7bb_PBTransport_1.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        <state relative-caret-position="-96">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Repository/AdresseRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="65" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Form/AdresseType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="57" column="36" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/editTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/viewTransport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Transport/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="156" column="17" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="144" column="46" selection-start-line="144" selection-start-column="46" selection-end-line="144" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="211" column="28" lean-forward="true" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
+          <folding>
+            <element signature="e#49#88#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -142,7 +142,7 @@ class CamionController extends Controller
         $mailTo = $loueur -> getEmail();
 
         $message = (new \Swift_Message('Demande de camion'))
-            ->setFrom('dushow-toulouse-transport-daemon@dushow.com')
+            ->setFrom('p.balland@matchevent.fr')
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)
