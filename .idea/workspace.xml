@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="correction menu">
+    <list default="true" id="5fac95cb-c400-40c8-97b7-d5980930ac87" name="" comment="Changements mails -&gt; matchevent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" afterDir="false" />
     </list>
     <list id="4e452bae-2d8c-439e-a549-5d50a9cbd1ea" name="Default" comment="Ajout des fonctionnalité &quot;contact&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="211" column="28" lean-forward="true" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
+            <state relative-caret-position="380">
+              <caret line="238" column="85" selection-start-line="238" selection-start-column="85" selection-end-line="238" selection-end-column="85" />
               <folding>
                 <element signature="e#49#88#0#PHP" expanded="true" />
               </folding>
@@ -46,11 +46,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="150">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -139,8 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Repository/TransportRepository.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Entity/Loueur.php" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Resources/views/Default/index.html.twig" />
@@ -189,7 +205,9 @@
         <option value="$PROJECT_DIR$/app/Resources/views/baseGesCam.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/CamionBundle/Controller/CamionController.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig" />
         <option value="$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php" />
+        <option value="$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig" />
       </list>
     </option>
   </component>
@@ -394,6 +412,16 @@
               <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Mails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Transport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Transport" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="PB" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Transport" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -491,21 +519,7 @@
       <workItem from="1545384999604" duration="3342000" />
       <workItem from="1545643298302" duration="13000" />
       <workItem from="1545826015029" duration="546000" />
-      <workItem from="1549892417511" duration="595000" />
-    </task>
-    <task id="LOCAL-00009" summary="Ajout des fonctionnalité &quot;transporteur&quot;&#10;Soucis sur TransporteurType (contacts)">
-      <created>1501545379578</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1501545379578</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Ajout des fonctionnalités &quot;transporteur&quot;&#10;--&gt; Problème de gestion des contacts dans Transporteur">
-      <created>1501628337117</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1501628337117</updated>
+      <workItem from="1549892417511" duration="1483000" />
     </task>
     <task id="LOCAL-00011" summary="Ajout du module FACTURES&#10;Reste à faire : gestion mails et PDF">
       <created>1501771736962</created>
@@ -836,11 +850,25 @@
       <option name="project" value="LOCAL" />
       <updated>1544824286345</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Changements mails -&gt; matchevent">
+      <created>1549895319345</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1549895319345</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Changements mails -&gt; matchevent">
+      <created>1549896368094</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1549896368094</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257652000" />
+    <option name="totallyTimeSpent" value="258540000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -962,7 +990,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Correction de bugs" />
     <MESSAGE value="Exp. name change in text mail" />
     <MESSAGE value="Composer update. &#10;Install KNP Pagination Bundle" />
     <MESSAGE value="KNP Bundle implementation + sorting" />
@@ -987,7 +1014,8 @@
     <MESSAGE value="Modification mails" />
     <MESSAGE value="- Changement des réglages de l'envoi de mail suite à changement de smtp&#10;- souci sur parameters.yml -&gt; impossible de récupérer la bonne valeur de nb_per_page" />
     <MESSAGE value="correction menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction menu" />
+    <MESSAGE value="Changements mails -&gt; matchevent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changements mails -&gt; matchevent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1033,13 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
           <caret line="7" column="26" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1188,13 +1209,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Entity/Adresse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1338,18 +1352,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/sendMail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Controller/TransportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="211" column="28" lean-forward="true" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
+        <state relative-caret-position="380">
+          <caret line="238" column="85" selection-start-line="238" selection-start-column="85" selection-end-line="238" selection-end-column="85" />
           <folding>
             <element signature="e#49#88#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PB/TransportBundle/Resources/views/Mails/viewMail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -5,7 +5,6 @@
 <hr>
 <p>
     <span style="font-size: large ; font-weight:bold">Opération : </span><span>{{ transport.operation }}</span><hr>
-<span style="font-size: large ; font-weight:bold">mailFrom : </span><span>{{ mailFrom }}</span><hr>
     <span style="font-size: large ; font-weight:bold">Date d'enlèvement : </span><span>{{ transport.dateenlevement|date('d/m/Y') }}</span>{% if transport.typeTr.type == "Course" %}<span> à<b> {{ transport.heureEnlevement|date('H:i') }}</b></span>{% endif %}<hr>
     <span style="font-size: large ; font-weight:bold">Adresse d&apos;enlèvement :</span><br>
     <b>{{ transport.adresseFrom.societe|upper }}</b><br>

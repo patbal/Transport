@@ -234,8 +234,9 @@ class TransportController extends Controller
     public function viewMailAction(Transport $transport, $id)
     {
         $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
+        $mailFrom = $this -> container -> getParameter('mailer_user');
         return $this->render('PBTransportBundle:Mails:viewMail.html.twig', array(
-                'transport'	=> $transport, 'nomFrom'=>$nomFrom));
+                'transport'	=> $transport, 'nomFrom'=>$nomFrom, 'mailFrom'=>$mailFrom));
     }
 
 
