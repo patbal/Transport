@@ -14,13 +14,13 @@
 
 {% block header %}
     <div id="header" class="well h2 text-center">
-        Détail du transport n°{{ transport.number }}{{ transport.id }}
+        Envoi Mail Transport n°{{ transport.number }}{{ transport.id }} (envoyé à {{ transport.transporteur.email }})
     </div>
 {% endblock %}
 
 {% block pbtransport_body %}
 <p>Bonjour,</p>
-    <p>mailfrom : {{ mailFrom }}</p>
+<p>mailfrom : {{ mailFrom }}</p>
 <p>Merci de bien vouloir prendre en compte la demande suivante : </p><br><hr><hr><br>
 <p><span style="font-size: large ; font-weight:bold">Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ transport.number }}{{ transport.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
 <hr>
