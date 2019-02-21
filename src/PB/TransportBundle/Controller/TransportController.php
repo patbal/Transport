@@ -188,15 +188,16 @@ class TransportController extends Controller
             ->setUsername($this -> container -> getParameter('mailer_user'))
             ->setPassword($this -> container ->getParameter('mailer_password'));
         $mailer = new \Swift_Mailer($trans);
-        $mailFrom = $this->getUser()->getEmail();
+        //$mailFrom = $this->getUser()->getEmail();
+        $mailFrom = $this -> container -> getParameter('mailer_user');
         $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
         $transporteur = $transport->getTransporteur();
         $mailTo = $transporteur -> getEmail();
 
         $message = (new \Swift_Message('Demande de transport'))
             //->setFrom('DushowTransportsDaemon@dushow.com')
-            ->setFrom('p.balland@matchevent.fr')
-            //->setFrom($mailFrom)
+            //->setFrom('p.balland@matchevent.fr')
+            ->setFrom($mailFrom)
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)
@@ -235,8 +236,9 @@ class TransportController extends Controller
     {
         $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
         $mailFrom = $this -> container -> getParameter('mailer_user');
+        $pass = $this -> container ->getParameter('mailer_password');
         return $this->render('PBTransportBundle:Mails:viewMail.html.twig', array(
-                'transport'	=> $transport, 'nomFrom'=>$nomFrom, 'mailFrom'=>$mailFrom));
+                'transport'	=> $transport, 'nomFrom'=>$nomFrom, 'mailFrom'=>$mailFrom, 'pass' => $pass));
     }
 
 

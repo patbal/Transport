@@ -21,6 +21,7 @@
 {% block pbtransport_body %}
 <p>Bonjour,</p>
 <p>mailfrom : {{ mailFrom }}</p>
+<p>pass = {{ pass }}</p>
 <p>Merci de bien vouloir prendre en compte la demande suivante : </p><br><hr><hr><br>
 <p><span style="font-size: large ; font-weight:bold">Demande de {% if transport.typeTr.type == "Course" %}Course{% else %}Transport{% endif %} n°</span><span style="font-size: x-large ; font-weight: bold ; color: #963133">{{ transport.number }}{{ transport.id }}</span><span> (référence à rappeler sur votre facture)</span></p>
 <hr>
@@ -61,7 +62,6 @@
 </p>
 <p><br><br><br><br>
     <hr>
-    {{ nomFrom }} | Dushow Toulouse | 3 impasse Jean Mermoz | 31140 Saint Alban | TEL 0561 246 246 | FAX 05 61 246 446
 </p>
 
 <div class="row">

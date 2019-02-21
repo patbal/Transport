@@ -132,17 +132,17 @@ class CamionController extends Controller
      */
     public function sendMailAction(Camion $camion, $id, Request $request)
     {
-        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port'), 'TLS'))
+        $trans = (new \Swift_SmtpTransport($this -> container -> getParameter('mailer_host'), $this -> container -> getParameter('mailer_port'), "TLS"))
             ->setUsername($this -> container -> getParameter('mailer_user'))
             ->setPassword($this -> container ->getParameter('mailer_password'));
         $mailer = new \Swift_Mailer($trans);
-        $mailFrom = $this->getUser()->getEmail();
+        $mailFrom = $this -> container -> getParameter('mailer_user');
         $nomFrom = $this->getUser()->getPrenom().' '.$this->getUser()->getNom();
         $loueur = $camion->getLoueur();
         $mailTo = $loueur -> getEmail();
 
         $message = (new \Swift_Message('Demande de camion'))
-            ->setFrom('p.balland@matchevent.fr')
+            ->setFrom($mailFrom)
             ->setTo($mailTo)
             ->setReplyTo([$mailFrom => $nomFrom])
             ->setBcc($mailFrom)
